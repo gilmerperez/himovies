@@ -1,3 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* * BUTTONS - Ensures buttons appear clickable */
+button {
+  cursor: pointer; /* Shows pointer on hover to indicate clickability */
+}
+
+/* * LISTS - Removes default bullet styles */
+ul,
+ol {
+  list-style: none; /* Removes default bullet points from unordered and ordered lists */
+}
+
+/* * LINKS - Resetting default styles and hover behavior */
+a {
+  color: inherit; /* Makes link color match surrounding text */
+  text-decoration: none; /* Removes underline */
+}
+
+/* * FORM ELEMENTS - Normalize font and remove default borders */
+input,
+select,
+button,
+textarea {
+  border: none; /* Removes default borders */
+  font: inherit; /* Inherits font from parent */
+  outline: none; /* Removes blue outline */
+}
+
+/* * MEDIA - Ensures media doesn’t overflow and stays responsive */
+svg,
+img,
+video,
+canvas,
+picture {
+  height: auto; /* Maintains correct aspect ratio */
+  display: block; /* Removes inline spacing below images */
+  max-width: 100%; /* Keeps media from overflowing their containers */
+}
+
 /* * UNIVERSAL RESET - Applies to all elements and pseudo-elements */
 *,
 *::before,
@@ -12,62 +52,29 @@ html {
   height: 100%; /* Needed for percentage-based child heights */
   font-size: 16px; /* Base size 1rem = 16px */
   scroll-behavior: smooth; /* Enables smooth scroll when using anchor links */
+  font-family: "Montserrat", sans-serif;
 }
 
 /* * BODY - Base font family, and layout behavior */
 body {
   display: flex; /* Enables flexbox layout */
-  min-height: 100%; /* Ensures body fills at least full screen */
+  min-height: 100vh; /* Ensures body fills at least full screen */
   overflow-x: hidden; /* Prevents horizontal scroll */
   flex-direction: column; /* Stacks header, main, and footer vertically */
-  font-family: Arial, sans-serif; /* Modern system font stack */
   -moz-osx-font-smoothing: grayscale; /* Better font rendering on macOS Firefox */
   -webkit-font-smoothing: antialiased; /* Better font rendering on WebKit browsers */
 }
 
-/* * MAIN - Primary content */
-main {
-  width: 90%; /* Responsive width (shrinks on small screens) */
-  flex-grow: 1; /* Expands to fill space between header/footer */
-  padding: 1rem; /* Inner spacing */
-  margin: 2rem auto; /* Centers content with top/bottom spacing */
-  max-width: 1200px; /* Max width for larger screens */
+/* * LAYOUT SECTIONS - Ensures key page sections span full width */
+header,
+main,
+footer {
+  width: 100%;
 }
 
-/* * LINKS - Resetting default styles and hover behavior */
-a {
-  color: inherit; /* Makes link color match surrounding text */
-  text-decoration: none; /* Removes underline */
-}
-
-/* * MEDIA - Ensures media doesn’t overflow and stays responsive */
-svg,
-img,
-video,
-canvas,
-picture {
-  height: auto; /* Maintains correct aspect ratio */
-  display: block; /* Removes inline spacing below images */
-  max-width: 100%; /* Keeps media from overflowing their containers */
-}
-
-/* * FORM ELEMENTS - Normalize font and remove default borders */
-input,
-select,
-button,
-textarea {
-  border: none; /* Removes default borders */
-  font: inherit; /* Inherits font from parent */
-  outline: none; /* Removes blue outline */
-}
-
-/* * BUTTONS - Ensures buttons appear clickable */
-button {
-  cursor: pointer; /* Shows pointer on hover to indicate clickability */
-}
-
-/* * LISTS - Removes default bullet styles */
-ul,
-ol {
-  list-style: none;
+/* * CONTAINER - Centers content with max width for readability */
+.container {
+  width: 100%; /* Allows container to be fluid up to max-width */
+  margin: 0 auto; /* Horizontally centers container within viewport */
+  max-width: 1200px; /* Limits container width to prevent overly wide content on large screens */
 }
