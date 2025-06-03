@@ -83,10 +83,10 @@ footer {
 
 header {
   padding: 0.75rem;
+  margin-bottom: 80px;
   color: hsl(0, 0%, 100%);
   background-color: hsl(0, 0%, 0%);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  margin-bottom: 25px;
 }
 
 header .container {
@@ -96,7 +96,6 @@ header .container {
 
 header img {
   width: 40px;
-  height: 40px;
 }
 
 nav {
@@ -109,4 +108,108 @@ nav {
 
 nav a:hover {
   text-decoration: underline;
+}
+
+main .container {
+  width: 1200px;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main .container img {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+main .container h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: hsl(54, 100%, 50%);
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.searchBar input {
+  flex: 1;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 20px;
+  border-radius: 5px;
+}
+
+.searchBar button {
+  right: 5px;
+  width: 80px;
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  border-radius: 0 5px 5px 0;
+  background-color: hsl(54, 100%, 50%);
+}
+
+.socialLinks {
+  gap: 0.75rem;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialLink {
+  gap: 0.75rem;
+  display: flex;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.facebookSocialLink {
+  background-color: #1877f2;
+}
+
+.xSocialLink {
+  background-color: #000000;
+}
+
+.whatsappSocialLink {
+  background-color: #25d466;
+}
+
+.messengerSocialLink {
+  background-color: #1876f2;
+}
+
+.redditSocialLink {
+  background-color: #ff4500;
+}
+
+.telegramSocialLink {
+  background-color: #0088cc;
+}
+
+.instagramSocialLink {
+  background: linear-gradient(90deg, #e4405f, #962fbf, #4f5bd5, #fa7e1e, #feda75);
+}
+
+.youtubeSocialLink {
+  background-color: #ff0033;
+}
+
+.snapchatSocialLink {
+  color: #000000;
+  background-color: #fffc00;
+}
+
+.tiktokSocialLink {
+  background: linear-gradient(45deg, #25f4ee, #fe2c55);
 }
