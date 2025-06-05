@@ -45,6 +45,7 @@ picture {
   margin: 0; /* Remove default spacing */
   padding: 0; /* Remove default spacing */
   box-sizing: border-box; /* Includes padding & border in width and height */
+  border: 1px solid red;
 }
 
 /* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
@@ -119,7 +120,7 @@ nav a:hover {
 /* Main */
 main .container {
   display: flex;
-  padding: 0 1rem;
+  padding: 0 2rem;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -319,7 +320,7 @@ main .container h1:hover {
 
 .reviewText {
   color: white;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .reviewText .heading {
@@ -340,7 +341,7 @@ main .container h1:hover {
   font-size: 1.5rem;
   padding: 1rem 2rem;
   border-radius: 30px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   background-color: hsl(54, 100%, 50%);
 }
 
