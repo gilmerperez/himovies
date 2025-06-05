@@ -45,7 +45,7 @@ picture {
   margin: 0; /* Remove default spacing */
   padding: 0; /* Remove default spacing */
   box-sizing: border-box; /* Includes padding & border in width and height */
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 /* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
@@ -92,6 +92,7 @@ header {
 
 header .container {
   display: flex;
+  padding: 0 1rem;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
@@ -106,6 +107,7 @@ nav {
   display: flex;
   transition: 0.3s;
   font-weight: 500;
+  text-align: center;
   font-size: 1.25rem;
   align-items: center;
   justify-content: center;
@@ -118,6 +120,7 @@ nav a:hover {
 /* Main */
 main .container {
   display: flex;
+  padding: 0 1rem;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -274,7 +277,6 @@ main .container h1:hover {
 }
 
 .viewSiteButton {
-  /* color: black; */
   transition: 0.3s;
   font-weight: 600;
   font-size: 1.75rem;
@@ -285,58 +287,51 @@ main .container h1:hover {
 }
 
 .viewSiteButton:hover {
-  scale: 1.2;
+  transform: scale(1.2);
   box-shadow: 0 0 15px hsl(54, 100%, 50%);
 }
 
 .informationalText {
+  color: white;
   margin-bottom: 2.5rem;
 }
 
 .informationalText .heading {
-  color: white;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.informationalText .subheading {
-  color: white;
+.informationalText .subheading:not(:last-child) {
+  font-size: 1.25rem;
+  font-weight: 500;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
 .informationalText .text {
-  color: white;
   margin-bottom: 1.5rem;
 }
 
 .reviewText {
-  /* margin-bottom: 2rem; */
+  color: white;
+  margin-bottom: 2.5rem;
 }
 
 .reviewText .heading {
-  color: white;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.25rem;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.reviewText .subheading {
-  color: white;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.reviewText .text {
+.reviewText .text:not(:last-child) {
   color: white;
   margin-bottom: 1.5rem;
 }
 
 .goToSiteButton {
-  color: black;
   transition: 0.3s;
   font-weight: 600;
   font-size: 1.5rem;
@@ -347,36 +342,42 @@ main .container h1:hover {
 }
 
 .goToSiteButton:hover {
-  scale: 1.1;
+  transform: scale(1.1);
   box-shadow: 0 0 15px hsl(54, 100%, 50%);
 }
 
 /* Footer */
+footer .container {
+  display: flex;
+  padding: 2.5rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .links {
   gap: 1.5rem;
   display: flex;
   color: white;
   text-align: center;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   justify-content: center;
 }
 
 .links a:hover {
-  text-decoration: underline;
   color: hsl(54, 100%, 50%);
+  text-shadow: 0px 0px 15px hsl(54, 100%, 50%);
 }
 
 .legalText {
-  color: grey;
   font-size: 14px;
   max-width: 800px;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  color: hsl(0, 0%, 50%);
 }
 
 .copyright {
   color: white;
-  font-size: 14px;
-  margin-bottom: 2.5rem;
 }
