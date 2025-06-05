@@ -45,7 +45,7 @@ picture {
   margin: 0; /* Remove default spacing */
   padding: 0; /* Remove default spacing */
   box-sizing: border-box; /* Includes padding & border in width and height */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 /* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
@@ -142,7 +142,7 @@ main .container h1:hover {
 
 .searchBar {
   display: flex;
-  min-width: 95%;
+  min-width: 100%;
   border-radius: 5px;
   margin-bottom: 1rem;
   background-color: white;
@@ -165,7 +165,7 @@ main .container h1:hover {
 }
 
 .socialLinks {
-  width: 95%;
+  width: 100%;
   gap: 0.5rem;
   display: flex;
   color: white;
@@ -173,59 +173,108 @@ main .container h1:hover {
   align-items: center;
   margin-bottom: 2.5rem;
   justify-content: center;
+  max-width: 1200px;
+  margin-inline: auto;
 }
 
 .socialLink {
   gap: 0.5rem;
   display: flex;
+  transition: 0.3s;
   font-weight: 500;
   padding: 10px 15px;
   border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialLink:hover {
+  transform: scale(1.05);
 }
 
 .facebookSocialLink {
-  background-color: #1877f2;
+  border: 2px solid #1877f2;
+}
+
+.facebookSocialLink:hover {
+  box-shadow: 0 0 15px #1877f2;
 }
 
 .whatsappSocialLink {
-  background-color: #25d466;
+  border: 2px solid #25d466;
+}
+
+.whatsappSocialLink:hover {
+  box-shadow: 0 0 15px #25d466;
 }
 
 .youtubeSocialLink {
-  background-color: #ff0033;
+  border: 2px solid #ff0033;
+}
+
+.youtubeSocialLink:hover {
+  box-shadow: 0 0 15px #ff0033;
 }
 
 .instagramSocialLink {
-  background: linear-gradient(45deg, #e4405f, #962fbf, #4f5bd5, #fa7e1e, #feda75);
+  border: 2px solid #e1306c;
+}
+
+.instagramSocialLink:hover {
+  box-shadow: 0 0 15px #e1306c;
 }
 
 .tiktokSocialLink {
-  background: linear-gradient(45deg, #25f4ee, #fe2c55);
+  border: 2px solid #25f4ee;
+}
+
+.tiktokSocialLink:hover {
+  box-shadow: 0 0 15px #25f4ee;
 }
 
 .telegramSocialLink {
-  background-color: #0088cc;
+  border: 2px solid #0088cc;
+}
+
+.telegramSocialLink:hover {
+  box-shadow: 0 0 15px #0088cc;
 }
 
 .messengerSocialLink {
-  background-color: #1876f2;
+  border: 2px solid #1876f2;
+}
+
+.messengerSocialLink:hover {
+  box-shadow: 0 0 15px #1876f2;
 }
 
 .snapchatSocialLink {
-  color: #000000;
-  background-color: #fffc00;
+  border: 2px solid #fffc00;
+}
+
+.snapchatSocialLink:hover {
+  box-shadow: 0 0 15px #fffc00;
 }
 
 .redditSocialLink {
-  background-color: #ff4500;
+  border: 2px solid #ff4500;
+}
+
+.redditSocialLink:hover {
+  box-shadow: 0 0 15px #ff4500;
 }
 
 .xSocialLink {
-  background-color: #000000;
+  border: 2px solid #000000;
+}
+
+.xSocialLink:hover {
+  box-shadow: 0 0 15px #ffffff;
 }
 
 .viewSiteButton {
-  color: black;
+  /* color: black; */
   transition: 0.3s;
   font-weight: 600;
   font-size: 1.75rem;
