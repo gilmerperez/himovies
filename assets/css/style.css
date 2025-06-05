@@ -293,3 +293,32 @@ main .container h1 {
   scale: 1.1;
   box-shadow: 0 0 15px hsl(54, 100%, 50%);
 }
+
+.links {
+  gap: 1.5rem;
+  display: flex;
+  color: white;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.links a:hover {
+  text-decoration: underline;
+  color: hsl(54, 100%, 50%);
+}
+
+.legalText {
+  color: grey;
+  font-size: 14px;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.copyright {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 2.5rem;
+}
