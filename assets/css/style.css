@@ -45,7 +45,7 @@ picture {
   margin: 0; /* Remove default spacing */
   padding: 0; /* Remove default spacing */
   box-sizing: border-box; /* Includes padding & border in width and height */
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 /* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
@@ -81,6 +81,8 @@ footer {
   max-width: 1200px; /* Limits container width to prevent overly wide content on large screens */
 }
 
+/* * Header */
+
 header {
   color: white;
   padding: 0.75rem;
@@ -91,50 +93,54 @@ header {
 
 header .container {
   display: flex;
+  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
 }
 
 header img {
-  height: 40px;
+  height: 50px;
 }
 
 nav {
   gap: 2rem;
   display: flex;
+  transition: 0.3s;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   align-items: center;
+  justify-content: center;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  text-shadow: 0px 0px 15px white;
 }
 
+/* * Main */
+
 main .container {
-  /* width: 1200px; */
   display: flex;
-  margin: 0 auto;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
 main .container img {
+  margin: 1rem;
   height: 100px;
-  margin-bottom: 1rem;
 }
 
 main .container h1 {
-  font-size: 28px;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 2.5rem;
   color: hsl(54, 100%, 50%);
 }
 
 .searchBar {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
-  max-width: 100%;
+  min-width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -142,7 +148,6 @@ main .container h1 {
   flex: 1;
   height: 50px;
   font-size: 20px;
-  font-weight: 400;
   padding-left: 20px;
   border-radius: 5px;
 }
@@ -293,6 +298,8 @@ main .container h1 {
   scale: 1.1;
   box-shadow: 0 0 15px hsl(54, 100%, 50%);
 }
+
+/* * Footer */
 
 .links {
   gap: 1.5rem;
