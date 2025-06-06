@@ -64,43 +64,37 @@ body {
   max-width: 1200px;
 }
 
-/* MAIN */
+/* HEADER */
 
-main {
-  padding: 3rem;
-}
-
-main .container {
-  display: flex;
+header {
   color: white;
-  flex-direction: column;
+  padding: 1rem 2rem;
+  background-color: black;
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.5);
 }
 
-main h1 {
-  font-size: 3rem;
+header .container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header img {
+  height: 50px;
+}
+
+nav {
+  gap: 2rem;
+  display: flex;
   transition: 0.3s;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
-  margin-bottom: 2.5rem;
-  color: hsl(54, 100%, 50%);
+  font-size: 1.25rem;
+  align-items: center;
+  justify-content: center;
 }
 
-main h1:hover {
-  text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
-}
-
-.terms {
-  font-size: 1.15rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.termHeading {
-  font-weight: bold;
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
-}
-
-.termText:not(:last-child) {
-  margin-bottom: 2rem;
+nav a:hover {
+  text-shadow: 0px 0px 15px white;
 }

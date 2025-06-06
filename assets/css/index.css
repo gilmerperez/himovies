@@ -1,123 +1,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-/* * BUTTONS - Ensures buttons appear clickable */
 button {
-  cursor: pointer; /* Shows pointer on hover to indicate clickability */
+  cursor: pointer;
 }
 
-/* * LISTS - Removes default bullet styles */
 ul,
 ol {
-  list-style: none; /* Removes default bullet points from unordered and ordered lists */
+  list-style: none;
 }
 
-/* * LINKS - Resetting default styles and hover behavior */
 a {
-  color: inherit; /* Makes link color match surrounding text */
-  text-decoration: none; /* Removes underline */
+  color: inherit;
+  text-decoration: none;
 }
 
-/* * FORM ELEMENTS - Normalize font and remove default borders */
 input,
 select,
 button,
 textarea {
-  border: none; /* Removes default borders */
-  font: inherit; /* Inherits font from parent */
-  outline: none; /* Removes blue outline */
+  border: none;
+  font: inherit;
+  outline: none;
 }
 
-/* * MEDIA - Ensures media doesn’t overflow and stays responsive */
 svg,
 img,
 video,
 canvas,
 picture {
-  height: auto; /* Maintains correct aspect ratio */
-  display: block; /* Removes inline spacing below images */
-  max-width: 100%; /* Keeps media from overflowing their containers */
+  height: auto;
+  display: block;
+  max-width: 100%;
 }
 
-/* * UNIVERSAL RESET - Applies to all elements and pseudo-elements */
 *,
 *::before,
 *::after {
-  margin: 0; /* Remove default spacing */
-  padding: 0; /* Remove default spacing */
-  box-sizing: border-box; /* Includes padding & border in width and height */
-  /* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
 html {
-  height: 100%; /* Needed for percentage-based child heights */
-  font-size: 16px; /* Base size 1rem = 16px */
-  scroll-behavior: smooth; /* Enables smooth scroll when using anchor links */
+  height: 100%;
+  font-size: 16px;
+  scroll-behavior: smooth;
   font-family: "Montserrat", sans-serif;
 }
 
-/* * BODY - Base font family, and layout behavior */
 body {
-  display: flex; /* Enables flexbox layout */
-  min-height: 100vh; /* Ensures body fills at least full screen */
-  overflow-x: hidden; /* Prevents horizontal scroll */
-  flex-direction: column; /* Stacks header, main, and footer vertically */
-  -moz-osx-font-smoothing: grayscale; /* Better font rendering on macOS Firefox */
-  -webkit-font-smoothing: antialiased; /* Better font rendering on WebKit browsers */
-  background-color: hsl(0, 0%, 7%);
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+  flex-direction: column;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: hsl(0, 0%, 5%);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* * LAYOUT SECTIONS - Ensures key page sections span full width */
-header,
-main,
-footer {
-  width: 100%;
-}
-
-/* * CONTAINER - Centers content with max width for readability */
 .container {
-  width: 100%; /* Allows container to be fluid up to max-width */
-  margin: 0 auto; /* Horizontally centers container within viewport */
-  max-width: 1200px; /* Limits container width to prevent overly wide content on large screens */
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
-/* Header */
-header {
-  color: white;
-  padding: 1rem 2rem;
-  background-color: black;
-  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.5);
-}
+/* MAIN */
 
-header .container {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-header img {
-  height: 50px;
-}
-
-nav {
-  gap: 2rem;
-  display: flex;
-  transition: 0.3s;
-  font-weight: 500;
-  text-align: center;
-  font-size: 1.25rem;
-  align-items: center;
-  justify-content: center;
-}
-
-nav a:hover {
-  text-shadow: 0px 0px 15px white;
-}
-
-/* Main */
 main {
-  padding: 2rem;
+  padding: 3rem;
 }
 
 main .container {
@@ -127,12 +77,11 @@ main .container {
   justify-content: center;
 }
 
-main .container img {
+main img {
   height: 100px;
-  margin-top: 1rem;
 }
 
-main .container h1 {
+main h1 {
   margin: 2rem;
   font-size: 3rem;
   transition: 0.3s;
@@ -140,8 +89,8 @@ main .container h1 {
   color: hsl(54, 100%, 50%);
 }
 
-main .container h1:hover {
-  text-shadow: 0px 0px 15px hsl(54, 100%, 50%);
+main h1:hover {
+  text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
 }
 
 .searchBar {
@@ -175,7 +124,6 @@ main .container h1:hover {
   color: white;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 2rem;
   justify-content: center;
 }
 
@@ -192,7 +140,7 @@ main .container h1:hover {
 }
 
 .socialLink:hover {
-  transform: scale(1.05);
+  transform: scaleX(1.1);
 }
 
 .facebookSocialLink {
@@ -307,19 +255,23 @@ main .container h1:hover {
   box-shadow: 0 0 15px #ffffff;
 }
 
-.viewSiteButton {
+.goToSiteButton {
+  margin: 2rem;
   transition: 0.3s;
   font-weight: 600;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   padding: 1rem 2rem;
   border-radius: 30px;
-  margin-bottom: 2rem;
   background-color: hsl(54, 100%, 50%);
 }
 
-.viewSiteButton:hover {
+.goToSiteButton:not(:last-child) {
+  margin: 2rem;
+}
+
+.goToSiteButton:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 15px hsl(54, 100%, 50%);
+  box-shadow: 0 0 20px hsl(54, 100%, 50%);
 }
 
 .informationalText {
@@ -331,7 +283,7 @@ main .container h1:hover {
   font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .informationalText .subheading {
@@ -351,7 +303,6 @@ main .container h1:hover {
 
 .reviewText {
   color: white;
-  margin-bottom: 2rem;
 }
 
 .reviewText .heading {
@@ -371,60 +322,4 @@ main .container h1:hover {
 .reviewText .text:not(:last-child) {
   color: white;
   margin-bottom: 1.5rem;
-}
-
-.goToSiteButton {
-  transition: 0.3s;
-  font-weight: 600;
-  font-size: 1.5rem;
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  margin-bottom: 1rem;
-  background-color: hsl(54, 100%, 50%);
-}
-
-.goToSiteButton:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px hsl(54, 100%, 50%);
-}
-
-/* Footer */
-footer {
-  padding: 2rem;
-  background-color: black;
-  box-shadow: 0 0 20px hsla(54, 100%, 50%, 0.5);
-}
-
-footer .container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.links {
-  gap: 1.5rem;
-  display: flex;
-  color: white;
-  text-align: center;
-  align-items: center;
-  margin-bottom: 1rem;
-  justify-content: center;
-}
-
-.links a:hover {
-  color: hsl(54, 100%, 50%);
-  text-shadow: 0px 0px 15px hsl(54, 100%, 50%);
-}
-
-.legalText {
-  font-size: 14px;
-  max-width: 800px;
-  text-align: center;
-  margin-bottom: 1rem;
-  color: hsl(0, 0%, 50%);
-}
-
-.copyright {
-  color: white;
 }

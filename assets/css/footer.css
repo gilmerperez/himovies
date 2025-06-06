@@ -64,43 +64,44 @@ body {
   max-width: 1200px;
 }
 
-/* MAIN */
+/* FOOTER */
 
-main {
-  padding: 3rem;
+footer {
+  padding: 2rem;
+  background-color: black;
+  box-shadow: 0 0 20px hsla(54, 100%, 50%, 0.5);
 }
 
-main .container {
+footer .container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.links {
+  gap: 1.5rem;
   display: flex;
   color: white;
-  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  justify-content: center;
 }
 
-main h1 {
-  font-size: 3rem;
-  transition: 0.3s;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 2.5rem;
+.links a:hover {
   color: hsl(54, 100%, 50%);
+  text-shadow: 0px 0px 15px hsl(54, 100%, 50%);
 }
 
-main h1:hover {
-  text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
-}
-
-.terms {
-  font-size: 1.15rem;
+.legalText {
+  font-size: 14px;
+  max-width: 800px;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
+  color: hsl(0, 0%, 50%);
 }
 
-.termHeading {
-  font-weight: bold;
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
-}
-
-.termText:not(:last-child) {
-  margin-bottom: 2rem;
+.copyright {
+  color: white;
 }
