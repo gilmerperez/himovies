@@ -45,7 +45,7 @@ picture {
   margin: 0; /* Remove default spacing */
   padding: 0; /* Remove default spacing */
   box-sizing: border-box; /* Includes padding & border in width and height */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 /* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
@@ -219,21 +219,21 @@ main .container h1:hover {
 }
 
 .instagramSocialLink {
-  padding: 2px;
+  /* padding: 2px; */
   position: relative;
   border-radius: 5px;
   background-clip: padding-box;
   background-origin: border-box;
 }
 
-.instagramSocialLink > * {
+/* .instagramSocialLink > * {
   z-index: 1;
   display: flex;
   padding: 10px 15px;
   position: relative;
   align-items: center;
   border-radius: 5px;
-}
+} */
 
 .instagramSocialLink::before {
   inset: 0;
@@ -252,21 +252,21 @@ main .container h1:hover {
 }
 
 .tiktokSocialLink {
-  padding: 2px;
+  /* padding: 2px; */
   position: relative;
   border-radius: 5px;
   background-clip: padding-box;
   background-origin: border-box;
 }
 
-.tiktokSocialLink > * {
+/* .tiktokSocialLink > * {
   z-index: 1;
   display: flex;
   padding: 10px 15px;
   position: relative;
   align-items: center;
   border-radius: 5px;
-}
+} */
 
 .tiktokSocialLink::before {
   inset: 0;
