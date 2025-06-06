@@ -45,6 +45,7 @@ picture {
   margin: 0; /* Remove default spacing */
   padding: 0; /* Remove default spacing */
   box-sizing: border-box; /* Includes padding & border in width and height */
+  border: 1px solid red;
 }
 
 /* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
@@ -83,15 +84,13 @@ footer {
 /* Header */
 header {
   color: white;
-  padding: 0.75rem;
-  margin-bottom: 2.5rem;
+  padding: 1rem 2rem;
   background-color: black;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 header .container {
   display: flex;
-  padding: 0 1rem;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
@@ -117,24 +116,26 @@ nav a:hover {
 }
 
 /* Main */
+main {
+  padding: 2rem;
+}
+
 main .container {
   display: flex;
-  padding: 0 2rem;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
 main .container img {
-  margin: 1rem;
   height: 100px;
 }
 
 main .container h1 {
+  margin: 2rem;
   font-size: 3rem;
   transition: 0.3s;
   font-weight: 700;
-  margin-bottom: 2.5rem;
   color: hsl(54, 100%, 50%);
 }
 
@@ -146,7 +147,7 @@ main .container h1:hover {
   display: flex;
   min-width: 100%;
   border-radius: 5px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   background-color: white;
 }
 
@@ -168,15 +169,13 @@ main .container h1:hover {
 
 .socialLinks {
   width: 100%;
-  gap: 0.5rem;
+  gap: 1.02rem;
   display: flex;
   color: white;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   justify-content: center;
-  max-width: 1200px;
-  margin-inline: auto;
 }
 
 .socialLink {
@@ -268,7 +267,7 @@ main .container h1:hover {
 }
 
 .xSocialLink {
-  border: 2px solid #000000;
+  border: 2px solid #ffffff;
 }
 
 .xSocialLink:hover {
@@ -281,7 +280,7 @@ main .container h1:hover {
   font-size: 1.75rem;
   padding: 1rem 2rem;
   border-radius: 30px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   background-color: hsl(54, 100%, 50%);
 }
 
@@ -292,21 +291,21 @@ main .container h1:hover {
 
 .informationalText {
   color: white;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .informationalText .heading {
   font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .informationalText .subheading {
-  font-size: 1.25rem;
   font-weight: 500;
+  font-size: 1.25rem;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .informationalText .subheading:not(:last-child) {
@@ -323,10 +322,17 @@ main .container h1:hover {
 }
 
 .reviewText .heading {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.reviewText .subheading {
   font-weight: 500;
   font-size: 1.25rem;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .reviewText .text:not(:last-child) {
@@ -350,9 +356,12 @@ main .container h1:hover {
 }
 
 /* Footer */
+footer {
+  padding: 2rem;
+}
+
 footer .container {
   display: flex;
-  padding: 2.5rem;
   align-items: center;
   flex-direction: column;
   justify-content: center;
