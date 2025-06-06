@@ -86,7 +86,7 @@ header {
   color: white;
   padding: 1rem 2rem;
   background-color: black;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.5);
 }
 
 header .container {
@@ -390,6 +390,8 @@ main .container h1:hover {
 /* Footer */
 footer {
   padding: 2rem;
+  background-color: black;
+  box-shadow: 0 0 20px hsla(54, 100%, 50%, 0.5);
 }
 
 footer .container {
