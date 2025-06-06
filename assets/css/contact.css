@@ -123,13 +123,51 @@ form {
   flex-direction: column;
 }
 
-.form-group label {
-  font-weight: 500;
-  font-size: 1.25rem;
+.form-floating {
+  position: relative;
 }
 
-.form-group input,
-.form-group textarea {
+.form-floating > .form-control {
+  line-height: 1.25;
+  height: calc(3.5rem + 2px);
+
+}
+
+.form-floating > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 1rem 0.75rem;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transform-origin: 0 0;
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: white;
+  opacity: 0.65;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  opacity: 0.8;
+  transform: scale(0.85) translateY(-0.6rem) translateX(0.15rem);
+  font-weight: 500;
+  color: hsl(54, 100%, 50%);
+}
+
+.form-floating > .form-control:focus {
+  background-color: hsl(0, 0%, 10%);
+}
+
+.form-floating > textarea.form-control {
+  height: auto;
+  min-height: calc(3.5rem + 2px);
+  padding-top: 1.625rem;
+}
+
+.form-control {
   width: 100%;
   color: white;
   padding: 0.75rem;
@@ -139,14 +177,16 @@ form {
   border: 2px solid hsl(54, 100%, 50%);
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.form-control:focus {
   box-shadow: 0 0 10px hsl(54, 100%, 50%);
+  background-color: hsl(0, 0%, 10%) !important;
+  color: white;
+  border-color: hsl(54, 100%, 50%);
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
+.form-control::placeholder {
   color: hsla(0, 0%, 100%, 0.5);
+  opacity: 0;
 }
 
 .submit-btn {
@@ -193,8 +233,7 @@ form {
     padding: 1rem;
   }
 
-  .form-group input,
-  .form-group textarea {
+  .form-floating > .form-control {
     padding: 0.6rem;
   }
 
