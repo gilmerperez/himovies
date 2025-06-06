@@ -79,11 +79,11 @@ header .container {
   justify-content: space-between;
 }
 
-.logo img {
+.headerLogo img {
   height: 50px;
 }
 
-header nav {
+.headerNav {
   gap: 2rem;
   display: flex;
   transition: 0.3s;
@@ -94,11 +94,11 @@ header nav {
   justify-content: center;
 }
 
-header nav a {
+.headerNav a {
   transition: 0.3s ease;
 }
 
-nav a:hover {
+.headerNav a:hover {
   color: hsl(54, 100%, 50%);
   text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
 }
