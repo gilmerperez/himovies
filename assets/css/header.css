@@ -70,7 +70,7 @@ header {
   color: white;
   padding: 1rem 2rem;
   background-color: black;
-  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.5);
+  box-shadow: 0 0 20px hsla(54, 100%, 50%, 0.5);
 }
 
 header .container {
@@ -96,5 +96,6 @@ nav {
 }
 
 nav a:hover {
-  text-shadow: 0px 0px 15px white;
+  color: hsl(54, 100%, 50%);
+  text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
 }

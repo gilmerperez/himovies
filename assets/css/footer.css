@@ -91,7 +91,7 @@ footer .container {
 
 .links a:hover {
   color: hsl(54, 100%, 50%);
-  text-shadow: 0px 0px 15px hsl(54, 100%, 50%);
+  text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
 }
 
 .legalText {
