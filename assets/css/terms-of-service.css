@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* * BUTTONS - Ensures buttons appear clickable */
+button {
+  cursor: pointer; /* Shows pointer on hover to indicate clickability */
+}
+
+/* * LISTS - Removes default bullet styles */
+ul,
+ol {
+  list-style: none; /* Removes default bullet points from unordered and ordered lists */
+}
+
+/* * LINKS - Resetting default styles and hover behavior */
+a {
+  color: inherit; /* Makes link color match surrounding text */
+  text-decoration: none; /* Removes underline */
+}
+
+/* * FORM ELEMENTS - Normalize font and remove default borders */
+input,
+select,
+button,
+textarea {
+  border: none; /* Removes default borders */
+  font: inherit; /* Inherits font from parent */
+  outline: none; /* Removes blue outline */
+}
+
+/* * MEDIA - Ensures media doesn’t overflow and stays responsive */
+svg,
+img,
+video,
+canvas,
+picture {
+  height: auto; /* Maintains correct aspect ratio */
+  display: block; /* Removes inline spacing below images */
+  max-width: 100%; /* Keeps media from overflowing their containers */
+}
+
+/* * UNIVERSAL RESET - Applies to all elements and pseudo-elements */
+*,
+*::before,
+*::after {
+  margin: 0; /* Remove default spacing */
+  padding: 0; /* Remove default spacing */
+  box-sizing: border-box; /* Includes padding & border in width and height */
+}
+
+/* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
+html {
+  height: 100%; /* Needed for percentage-based child heights */
+  font-size: 16px; /* Base size 1rem = 16px */
+  scroll-behavior: smooth; /* Enables smooth scroll when using anchor links */
+  font-family: "Montserrat", sans-serif;
+}
+
+/* * BODY - Base font family, and layout behavior */
+body {
+  display: flex; /* Enables flexbox layout */
+  min-height: 100vh; /* Ensures body fills at least full screen */
+  overflow-x: hidden; /* Prevents horizontal scroll */
+  flex-direction: column; /* Stacks header, main, and footer vertically */
+  -moz-osx-font-smoothing: grayscale; /* Better font rendering on macOS Firefox */
+  -webkit-font-smoothing: antialiased; /* Better font rendering on WebKit browsers */
+  background-color: hsl(0, 0%, 7%);
+}
+
+/* * LAYOUT SECTIONS - Ensures key page sections span full width */
+header,
+main,
+footer {
+  width: 100%;
+}
+
+/* * CONTAINER - Centers content with max width for readability */
+.container {
+  width: 100%; /* Allows container to be fluid up to max-width */
+  margin: 0 auto; /* Horizontally centers container within viewport */
+  max-width: 1200px; /* Limits container width to prevent overly wide content on large screens */
+}
+
+/* Header */
+header {
+  color: white;
+  padding: 0.75rem;
+  margin-bottom: 2.5rem;
+  background-color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+  display: flex;
+  padding: 0 1rem;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header img {
+  height: 50px;
+}
+
+nav {
+  gap: 2rem;
+  display: flex;
+  transition: 0.3s;
+  font-weight: 500;
+  text-align: center;
+  font-size: 1.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+nav a:hover {
+  text-shadow: 0px 0px 15px white;
+}
+
+/* Main */
+main .container {
+  display: flex;
+  padding: 0 2rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Footer */
+footer .container {
+  display: flex;
+  padding: 2.5rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.links {
+  gap: 1.5rem;
+  display: flex;
+  color: white;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.links a:hover {
+  color: hsl(54, 100%, 50%);
+  text-shadow: 0px 0px 15px hsl(54, 100%, 50%);
+}
+
+.legalText {
+  font-size: 14px;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: hsl(0, 0%, 50%);
+}
+
+.copyright {
+  color: white;
+}
