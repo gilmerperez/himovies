@@ -83,7 +83,7 @@ main .container {
   transition: 0.3s;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: hsl(54, 100%, 50%);
 }
 
@@ -106,7 +106,7 @@ main .container {
   max-width: 800px;
   border-radius: 10px;
   background-color: hsl(0, 0%, 12%);
-  box-shadow: 0 0 10px hsl(54, 100%, 50%);
+  box-shadow: 0 0 10px hsl(0, 0%, 100%, 0.5);
 }
 
 form {
