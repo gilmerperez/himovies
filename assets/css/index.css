@@ -219,15 +219,65 @@ main .container h1:hover {
 }
 
 .instagramSocialLink {
-  border: 2px solid #e1306c;
+  padding: 2px;
+  position: relative;
+  border-radius: 5px;
+  background-clip: padding-box;
+  background-origin: border-box;
+}
+
+.instagramSocialLink > * {
+  z-index: 1;
+  display: flex;
+  padding: 10px 15px;
+  position: relative;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.instagramSocialLink::before {
+  inset: 0;
+  z-index: -1;
+  content: "";
+  padding: 2px;
+  position: absolute;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #e4405f, #962fbf, #4f5bd5, #fa7e1e, #feda75);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
 }
 
 .instagramSocialLink:hover {
-  box-shadow: 0 0 15px #e1306c;
+  box-shadow: 0 0 15px #962fbf;
 }
 
 .tiktokSocialLink {
-  border: 2px solid #25f4ee;
+  padding: 2px;
+  position: relative;
+  border-radius: 5px;
+  background-clip: padding-box;
+  background-origin: border-box;
+}
+
+.tiktokSocialLink > * {
+  z-index: 1;
+  display: flex;
+  padding: 10px 15px;
+  position: relative;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.tiktokSocialLink::before {
+  inset: 0;
+  z-index: -1;
+  content: "";
+  padding: 2px;
+  position: absolute;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #fe2c55, #ffffff, #25f4ee);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
 }
 
 .tiktokSocialLink:hover {
