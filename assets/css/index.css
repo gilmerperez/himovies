@@ -219,21 +219,12 @@ main .container h1:hover {
 }
 
 .instagramSocialLink {
-  /* padding: 2px; */
+  padding: 12px 17px;
   position: relative;
   border-radius: 5px;
   background-clip: padding-box;
   background-origin: border-box;
 }
-
-/* .instagramSocialLink > * {
-  z-index: 1;
-  display: flex;
-  padding: 10px 15px;
-  position: relative;
-  align-items: center;
-  border-radius: 5px;
-} */
 
 .instagramSocialLink::before {
   inset: 0;
@@ -252,21 +243,12 @@ main .container h1:hover {
 }
 
 .tiktokSocialLink {
-  /* padding: 2px; */
+  padding: 12px 17px;
   position: relative;
   border-radius: 5px;
   background-clip: padding-box;
   background-origin: border-box;
 }
-
-/* .tiktokSocialLink > * {
-  z-index: 1;
-  display: flex;
-  padding: 10px 15px;
-  position: relative;
-  align-items: center;
-  border-radius: 5px;
-} */
 
 .tiktokSocialLink::before {
   inset: 0;
