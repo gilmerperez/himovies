@@ -129,6 +129,7 @@ main .container {
 
 main .container img {
   height: 100px;
+  margin-top: 1rem;
 }
 
 main .container h1 {
@@ -378,7 +379,7 @@ main .container h1:hover {
   font-size: 1.5rem;
   padding: 1rem 2rem;
   border-radius: 30px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   background-color: hsl(54, 100%, 50%);
 }
 
