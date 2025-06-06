@@ -45,6 +45,7 @@ picture {
   margin: 0; /* Remove default spacing */
   padding: 0; /* Remove default spacing */
   box-sizing: border-box; /* Includes padding & border in width and height */
+  /* border: 1px solid red; */
 }
 
 /* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
@@ -83,15 +84,13 @@ footer {
 /* Header */
 header {
   color: white;
-  padding: 0.75rem;
-  margin-bottom: 2.5rem;
+  padding: 1rem 2rem;
   background-color: black;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 header .container {
   display: flex;
-  padding: 0 1rem;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
@@ -117,18 +116,46 @@ nav a:hover {
 }
 
 /* Main */
+main {
+  padding: 2rem;
+}
+
 main .container {
   display: flex;
-  padding: 0 2rem;
-  align-items: center;
+  color: white;
   flex-direction: column;
-  justify-content: center;
+}
+
+main h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.terms {
+  font-size: 1.15rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.termHeading {
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.termText:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 /* Footer */
+footer {
+  padding: 2rem;
+}
+
 footer .container {
   display: flex;
-  padding: 2.5rem;
   align-items: center;
   flex-direction: column;
   justify-content: center;
