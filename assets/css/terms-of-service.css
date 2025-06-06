@@ -45,7 +45,6 @@ picture {
   margin: 0; /* Remove default spacing */
   padding: 0; /* Remove default spacing */
   box-sizing: border-box; /* Includes padding & border in width and height */
-  /* border: 1px solid red; */
 }
 
 /* * ROOT ELEMENT - Affects the entire page's scroll behavior and base size */
