@@ -76,15 +76,14 @@ header {
 header .container {
   display: flex;
   align-items: center;
-  flex-direction: row;
   justify-content: space-between;
 }
 
-header img {
+.logo img {
   height: 50px;
 }
 
-nav {
+header nav {
   gap: 2rem;
   display: flex;
   transition: 0.3s;
@@ -93,6 +92,10 @@ nav {
   font-size: 1.25rem;
   align-items: center;
   justify-content: center;
+}
+
+header nav a {
+  transition: 0.3s ease;
 }
 
 nav a:hover {
