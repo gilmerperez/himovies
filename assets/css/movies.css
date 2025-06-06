@@ -39,6 +39,7 @@ picture {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: 1px solid red;
 }
 
 html {
@@ -83,10 +84,35 @@ main .container {
   transition: 0.3s;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: hsl(54, 100%, 50%);
 }
 
 .heading:hover {
   text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
+}
+
+/* Center pagination */
+main .container nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-item .page-link {
+  color: hsl(54, 100%, 50%);
+  background-color: hsl(0, 0%, 5%);
+  border-color: hsl(54, 100%, 50%);
+}
+
+.page-item.active .page-link {
+  color: hsl(0, 0%, 5%);
+  border-color: hsl(54, 100%, 50%);
+  background-color: hsl(54, 100%, 50%);
+}
+
+.page-item .page-link:hover {
+  color: hsl(0, 0%, 5%);
+  background-color: hsl(54, 100%, 50%);
 }
