@@ -1,3 +1,7 @@
+* {
+  border: 1px solid red;
+}
+
 main {
   padding: 2rem;
 }
@@ -51,8 +55,8 @@ main {
 }
 
 .socialLinks {
+  gap: 1rem;
   width: 100%;
-  gap: 1.02rem;
   display: flex;
   color: white;
   flex-wrap: wrap;
@@ -242,4 +246,137 @@ main {
   max-width: 1000px;
   font-weight: 600;
   margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1.5rem;
+  }
+
+  .logo {
+    height: 80px;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .searchBar {
+    margin-bottom: 1.5rem;
+  }
+
+  .searchBar input {
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .searchBar button {
+    font-size: 20px;
+  }
+
+  .socialLinks {
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .socialLink {
+    padding: 8px 13px;
+    font-size: 0.85rem;
+  }
+
+  .goToSiteButton {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .goToSiteButton:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  .informationalText > .description,
+  .reviewText > .description {
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .informationalText .subheading,
+  .reviewText .subheading {
+    font-size: 1.15rem;
+  }
+
+  .informationalText .text,
+  .reviewText .text {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 1rem;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .heading {
+    font-size: 1.75rem;
+  }
+
+  .searchBar {
+    margin-bottom: 1rem;
+  }
+
+  .searchBar input {
+    height: 40px;
+    font-size: 16px;
+    padding-left: 15px;
+  }
+
+  .searchBar button {
+    font-size: 18px;
+  }
+
+  .socialLinks {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .socialLink {
+    padding: 6px 11px;
+  }
+
+  .goToSiteButton {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  .goToSiteButton:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .goToSiteButton:hover {
+    transform: scale(1.1);
+  }
+
+  .informationalText {
+    margin-bottom: 1.5rem;
+  }
+
+  .informationalText > .description,
+  .reviewText > .description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .informationalText .subheading,
+  .reviewText .subheading {
+    font-size: 1rem;
+  }
+
+  .informationalText .text,
+  .reviewText .text {
+    font-size: 0.75rem;
+  }
 }

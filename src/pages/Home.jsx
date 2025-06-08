@@ -173,7 +173,7 @@ function Home() {
             <p className={styles.subheading}>User-Friendly Design</p>
             <p className={styles.text}>
               The site is extremely easy to browse and navigate. If you have a specific name in mind, you can enter its
-              title in the search box. If not, you can search by categories or click on “View Full Site” to look for
+              title in the search box. If not, you can search by categories or click on "View Full Site" to look for
               something that catches your eye. On the landing page, you can quickly check out the trending titles, the
               latest ones, and even movies and TV shows that are still not released yet.
             </p>
