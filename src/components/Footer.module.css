@@ -2,7 +2,7 @@ footer {
   padding: 2rem;
   color: white;
   background-color: black;
-  box-shadow: 0 0 20px hsla(54, 100%, 50%, 0.5);
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.5);
 }
 
 footer .container {
