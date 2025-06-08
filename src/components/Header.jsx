@@ -6,8 +6,8 @@ function Header() {
       <header>
         <div className={`container ${styles.container}`}>
           {/* Logo */}
-          <a href="/" className={styles.headerLogo}>
-            <img src="src/assets/images/logo.png" alt="HiMovies Logo" />
+          <a href="/">
+            <img src="src/assets/images/logo.png" alt="HiMovies Logo" className={styles.headerLogo} />
           </a>
           {/* Site Navigation */}
           <nav className={styles.headerNav}>
