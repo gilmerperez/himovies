@@ -41,6 +41,7 @@ function Contact() {
               {/* Submit Button */}
               <button type="submit" className={styles.submitBtn}>
                 Send Message
+                <i className="fa-solid fa-paper-plane"></i>
               </button>
             </form>
           </section>
