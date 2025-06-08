@@ -1,8 +1,8 @@
-main {
-  padding: 3rem;
+* {
+  /* border: 1px solid red; */
 }
 
-main .container {
+.container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -13,7 +13,6 @@ main .container {
   font-size: 3rem;
   transition: 0.3s;
   font-weight: 700;
-  text-align: center;
   margin-bottom: 1rem;
   color: hsl(54, 100%, 50%);
 }
@@ -25,24 +24,24 @@ main .container {
 .subheading {
   width: 100%;
   color: white;
-  max-width: 800px;
+  font-weight: 600;
+  max-width: 700px;
   font-size: 1.25rem;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .formContainer {
   width: 100%;
   padding: 2rem;
-  max-width: 600px;
+  max-width: 700px;
   border-radius: 10px;
   background-color: hsl(0, 0%, 12%);
   box-shadow: 0 0 10px hsl(0, 0%, 100%, 0.5);
 }
 
 form {
-  gap: 1.5rem;
-  width: 100%;
+  gap: 0.75rem;
   display: flex;
   color: white;
   flex-direction: column;
@@ -133,12 +132,11 @@ textarea:-webkit-autofill:active {
 
 .submitBtn {
   color: black;
-  margin-top: 1rem;
   transition: 0.3s;
-  font-weight: 600;
-  padding: 10px 15px;
+  font-weight: 500;
   font-size: 1.5rem;
   border-radius: 5px;
+  padding: 0.75rem 1rem;
   background-color: hsl(54, 100%, 50%);
 }
 
@@ -147,8 +145,7 @@ textarea:-webkit-autofill:active {
 }
 
 .submitBtn:hover {
-  transform: translateY(-5px);
-  background-color: hsl(54, 100%, 50%);
+  transform: scaleY(1.1);
   box-shadow: 0 0 15px hsl(54, 100%, 50%);
 }
 
@@ -160,11 +157,15 @@ textarea:-webkit-autofill:active {
   .heading {
     font-size: 2.5rem;
   }
+
+  .subheading {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  main {
-    padding: 2rem 1rem;
+  .formContainer {
+    padding: 1rem;
   }
 
   .heading {
@@ -175,16 +176,7 @@ textarea:-webkit-autofill:active {
     font-size: 1rem;
   }
 
-  .formContainer {
-    padding: 1rem;
-  }
-
-  .formFloating > .formControl {
-    padding: 0.6rem;
-  }
-
-  .submitBtn {
-    width: 100%;
-    padding: 0.7rem;
+  .submitBtn:hover {
+    transform: scaleY(1.05);
   }
 }
