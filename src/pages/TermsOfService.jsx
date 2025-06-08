@@ -8,7 +8,7 @@ function TermsOfService() {
       </head>
 
       <main>
-        <div className={styles.container}>
+        <div className={`container ${styles.container}`}>
           {/* Title */}
           <h1 className={styles.heading}>Terms of Service</h1>
           {/* Description */}

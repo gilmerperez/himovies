@@ -8,7 +8,7 @@ function Movies() {
       </head>
 
       <main>
-        <div className={styles.container}>
+        <div className={`container ${styles.container}`}>
           {/* Title */}
           <h1 className={styles.heading}>Movies</h1>
         </div>

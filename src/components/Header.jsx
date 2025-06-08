@@ -4,7 +4,7 @@ function Header() {
   return (
     <>
       <header>
-        <div className={styles.container}>
+        <div className={`container ${styles.container}`}>
           {/* Logo */}
           <a href="/" className={styles.headerLogo}>
             <img src="src/assets/images/logo.png" alt="HiMovies Logo" />

@@ -4,7 +4,7 @@ function Home() {
   return (
     <>
       <main>
-        <div className={styles.container}>
+        <div className={`container ${styles.container}`}>
           {/* Logo */}
           <a href="index.html">
             <img src="src/assets/images/logo.png" alt="HiMovies Logo" />
@@ -22,7 +22,7 @@ function Home() {
           <section className={styles.socialLinks}>
             <a href="https://www.facebook.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.facebookSocialLink}`}>
-                <i className="fa-brands fa-facebook-f"></i>
+                {/* <FontAwesomeIcon icon="fa-brands fa-facebook-f" /> */}
                 <p>3.07 B</p>
               </div>
             </a>
@@ -207,8 +207,6 @@ function Home() {
           <button className={styles.goToSiteButton}>Go to HiMovies</button>
         </div>
       </main>
-      {/* Font Awesome */}
-      <script src="https://kit.fontawesome.com/ffb8948ab7.js" crossorigin="anonymous"></script>
     </>
   );
 }

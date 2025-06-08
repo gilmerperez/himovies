@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       <footer>
-        <div className={styles.container}>
+        <div className={`container ${styles.container}`}>
           {/* Navigation Links */}
           <nav className={styles.footerLinks}>
             <a href="/">Home</a>

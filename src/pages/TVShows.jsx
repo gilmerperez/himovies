@@ -8,7 +8,7 @@ function TVShows() {
       </head>
 
       <main>
-        <div className={styles.container}>
+        <div className={`container ${styles.container}`}>
           {/* Title */}
           <h1 className={styles.heading}>TV Shows</h1>
         </div>
