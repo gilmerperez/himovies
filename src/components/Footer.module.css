@@ -1,3 +1,5 @@
+/* Universal Reset */
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 button {
@@ -62,31 +64,52 @@ body {
   width: 100%;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0 1rem;
 }
 
-/* MAIN */
+/* Footer */
 
-main {
-  padding: 3rem;
+footer {
+  padding: 2rem;
+  color: white;
+  background-color: black;
+  box-shadow: 0 0 20px hsla(54, 100%, 50%, 0.5);
 }
 
-main .container {
+footer .container {
   display: flex;
+  text-align: center;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
-.heading {
-  font-size: 3rem;
-  transition: 0.3s;
-  font-weight: 700;
-  text-align: center;
+.footerLinks {
+  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.25rem;
+  align-items: center;
   margin-bottom: 1rem;
-  color: hsl(54, 100%, 50%);
+  justify-content: center;
 }
 
-.heading:hover {
+.footerLinks a {
+  transition: 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: hsl(54, 100%, 50%);
   text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
+}
+
+.footerDescription {
+  font-size: 1rem;
+  max-width: 800px;
+  margin-bottom: 1rem;
+  color: hsl(0, 0%, 50%);
+}
+
+.footerCopyright {
+  color: white;
+  font-size: 1rem;
 }
