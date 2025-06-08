@@ -2,19 +2,19 @@ main {
   padding: 2rem;
 }
 
-main .container {
+.container {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
-main img {
+.logo {
   height: 100px;
   margin-bottom: 0.75rem;
 }
 
-.title {
+.heading {
   font-size: 3rem;
   transition: 0.3s;
   font-weight: 700;
@@ -22,7 +22,7 @@ main img {
   color: hsl(54, 100%, 50%);
 }
 
-.title:hover {
+.heading:hover {
   text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
 }
 
@@ -221,24 +221,25 @@ main img {
   margin-bottom: 2rem;
 }
 
-.informationalText .heading,
-.reviewText .heading {
-  font-weight: 600;
+.informationalText > .description,
+.reviewText > .description {
+  color: white;
+  font-weight: 700;
   max-width: 1000px;
   font-size: 1.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .informationalText .subheading,
 .reviewText .subheading {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
 
 .informationalText .text,
 .reviewText .text {
-  font-size: 1rem;
-  max-width: 800px;
-  margin-bottom: 2rem;
+  max-width: 1000px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }

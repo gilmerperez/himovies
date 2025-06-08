@@ -9,7 +9,7 @@ function TopIMDB() {
 
       <main>
         <div className={`container ${styles.container}`}>
-          {/* Title */}
+          {/* Heading */}
           <h1 className={styles.heading}>Top IMDB</h1>
         </div>
       </main>

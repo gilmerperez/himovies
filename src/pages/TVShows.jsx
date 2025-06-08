@@ -9,7 +9,7 @@ function TVShows() {
 
       <main>
         <div className={`container ${styles.container}`}>
-          {/* Title */}
+          {/* Heading */}
           <h1 className={styles.heading}>TV Shows</h1>
         </div>
       </main>

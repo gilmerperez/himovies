@@ -9,10 +9,10 @@ function TermsOfService() {
 
       <main>
         <div className={`container ${styles.container}`}>
-          {/* Title */}
+          {/* Heading */}
           <h1 className={styles.heading}>Terms of Service</h1>
           {/* Description */}
-          <p className={styles.terms}>
+          <p className={styles.description}>
             This Agreement contains the complete terms and conditions that apply to your participation in our site. If
             you wish to use the site including its tools and services please read these terms of use carefully. By
             accessing this site or using any part of the site or any content or services hereof, you agree to become

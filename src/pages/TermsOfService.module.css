@@ -1,38 +1,40 @@
 main {
-  padding: 3rem;
-}
-
-main .container {
-  display: flex;
+  padding: 2rem;
   color: white;
-  flex-direction: column;
+  text-align: center;
 }
 
-main h1 {
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading {
   font-size: 3rem;
   transition: 0.3s;
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
   color: hsl(54, 100%, 50%);
 }
 
-main h1:hover {
+.heading:hover {
   text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
 }
 
-.terms {
+.description {
+  font-weight: 600;
   font-size: 1.15rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .termHeading {
-  font-weight: bold;
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .termText:not(:last-child) {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }

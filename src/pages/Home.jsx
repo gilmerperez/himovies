@@ -7,10 +7,10 @@ function Home() {
         <div className={`container ${styles.container}`}>
           {/* Logo */}
           <a href="index.html">
-            <img src="src/assets/images/logo.png" alt="HiMovies Logo" />
+            <img src="src/assets/images/logo.png" alt="HiMovies Logo" className={styles.logo} />
           </a>
-          {/* Title */}
-          <h1 className={styles.title}>HiMovies</h1>
+          {/* Heading */}
+          <h1 className={styles.heading}>HiMovies</h1>
           {/* Search Bar */}
           <section className={styles.searchBar}>
             <input type="text" placeholder="Enter Keywords..." />
@@ -85,7 +85,7 @@ function Home() {
           <button className={styles.goToSiteButton}>Go to HiMovies</button>
           {/* Informational Text */}
           <section className={styles.informationalText}>
-            <p className={styles.heading}>
+            <p className={styles.description}>
               Watch movies and TV shows online for free with HiMovies — your go-to platform for streaming and
               downloading the latest content. Although it's only been around for three years, HiMovies has quickly
               become one of the most reliable and best movie streaming sites on the web
@@ -122,7 +122,7 @@ function Home() {
           </section>
           {/* Review Text */}
           <section className={styles.reviewText}>
-            <p className={styles.heading}>
+            <p className={styles.description}>
               Despite being the new kid on the block, HiMovies has quickly gained massive support from movie enthusiasts
               worldwide, thanks to its standout features. True happiness costs nothing — and neither does HiMovies. Read
               our review to see why it might be time to stop paying for N*tflix and start streaming here instead.

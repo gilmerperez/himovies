@@ -9,8 +9,9 @@ function Contact() {
 
       <main>
         <div className={`container ${styles.container}`}>
-          {/* Title */}
+          {/* Heading */}
           <h1 className={styles.heading}>Contact Us</h1>
+          {/* Subheading */}
           <p className={styles.subheading}>
             Have questions about movies or need assistance? Complete this form and we'll get back to you as soon as
             possible.
