@@ -1,7 +1,3 @@
-* {
-  border: 1px solid red;
-}
-
 main {
   padding: 2rem;
 }
@@ -17,7 +13,7 @@ main {
   font-size: 3rem;
   transition: 0.3s;
   font-weight: 700;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   color: hsl(54, 100%, 50%);
 }
 
@@ -29,7 +25,7 @@ main {
   display: flex;
   min-width: 75%;
   border-radius: 5px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
   background-color: white;
 }
 
@@ -59,75 +55,70 @@ main {
 }
 
 .movieCards {
+  width: 100%;
+  gap: 1.25rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  width: 100%;
 }
 
 .movieCard {
-  background-color: #1a1a1a;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
   height: 100%;
+  overflow: hidden;
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 5%);
+  box-shadow: 0 0 25px hsla(0, 0%, 20%, 0.5);
 }
 
 .movieCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 50px hsla(0, 0%, 40%, 0.5);
 }
 
 .movieCard img {
   width: 100%;
-  height: 350px;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
 }
 
 .movieCardContent {
-  padding: 15px;
+  width: 100%;
+  padding: 1.25rem;
 }
 
 .movieTitle {
+  width: 100%;
+  font-weight: 600;
   font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  color: hsl(54, 100%, 50%);
 }
 
 .movieYear,
 .movieLength,
 .movieRating {
-  display: inline-block;
-  font-size: 0.9rem;
-  color: #ccc;
-  margin: 0 10px 10px 0;
+  font-size: 1rem;
+  margin: 0.75rem;
   font-weight: 400;
+  display: inline-block;
+  color: hsl(0, 0%, 80%);
 }
 
 .movieRating {
-  background-color: #e50914;
-  color: white;
-  padding: 2px 6px;
+  color: black;
+  font-weight: 600;
+  padding: 2px 15px;
   border-radius: 3px;
+  background-color: hsl(54, 100%, 50%);
 }
 
 .movieDescription {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #ddd;
   margin: 0;
-  height: 80px;
+  height: 120px;
+  font-size: 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
+  color: hsl(0, 0%, 80%);
 }
 
-/* Responsive styling */
 @media (max-width: 1200px) {
   .movieCards {
     grid-template-columns: repeat(3, 1fr);
@@ -142,10 +133,6 @@ main {
 
 @media (max-width: 600px) {
   .movieCards {
-    grid-template-columns: 1fr;
-  }
-
-  .container {
-    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
