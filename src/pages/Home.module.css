@@ -14,10 +14,11 @@ main img {
   margin-bottom: 0.75rem;
 }
 
-main h1 {
+.title {
   font-size: 3rem;
   transition: 0.3s;
   font-weight: 700;
+  margin-bottom: 1.25rem;
   color: hsl(54, 100%, 50%);
 }
 

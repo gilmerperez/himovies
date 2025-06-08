@@ -10,7 +10,7 @@ function Home() {
             <img src="src/assets/images/logo.png" alt="HiMovies Logo" />
           </a>
           {/* Title */}
-          <h1>HiMovies</h1>
+          <h1 className={styles.title}>HiMovies</h1>
           {/* Search Bar */}
           <section className={styles.searchBar}>
             <input type="text" placeholder="Enter Keywords..." />
