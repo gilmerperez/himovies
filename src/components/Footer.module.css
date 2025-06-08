@@ -43,3 +43,41 @@ footer .container {
   color: white;
   font-size: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 1.5rem;
+  }
+
+  .footerLinks {
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  .footerDescription {
+    font-size: 0.85rem;
+  }
+
+  .footerCopyright {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  footer {
+    padding: 1rem;
+  }
+
+  .footerLinks {
+    gap: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .footerDescription {
+    font-size: 0.75rem;
+  }
+
+  .footerCopyright {
+    font-size: 0.75rem;
+  }
+}
