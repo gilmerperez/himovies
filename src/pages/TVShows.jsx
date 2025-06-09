@@ -3,10 +3,7 @@ import styles from "./TVShows.module.css";
 function TVShows() {
   return (
     <>
-      <head>
-        <title>HiMovies | TV Shows</title>
-      </head>
-
+      <title>HiMovies | TV Shows</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

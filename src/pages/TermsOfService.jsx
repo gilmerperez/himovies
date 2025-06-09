@@ -3,10 +3,7 @@ import styles from "./TermsOfService.module.css";
 function TermsOfService() {
   return (
     <>
-      <head>
-        <title>HiMovies | Terms of Service</title>
-      </head>
-
+      <title>HiMovies | Terms of Service</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

@@ -3,10 +3,7 @@ import styles from "./TopIMDB.module.css";
 function TopIMDB() {
   return (
     <>
-      <head>
-        <title>HiMovies | Top IMDB</title>
-      </head>
-
+      <title>HiMovies | Top IMDB</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

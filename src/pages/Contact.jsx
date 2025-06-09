@@ -3,10 +3,7 @@ import styles from "./Contact.module.css";
 function Contact() {
   return (
     <>
-      <head>
-        <title>HiMovies | Contact</title>
-      </head>
-
+      <title>HiMovies | Contact</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}
