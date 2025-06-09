@@ -70,6 +70,31 @@ async function fetchTVDetails(id) {
   };
 }
 
+// Top Rated on IMDB
+export async function fetchTopRatedMovies(page = 1) {
+  const response = await fetch(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`);
+  const json = await response.json();
+  const genreMap = await fetchGenreMap("movie");
+
+  const enriched = await Promise.all(
+    json.results.map(async (movie) => {
+      const { runtime, certification } = await fetchMovieDetails(movie.id);
+      return {
+        ...movie,
+        runtime,
+        certification,
+        genre_names: movie.genre_ids.map((id) => genreMap[id] || "Unknown"),
+        // Average audience rating
+        audience_score: movie.vote_average,
+        // Total number of votes
+        vote_count: movie.vote_count,
+      };
+    })
+  );
+
+  return enriched;
+}
+
 // * Genre Map
 async function fetchGenreMap(type = "movie") {
   const response = await fetch(`${BASE_URL}/genre/${type}/list?api_key=${API_KEY}&language=en-US`);

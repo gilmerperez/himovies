@@ -14,7 +14,7 @@ function Header() {
             <a href="/">Home</a>
             <a href="/movies">Movies</a>
             <a href="/tv-shows">TV Shows</a>
-            <a href="/top-imdb">Top IMDB</a>
+            <a href="/top-imdb">Top Rated on IMDB</a>
           </nav>
         </div>
       </header>
