@@ -71,9 +71,9 @@
 }
 
 .movieDescription {
+  line-clamp: 5;
   overflow: hidden;
-  /* margin-top: auto; */
-  max-height: 6.5em; /* Adjust to match 5 lines */
+  max-height: 6.5em;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   text-overflow: ellipsis;
