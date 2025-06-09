@@ -32,21 +32,28 @@
 .movieYear,
 .movieRating,
 .movieLength {
-  font-size: 1rem;
   margin: 0.75rem;
   font-weight: 400;
+  font-size: 1.15rem;
   display: inline-block;
   color: hsl(0, 0%, 80%);
 }
 
 .movieRating {
-  font-weight: 600;
-  padding: 4px 8px;
+  padding: 2px 8px;
   border-radius: 5px;
   border: 1px solid hsl(54, 100%, 50%);
 }
 
+.movieGenre {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: hsl(0, 0%, 80%);
+}
+
 .movieDescription {
+  line-clamp: 5;
   overflow: hidden;
   max-height: 120px;
   display: -webkit-box;
