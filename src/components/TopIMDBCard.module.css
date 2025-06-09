@@ -1,0 +1,91 @@
+.movieCard {
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  min-height: 600px;
+  border-radius: 5px;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+  justify-content: space-between;
+  background-color: hsl(0, 0%, 5%);
+  box-shadow: 0 0 25px hsla(0, 0%, 20%, 0.5);
+}
+
+.movieCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 50px hsla(0, 0%, 40%, 0.5);
+}
+
+.movieCard img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 2/3;
+}
+
+.movieCardContent {
+  flex-grow: 1;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movieTitle {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.movieMeta {
+  gap: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+
+.movieYear,
+.movieRating,
+.movieLength {
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: hsl(0, 0%, 80%);
+}
+
+.movieRating {
+  padding: 2px 8px;
+  border-radius: 5px;
+  border: 1px solid hsl(54, 100%, 50%);
+}
+
+.movieGenre {
+  font-weight: 500;
+  font-size: 1.15rem;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-bottom: 0.5rem;
+  color: hsl(0, 0%, 80%);
+}
+
+.movieDescription {
+  line-clamp: 5;
+  overflow: hidden;
+  max-height: 6.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  text-overflow: ellipsis;
+  color: hsl(0, 0%, 80%);
+  -webkit-box-orient: vertical;
+}
+
+.audienceScore {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: hsl(54, 100%, 50%);
+  margin-top: 0.75rem;
+  text-align: center;
+  letter-spacing: 0.03em;
+}

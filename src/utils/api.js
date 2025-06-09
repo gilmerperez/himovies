@@ -70,7 +70,7 @@ async function fetchTVDetails(id) {
   };
 }
 
-// Top Rated on IMDB
+// * Top Rated on IMDB
 export async function fetchTopRatedMovies(page = 1) {
   const response = await fetch(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`);
   const json = await response.json();

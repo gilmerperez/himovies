@@ -33,11 +33,11 @@ function TopIMDB() {
           <section className={styles.searchBar}>
             <input type="text" placeholder="Enter Keywords..." />
             <button>
-              <i className="fa-solid fa-star"></i>
+              <i class="fa-solid fa-trophy"></i>
             </button>
           </section>
           {/* Top Rated Movie Cards */}
-          <section className={styles.movieCards}>
+          <section className={styles.topIMDBCards}>
             {movies.map((movie) => (
               <TopIMDBCard key={movie.id} movie={movie} />
             ))}
