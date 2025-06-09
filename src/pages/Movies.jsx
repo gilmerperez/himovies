@@ -1,7 +1,7 @@
 import styles from "./Movies.module.css";
+import { fetchMovies } from "../utils/api";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
-import { fetchMovies } from "../utils/api";
 
 function Movies() {
   const [error, setError] = useState("");
