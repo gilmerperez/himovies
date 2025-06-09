@@ -12,27 +12,27 @@ function TopIMDBCard({ movie }) {
   };
 
   return (
-    <div className={styles.movieCard}>
+    <div className={styles.topIMDBCard}>
       {/* Top IMDB Poster */}
       <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`${movie.title} Poster`} />
-      <div className={styles.movieCardContent}>
+      <div className={styles.topIMDBCardContent}>
         {/* Top IMDB Title */}
-        <h2 className={styles.movieTitle}>{movie.title}</h2>
-        <div className={styles.movieMeta}>
+        <h2 className={styles.topIMDBTitle}>{movie.title}</h2>
+        <div className={styles.topIMDBMeta}>
           {/* Top IMDB Release Date */}
-          <h3 className={styles.movieYear}>{movie.release_date?.split("-")[0]}</h3>
+          <h3 className={styles.topIMDBYear}>{movie.release_date?.split("-")[0]}</h3>
           {/* Top IMDB Rating */}
-          <h3 className={styles.movieRating}>{movie.certification}</h3>
+          <h3 className={styles.topIMDBRating}>{movie.certification}</h3>
           {/* Top IMDB Length */}
-          <h3 className={styles.movieLength}>
+          <h3 className={styles.topIMDBLength}>
             {hours > 0 ? `${hours}h ` : ""}
             {minutes}m
           </h3>
         </div>
         {/* Top IMDB Genres */}
-        <h3 className={styles.movieGenre}>{movie.genre_names.join(" / ")}</h3>
+        <h3 className={styles.topIMDBGenre}>{movie.genre_names.join(" / ")}</h3>
         {/* Top IMDB Description */}
-        <p className={styles.movieDescription}>{movie.overview}</p>
+        <p className={styles.topIMDBDescription}>{movie.overview}</p>
         {/* Top IMDB Audience Rating */}
         <h4 className={styles.audienceScore}>
           {movie.vote_average.toFixed(1)}/10 ({formatVoteCount(movie.vote_count)})

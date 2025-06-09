@@ -1,4 +1,4 @@
-.movieCard {
+.topIMDBCard {
   height: 100%;
   display: flex;
   overflow: hidden;
@@ -11,19 +11,19 @@
   box-shadow: 0 0 25px hsla(0, 0%, 20%, 0.5);
 }
 
-.movieCard:hover {
+.topIMDBCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 50px hsla(0, 0%, 40%, 0.5);
 }
 
-.movieCard img {
+.topIMDBCard img {
   width: 100%;
   display: block;
   object-fit: cover;
   aspect-ratio: 2/3;
 }
 
-.movieCardContent {
+.topIMDBCardContent {
   flex-grow: 1;
   display: flex;
   padding: 1rem;
@@ -32,13 +32,13 @@
   justify-content: center;
 }
 
-.movieTitle {
+.topIMDBTitle {
   font-weight: 500;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
-.movieMeta {
+.topIMDBMeta {
   gap: 1rem;
   display: flex;
   flex-wrap: nowrap;
@@ -47,21 +47,21 @@
   justify-content: center;
 }
 
-.movieYear,
-.movieRating,
-.movieLength {
+.topIMDBYear,
+.topIMDBRating,
+.topIMDBLength {
   font-weight: 400;
   font-size: 1.15rem;
   color: hsl(0, 0%, 80%);
 }
 
-.movieRating {
+.topIMDBRating {
   padding: 2px 8px;
   border-radius: 5px;
   border: 1px solid hsl(54, 100%, 50%);
 }
 
-.movieGenre {
+.topIMDBGenre {
   font-weight: 500;
   font-size: 1.15rem;
   white-space: normal;
@@ -70,7 +70,7 @@
   color: hsl(0, 0%, 80%);
 }
 
-.movieDescription {
+.topIMDBDescription {
   line-clamp: 5;
   overflow: hidden;
   max-height: 6.5em;
