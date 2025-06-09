@@ -83,4 +83,18 @@ main {
   .movieCards {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .searchBar input {
+    min-width: 80%;
+    font-size: 16px;
+  }
+
+  .searchBar button {
+    min-width: 20%;
+    font-size: 20px;
+  }
 }
