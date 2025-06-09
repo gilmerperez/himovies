@@ -1,4 +1,5 @@
 import styles from "./Header.module.css";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -6,15 +7,23 @@ function Header() {
       <header>
         <div className={`container ${styles.container}`}>
           {/* Logo */}
-          <a href="/">
+          <NavLink to="/" className={styles.headerLogoLink}>
             <img src="src/assets/images/logo.png" alt="HiMovies Logo" className={styles.headerLogo} />
-          </a>
+          </NavLink>
           {/* Site Navigation */}
           <nav className={styles.headerNav}>
-            <a href="/">Home</a>
-            <a href="/movies">Movies</a>
-            <a href="/tv-shows">TV Shows</a>
-            <a href="/top-imdb">Top Rated on IMDB</a>
+            <NavLink to="/" className={({ isActive }) => (isActive ? `${styles.activeLink}` : undefined)} end>
+              Home
+            </NavLink>
+            <NavLink to="/movies" className={({ isActive }) => (isActive ? `${styles.activeLink}` : undefined)}>
+              Movies
+            </NavLink>
+            <NavLink to="/tv-shows" className={({ isActive }) => (isActive ? `${styles.activeLink}` : undefined)}>
+              TV Shows
+            </NavLink>
+            <NavLink to="/top-imdb" className={({ isActive }) => (isActive ? `${styles.activeLink}` : undefined)}>
+              Top Rated on IMDB
+            </NavLink>
           </nav>
         </div>
       </header>

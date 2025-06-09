@@ -27,10 +27,17 @@ header .container {
 }
 
 .headerNav a {
-  transition: 0.3s ease;
+  transition: padding-bottom 0.1s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .headerNav a:hover {
+  padding-bottom: 0.25rem;
+  color: hsl(54, 100%, 50%);
+  text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
+}
+
+.activeLink {
+  font-weight: 600;
   color: hsl(54, 100%, 50%);
   text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
 }
