@@ -1,6 +1,9 @@
 import styles from "./MovieCard.module.css";
 
 function MovieCard({ movie }) {
+  const hours = Math.floor(movie.runtime / 60);
+  const minutes = movie.runtime % 60;
+
   return (
     <>
       <div className={styles.movieCard}>
@@ -8,9 +11,12 @@ function MovieCard({ movie }) {
         <div className={styles.movieCardContent}>
           <h2 className={styles.movieTitle}>{movie.title}</h2>
           <h3 className={styles.movieYear}>{movie.release_date?.split("-")[0]}</h3>
-          <h3 className={styles.movieRating}>{movie.adult ? "18+" : "PG"}</h3>
-          <h3 className={styles.movieLength}>{movie.vote_average}</h3>
-          <h3 className={styles.movieGenre}>{movie.genre_ids.join(", ")}</h3>
+          <h3 className={styles.movieRating}>{movie.certification}</h3>
+          <h3 className={styles.movieLength}>
+            {hours > 0 ? `${hours}h ` : ""}
+            {minutes}m
+          </h3>
+          <h3 className={styles.movieGenre}>{movie.genre_names.join(" / ")}</h3>
           <p className={styles.movieDescription}>{movie.overview}</p>
         </div>
       </div>
