@@ -1,7 +1,23 @@
 import styles from "./Movies.module.css";
+import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
+import { fetchLatestMovies } from "../utils/api";
 
 function Movies() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const data = await fetchLatestMovies();
+        setMovies(data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+    getData();
+  }, []);
+
   return (
     <>
       <head>
@@ -21,18 +37,9 @@ function Movies() {
           </section>
           {/* Movie Cards */}
           <section className={styles.movieCards}>
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
+            {movies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
           </section>
         </div>
       </main>
