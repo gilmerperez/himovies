@@ -1,0 +1,75 @@
+.tvCard {
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  min-height: 600px;
+  border-radius: 5px;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+  justify-content: space-between;
+  background-color: hsl(0, 0%, 5%);
+  box-shadow: 0 0 25px hsla(0, 0%, 20%, 0.5);
+}
+
+.tvCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 50px hsla(0, 0%, 40%, 0.5);
+}
+
+.tvCard img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 2/3;
+}
+
+.tvCardContent {
+  flex-grow: 1;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tvTitle {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tvMeta {
+  gap: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+
+.tvYear,
+.tvSeasons {
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: hsl(0, 0%, 80%);
+}
+
+.tvGenre {
+  font-weight: 500;
+  font-size: 1.15rem;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-bottom: 0.5rem;
+  color: hsl(0, 0%, 80%);
+}
+
+.tvDescription {
+  line-clamp: 5;
+  overflow: hidden;
+  max-height: 6.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  text-overflow: ellipsis;
+  color: hsl(0, 0%, 80%);
+  -webkit-box-orient: vertical;
+}

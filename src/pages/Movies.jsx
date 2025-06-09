@@ -13,8 +13,8 @@ function Movies() {
         const data = await fetchMovies();
         setMovies(data);
       } catch (error) {
-        console.error("Failed to fetch movies", error);
-        setError("Sorry, something went wrong while fetching the latest movies.");
+        console.error("Failed to fetch Movies", error);
+        setError("Sorry, something went wrong while fetching the latest Movies.");
       }
     }
     getData();

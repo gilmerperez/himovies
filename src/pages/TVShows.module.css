@@ -13,10 +13,74 @@ main {
   font-size: 3rem;
   transition: 0.3s;
   font-weight: 700;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   color: hsl(54, 100%, 50%);
 }
 
 .heading:hover {
   text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
+}
+
+.error {
+  padding: 1rem;
+  color: white;
+  font-size: 1.25rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: hsla(54, 100%, 50%, 0.5);
+}
+
+.searchBar {
+  display: flex;
+  min-width: 75%;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  background-color: white;
+}
+
+.searchBar input {
+  height: 50px;
+  min-width: 90%;
+  font-size: 20px;
+  padding-left: 16px;
+  border-radius: 5px;
+}
+
+.searchBar button {
+  height: 50px;
+  min-width: 10%;
+  font-size: 25px;
+  border-radius: 0 5px 5px 0;
+  transition: 0.3s ease-in-out;
+  background-color: hsl(54, 100%, 50%);
+}
+
+.searchBar button:hover {
+  background-color: hsl(54, 100%, 45%);
+}
+
+.tvShowCards {
+  width: 100%;
+  gap: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1200px) {
+  .tvShowCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .tvShowCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .tvShowCards {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
