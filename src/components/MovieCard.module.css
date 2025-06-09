@@ -20,7 +20,7 @@
   width: 100%;
   display: block;
   object-fit: cover;
-  aspect-ratio: 2/3;
+  aspect-ratio: 2 / 3;
 }
 
 .movieCardContent {
