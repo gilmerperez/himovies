@@ -198,6 +198,7 @@ main {
 .reviewText {
   color: white;
   max-width: 1000px;
+  transition: 0.3s ease-in;
 }
 
 .informationalText {
@@ -258,17 +259,23 @@ main {
   }
 
   .searchBar input {
-    height: 45px;
-    font-size: 18px;
+    height: 40px;
+    min-width: 80%;
+    font-size: 16px;
+    padding-left: 12px;
   }
 
   .searchBar button {
+    height: 40px;
+    min-width: 20%;
     font-size: 20px;
   }
 
   .socialLinks {
     gap: 0.75rem;
+    max-width: 60%;
     margin-bottom: 1.5rem;
+    transition: 0.3s ease-in;
   }
 
   .socialLink {
@@ -284,11 +291,6 @@ main {
     padding: 10px 15px;
   }
 
-  .viewMovies {
-    font-size: 1.25rem;
-    padding: 0.75rem 1.5rem;
-  }
-
   .informationalText > .description,
   .reviewText > .description {
     font-size: 1.15rem;
@@ -297,13 +299,18 @@ main {
 
   .informationalText .subheading,
   .reviewText .subheading {
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 
   .informationalText .text,
   .reviewText .text {
     font-size: 0.85rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .viewMovies {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
   }
 }
 
@@ -326,21 +333,26 @@ main {
 
   .searchBar input {
     height: 40px;
-    font-size: 16px;
-    padding-left: 15px;
+    min-width: 80%;
+    font-size: 14px;
+    padding-left: 12px;
   }
 
   .searchBar button {
+    height: 40px;
+    min-width: 20%;
     font-size: 18px;
   }
 
   .socialLinks {
     gap: 0.5rem;
+    max-width: 50%;
     margin-bottom: 1rem;
   }
 
   .socialLink {
     padding: 6px 11px;
+    font-size: 0.75rem;
   }
 
   .instagramSocialLink {
@@ -349,11 +361,6 @@ main {
 
   .tiktokSocialLink {
     padding: 8px 13px;
-  }
-
-  .viewMovies {
-    font-size: 1rem;
-    padding: 0.7rem;
   }
 
   .viewMovies:hover {
@@ -372,11 +379,17 @@ main {
 
   .informationalText .subheading,
   .reviewText .subheading {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .informationalText .text,
   .reviewText .text {
     font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .viewMovies {
+    font-size: 1rem;
+    padding: 0.7rem;
   }
 }
