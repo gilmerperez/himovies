@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 
 function Footer() {
@@ -7,9 +8,9 @@ function Footer() {
         <div className={`container ${styles.container}`}>
           {/* Navigation Links */}
           <nav className={styles.footerLinks}>
-            <a href="/">Home</a>
-            <a href="/contact">Contact</a>
-            <a href="/terms-of-service">Terms of Service</a>
+            <Link to="/">Home</Link>
+            <Link to="/contact">Contact</Link>
+            <Link to="/terms-of-service">Terms of Service</Link>
           </nav>
           {/* Legal Disclaimer */}
           <p className={styles.footerDescription}>
