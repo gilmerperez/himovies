@@ -22,7 +22,7 @@ function Header() {
               TV Shows
             </NavLink>
             <NavLink to="/top-imdb" className={({ isActive }) => (isActive ? `${styles.activeLink}` : undefined)}>
-              Top Rated on IMDB
+              Top IMDB
             </NavLink>
           </nav>
         </div>
