@@ -1,3 +1,7 @@
+* {
+  border: 1px solid red;
+}
+
 main {
   padding: 2rem;
 }
@@ -11,14 +15,14 @@ main {
 
 .logo {
   height: 100px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .heading {
   font-size: 3rem;
   transition: 0.3s;
   font-weight: 700;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   color: hsl(54, 100%, 50%);
 }
 
@@ -28,7 +32,7 @@ main {
 
 .searchBar {
   display: flex;
-  min-width: 100%;
+  min-width: 75%;
   border-radius: 5px;
   margin-bottom: 2rem;
   background-color: white;
@@ -38,22 +42,23 @@ main {
   height: 50px;
   min-width: 90%;
   font-size: 20px;
-  padding-left: 20px;
+  padding-left: 16px;
   border-radius: 5px;
 }
 
 .searchBar button {
+  height: 50px;
   min-width: 10%;
-  cursor: pointer;
   font-size: 25px;
   border-radius: 0 5px 5px 0;
+  transition: 0.3s ease-in-out;
   background-color: hsl(54, 100%, 50%);
 }
 
 .socialLinks {
   gap: 1rem;
-  width: 100%;
   display: flex;
+  min-width: 75%;
   color: white;
   flex-wrap: wrap;
   align-items: center;
@@ -64,17 +69,17 @@ main {
 .socialLink {
   gap: 0.5rem;
   display: flex;
-  transition: 0.3s;
   font-weight: 500;
   padding: 10px 15px;
   border-radius: 5px;
   text-align: center;
   align-items: center;
   justify-content: center;
+  transition: 0.3s ease-in;
 }
 
 .socialLink:hover {
-  transform: scaleX(1.1);
+  transform: translateY(-3px) scale(1.05);
 }
 
 .facebookSocialLink {
@@ -140,7 +145,7 @@ main {
   padding: 2px;
   position: absolute;
   border-radius: 5px;
-  background: linear-gradient(135deg, #fe2c55, #ffffff, #25f4ee);
+  background: linear-gradient(135deg, #fe2c55, #25f4ee);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
 }
@@ -189,32 +194,10 @@ main {
   box-shadow: 0 0 15px #ffffff;
 }
 
-.goToSiteButton {
-  transition: 0.3s;
-  font-weight: 600;
-  font-size: 1.5rem;
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  background-color: hsl(54, 100%, 50%);
-}
-
-.goToSiteButton:not(:last-child) {
-  margin-bottom: 2rem;
-}
-
-.goToSiteButton:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px hsl(54, 100%, 50%);
-}
-
 .informationalText,
 .reviewText {
-  display: flex;
   color: white;
-  text-align: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 1000px;
 }
 
 .informationalText {
@@ -223,25 +206,38 @@ main {
 
 .informationalText > .description,
 .reviewText > .description {
-  color: white;
-  font-weight: 700;
-  max-width: 1000px;
+  font-weight: 500;
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
 }
 
 .informationalText .subheading,
 .reviewText .subheading {
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.15rem;
 }
 
 .informationalText .text,
 .reviewText .text {
-  max-width: 1000px;
+  text-align: left;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.viewMovies {
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  transition: 0.3s ease-in;
+  background-color: hsl(54, 100%, 50%);
+}
+
+.viewMovies:hover {
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 0 20px hsl(54, 100%, 50%);
 }
 
 @media (max-width: 768px) {
@@ -280,13 +276,17 @@ main {
     font-size: 0.85rem;
   }
 
-  .goToSiteButton {
-    font-size: 1.25rem;
-    padding: 0.75rem 1.5rem;
+  .instagramSocialLink {
+    padding: 10px 15px;
   }
 
-  .goToSiteButton:not(:last-child) {
-    margin-bottom: 1.5rem;
+  .tiktokSocialLink {
+    padding: 10px 15px;
+  }
+
+  .viewMovies {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
   }
 
   .informationalText > .description,
@@ -343,16 +343,20 @@ main {
     padding: 6px 11px;
   }
 
-  .goToSiteButton {
+  .instagramSocialLink {
+    padding: 8px 13px;
+  }
+
+  .tiktokSocialLink {
+    padding: 8px 13px;
+  }
+
+  .viewMovies {
     font-size: 1rem;
     padding: 0.7rem;
   }
 
-  .goToSiteButton:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-
-  .goToSiteButton:hover {
+  .viewMovies:hover {
     transform: scale(1.1);
   }
 

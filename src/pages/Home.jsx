@@ -6,9 +6,7 @@ function Home() {
       <main>
         <div className={`container ${styles.container}`}>
           {/* Logo */}
-          <a href="index.html">
-            <img src="src/assets/images/logo.png" alt="HiMovies Logo" className={styles.logo} />
-          </a>
+          <img src="src/assets/images/logo.png" alt="HiMovies Logo" className={styles.logo} />
           {/* Heading */}
           <h1 className={styles.heading}>HiMovies</h1>
           {/* Search Bar */}
@@ -23,66 +21,53 @@ function Home() {
             <a href="https://www.facebook.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.facebookSocialLink}`}>
                 <i class="fa-brands fa-facebook-f"></i>
-                <p>3.07 B</p>
+                <p>3.07B</p>
               </div>
             </a>
             <a href="https://www.whatsapp.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.whatsappSocialLink}`}>
                 <i className="fa-brands fa-whatsapp"></i>
-                <p>3 B</p>
+                <p>3B</p>
               </div>
             </a>
             <a href="https://www.youtube.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.youtubeSocialLink}`}>
                 <i className="fa-brands fa-youtube"></i>
-                <p>2.7 B</p>
+                <p>2.7B</p>
               </div>
             </a>
             <a href="https://www.instagram.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.instagramSocialLink}`}>
                 <i className="fa-brands fa-instagram"></i>
-                <p>2 B</p>
+                <p>2B</p>
               </div>
             </a>
             <a href="https://www.tiktok.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.tiktokSocialLink}`}>
                 <i className="fa-brands fa-tiktok"></i>
-                <p>1.84 B</p>
+                <p>1.84B</p>
               </div>
             </a>
-            <a href="https://telegram.org/" target="_blank">
-              <div className={`${styles.socialLink} ${styles.telegramSocialLink}`}>
-                <i className="fa-brands fa-telegram"></i>
-                <p>1 B</p>
-              </div>
-            </a>
-            <a href="https://www.messenger.com/" target="_blank">
-              <div className={`${styles.socialLink} ${styles.messengerSocialLink}`}>
-                <i className="fa-brands fa-facebook-messenger"></i>
-                <p>965 M</p>
-              </div>
-            </a>
+
             <a href="https://www.snapchat.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.snapchatSocialLink}`}>
                 <i className="fa-brands fa-snapchat"></i>
-                <p>850 M</p>
+                <p>850M</p>
               </div>
             </a>
             <a href="https://www.reddit.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.redditSocialLink}`}>
                 <i className="fa-brands fa-reddit-alien"></i>
-                <p>712 M</p>
+                <p>712M</p>
               </div>
             </a>
             <a href="https://www.x.com/">
               <div className={`${styles.socialLink} ${styles.xSocialLink}`} target="_blank">
                 <i className="fa-brands fa-x-twitter"></i>
-                <p>563 M</p>
+                <p>563M</p>
               </div>
             </a>
           </section>
-          {/* Go to HiMovies Button */}
-          <button className={styles.goToSiteButton}>Go to HiMovies</button>
           {/* Informational Text */}
           <section className={styles.informationalText}>
             <p className={styles.description}>
@@ -186,7 +171,9 @@ function Home() {
             </p>
           </section>
           {/* Go to HiMovies Button */}
-          <button className={styles.goToSiteButton}>Go to HiMovies</button>
+          <a href="/movies">
+            <button className={styles.viewMovies}>View Movies</button>
+          </a>
         </div>
       </main>
     </>
