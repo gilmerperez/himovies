@@ -22,7 +22,7 @@ function Movies() {
 
   return (
     <>
-      <title>HiMovies | Movies</title>
+      <title>Movix | Movies</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

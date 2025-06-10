@@ -22,7 +22,7 @@ function TVShows() {
 
   return (
     <>
-      <title>HiMovies | TV Shows</title>
+      <title>Movix | TV Shows</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

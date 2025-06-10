@@ -3,45 +3,51 @@ import styles from "./TermsOfService.module.css";
 function TermsOfService() {
   return (
     <>
-      <title>HiMovies | Terms of Service</title>
+      <title>Movix | Terms of Service</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}
           <h1 className={styles.heading}>Terms of Service</h1>
           {/* Description */}
           <p className={styles.description}>
-            This Agreement contains the complete terms and conditions that apply to your participation in our site. If
-            you wish to use the site including its tools and services please read these terms of use carefully. By
-            accessing this site or using any part of the site or any content or services hereof, you agree to become
-            bound by these terms and conditions. If you do not agree to all the terms and conditions, then you may not
-            access the site or use the content or any services in the site.
+            These Terms of Service govern your use of this website. By accessing or using this site, you agree to these
+            terms. If you do not agree, please do not use the site.
           </p>
-          {/* Terms */}
-          <p className={styles.termHeading}>Modifications of Terms and Conditions</p>
+          {/* Content and Purpose */}
+          <p className={styles.termHeading}>Purpose of the Site</p>
           <p className={styles.termText}>
-            Amendments to this agreement can be made and effected by us from time to time without specific notice to
-            your end. Agreement posted on the Site reflects the latest agreement and you should carefully review the
-            same before you use our site.
+            This site is a personal portfolio project intended for educational and demonstrative purposes only. It
+            allows users to browse public information about movies and TV shows, including trailers, descriptions, cast
+            details, and ratings, sourced from third-party APIs such as TMDB.
           </p>
-          <p className={styles.termHeading}>Registration Information</p>
+
+          {/* No Account Required */}
+          <p className={styles.termHeading}>User Accounts</p>
           <p className={styles.termText}>
-            For you to complete the sign-up process in our site, you must provide your full legal name, current address,
-            a valid email address, member name and any other information needed in order to complete the signup process.
-            You must qualify that you are 18 years or older and must be responsible for keeping your password secure and
-            be responsible for all activities and contents that are uploaded under your account. You must not transmit
-            any worms or viruses or any code of a destructive nature. Any information provided by you or gathered by the
-            site or third parties during any visit to the site shall be subject to the terms of YesMovies.to's Privacy
-            Policy.
+            No user accounts, registrations, or logins are required to use this site. We do not collect personal
+            information or track users.
           </p>
-          <p className={styles.termHeading}>Use of the site</p>
+
+          {/* Intellectual Property */}
+          <p className={styles.termHeading}>Intellectual Property</p>
           <p className={styles.termText}>
-            The Site allows you to post offers, sell, advertise, bid and shop online. However, you are prohibited to do
-            the following acts, to wit: (a) use our sites, including its services and or tools if you are not able to
-            form legally binding contracts, are under the age of 18, or are temporarily or indefinitely suspended from
-            using our sites, services, or tools (b) posting of an items in inappropriate category or areas on our sites
-            and services; (c) collecting information about users' personal information; (d) maneuvering the price of any
-            item or interfere with other users' listings; (f) post false, inaccurate, misleading, defamatory, or
-            libelous content; (g) take any action that may damage the rating system.
+            All movie and TV show metadata, trailers, and images are provided by The Movie Database (TMDB) via public
+            APIs and remain the property of their respective owners. This site does not host or stream any video content
+            directly.
+          </p>
+
+          {/* Usage Restrictions */}
+          <p className={styles.termHeading}>Acceptable Use</p>
+          <p className={styles.termText}>
+            You agree to use this site for lawful, non-commercial purposes only. You may not misuse the content or
+            attempt to gain unauthorized access to the site or its services.
+          </p>
+
+          {/* Updates */}
+          <p className={styles.termHeading}>Changes to These Terms</p>
+          <p className={styles.termText}>
+            These terms may be updated periodically. Continued use of the site after changes are made implies acceptance
+            of the updated terms. Last updated: {new Date().getFullYear()}.
           </p>
         </div>
       </main>

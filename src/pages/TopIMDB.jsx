@@ -22,7 +22,7 @@ function TopIMDB() {
 
   return (
     <>
-      <title>HiMovies | Top Rated on IMDB</title>
+      <title>Movix | Top Rated on IMDB</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

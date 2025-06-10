@@ -13,11 +13,12 @@ function Footer() {
           </nav>
           {/* Legal Disclaimer */}
           <p className={styles.footerDescription}>
-            HiMovies is a free movie streaming site with zero ads. We let you watch movies online without having to pay
-            or register. With over 10,000 movies and TV series. You can also download full movies and watch them later.
+            This website is a non-commercial Movie and TV Show database. It does not host, stream, or distribute any
+            copyrighted content. All metadata and media previews are provided via public APIs such as TMDB. No user
+            accounts, payments, or downloads are required.
           </p>
           {/* Copyright */}
-          <p className={styles.footerCopyright}>© 2025 HiMovies</p>
+          <p className={styles.footerCopyright}>© {new Date().getFullYear()} Movix</p>
         </div>
       </footer>
     </>

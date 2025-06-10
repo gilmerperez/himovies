@@ -3,15 +3,15 @@ import styles from "./Contact.module.css";
 function Contact() {
   return (
     <>
-      <title>HiMovies | Contact</title>
+      <title>Movix | Contact</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}
           <h1 className={styles.heading}>Contact Us</h1>
           {/* Subheading */}
           <p className={styles.subheading}>
-            Have questions about movies or need assistance? Complete this form and we'll get back to you as soon as
-            possible.
+            Have a question or feature request? We're here to help. Submit the form below and we'll get back to you as
+            soon as possible.
           </p>
           {/* Form */}
           <section className={styles.formContainer}>
