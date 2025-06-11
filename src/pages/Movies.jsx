@@ -2,15 +2,17 @@ import styles from "./Movies.module.css";
 import { fetchMovies } from "../utils/api";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
+import MovieFilters from "../components/MovieFilters";
 
 function Movies() {
   const [error, setError] = useState("");
   const [movies, setMovies] = useState([]);
+  const [filters, setFilters] = useState({});
 
   useEffect(() => {
     async function getData() {
       try {
-        const data = await fetchMovies();
+        const data = await fetchMovies(filters);
         setMovies(data);
       } catch (error) {
         console.error("Failed to fetch Movies", error);
@@ -18,7 +20,7 @@ function Movies() {
       }
     }
     getData();
-  }, []);
+  }, [filters]);
 
   return (
     <>
@@ -36,6 +38,8 @@ function Movies() {
               <i class="fa-solid fa-film"></i>
             </button>
           </section>
+          {/* Filters */}
+          <MovieFilters onFilterChange={setFilters} />
           {/* Movie Cards */}
           <section className={styles.movieCards}>
             {movies.map((movie) => (
