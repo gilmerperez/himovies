@@ -1,5 +1,6 @@
 import styles from "./Movies.module.css";
 import Filter from "../components/Filter";
+import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import { useSearchParams } from "react-router-dom";
@@ -8,6 +9,7 @@ import { fetchFilteredContent } from "../utils/api";
 function Movies() {
   const [error, setError] = useState("");
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const filters = {
@@ -18,12 +20,15 @@ function Movies() {
 
   useEffect(() => {
     async function getData() {
+      setLoading(true);
       try {
         const data = await fetchFilteredContent("movie", filters);
         setMovies(data);
       } catch (error) {
         console.error("Failed to fetch Movies", error);
         setError("Sorry, something went wrong while fetching the latest Movies.");
+      } finally {
+        setLoading(false);
       }
     }
     getData();
@@ -51,14 +56,21 @@ function Movies() {
               <i class="fa-solid fa-film"></i>
             </button>
           </section>
-          {/* Filters */}
-          <Filter onFilterChange={handleFilterChange} initialFilters={filters} />
-          {/* Movie Cards */}
-          <section className={styles.movieCards}>
-            {movies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))}
-          </section>
+          {/* Loading or Content */}
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              {/* Filters */}
+              <Filter onFilterChange={handleFilterChange} initialFilters={filters} />
+              {/* Movie Cards */}
+              <section className={styles.movieCards}>
+                {movies.map((movie) => (
+                  <MovieCard key={movie.id} movie={movie} />
+                ))}
+              </section>
+            </>
+          )}
         </div>
       </main>
     </>

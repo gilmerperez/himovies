@@ -1,0 +1,10 @@
+.loadingContainer {
+  user-select: none;
+  text-align: center;
+  color: hsl(355, 95%, 45%);
+  text-shadow: 0 0 30px hsl(355, 95%, 45%, 0.75);
+}
+
+.loadingContainer h2 {
+  font-size: 3rem;
+}

@@ -1,4 +1,5 @@
 import styles from "./TopIMDB.module.css";
+import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import { fetchTopRatedMovies } from "../utils/api";
 import TopIMDBCard from "../components/TopIMDBCard";
@@ -6,15 +7,19 @@ import TopIMDBCard from "../components/TopIMDBCard";
 function TopIMDB() {
   const [error, setError] = useState("");
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getData() {
+      setLoading(true);
       try {
         const data = await fetchTopRatedMovies();
         setMovies(data);
       } catch (error) {
         console.error("Failed to fetch Top Rated IMDB Movies", error);
         setError("Sorry, something went wrong while fetching the Top Rated IMDB Movies.");
+      } finally {
+        setLoading(false);
       }
     }
     getData();
@@ -36,12 +41,19 @@ function TopIMDB() {
               <i class="fa-solid fa-trophy"></i>
             </button>
           </section>
-          {/* Top Rated Movie Cards */}
-          <section className={styles.topIMDBCards}>
-            {movies.map((movie) => (
-              <TopIMDBCard key={movie.id} movie={movie} />
-            ))}
-          </section>
+          {/* Loading or Content */}
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              {/* Top IMDB Cards */}
+              <section className={styles.topIMDBCards}>
+                {movies.map((movie) => (
+                  <TopIMDBCard key={movie.id} movie={movie} />
+                ))}
+              </section>
+            </>
+          )}
         </div>
       </main>
     </>

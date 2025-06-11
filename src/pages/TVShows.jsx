@@ -1,5 +1,6 @@
 import styles from "./TVShows.module.css";
 import Filter from "../components/Filter";
+import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import TVShowCard from "../components/TVShowCard";
 import { useSearchParams } from "react-router-dom";
@@ -8,6 +9,7 @@ import { fetchFilteredContent } from "../utils/api";
 function TVShows() {
   const [error, setError] = useState("");
   const [tvShows, setTVShows] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const filters = {
@@ -18,12 +20,15 @@ function TVShows() {
 
   useEffect(() => {
     async function getData() {
+      setLoading(true);
       try {
         const data = await fetchFilteredContent("tv", filters);
         setTVShows(data);
       } catch (error) {
         console.error("Failed to fetch TV shows", error);
         setError("Sorry, something went wrong while fetching the latest TV shows.");
+      } finally {
+        setLoading(false);
       }
     }
     getData();
@@ -51,14 +56,21 @@ function TVShows() {
               <i className="fa-solid fa-tv"></i>
             </button>
           </section>
-          {/* Filters */}
-          <Filter onFilterChange={handleFilterChange} type="tv" initialFilters={filters} />
-          {/* TV Show Cards */}
-          <section className={styles.tvShowCards}>
-            {tvShows.map((show) => (
-              <TVShowCard key={show.id} show={show} />
-            ))}
-          </section>
+          {/* Loading or Content */}
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              {/* Filters */}
+              <Filter onFilterChange={handleFilterChange} type="tv" initialFilters={filters} />
+              {/* TV Show Cards */}
+              <section className={styles.tvShowCards}>
+                {tvShows.map((show) => (
+                  <TVShowCard key={show.id} show={show} />
+                ))}
+              </section>
+            </>
+          )}
         </div>
       </main>
     </>
