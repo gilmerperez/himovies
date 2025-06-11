@@ -2,9 +2,9 @@ import styles from "./Filter.module.css";
 import { useState, useEffect } from "react";
 import { fetchMovieGenres, fetchTVGenres } from "../utils/api";
 
-function Filter({ onFilterChange, type = "movie" }) {
+function Filter({ onFilterChange, type = "movie", initialFilters }) {
   const [genres, setGenres] = useState([]);
-  const [filters, setFilters] = useState({ year: "", genre: "", country: "" });
+  const [filters, setFilters] = useState(initialFilters || { year: "", genre: "", country: "" });
 
   useEffect(() => {
     async function loadGenres() {
@@ -15,6 +15,10 @@ function Filter({ onFilterChange, type = "movie" }) {
     loadGenres();
   }, [type]);
 
+  useEffect(() => {
+    setFilters(initialFilters);
+  }, [initialFilters]);
+
   function handleChange(e) {
     const { name, value } = e.target;
     const updated = { ...filters, [name]: value };
@@ -24,7 +28,6 @@ function Filter({ onFilterChange, type = "movie" }) {
 
   return (
     <div className={styles.filters}>
-      {/* Year Filter */}
       <select name="year" value={filters.year} onChange={handleChange}>
         <option value="">All Years</option>
         {Array.from({ length: 30 }, (_, i) => {
@@ -36,7 +39,7 @@ function Filter({ onFilterChange, type = "movie" }) {
           );
         })}
       </select>
-      {/* Genre FIlter */}
+
       <select name="genre" value={filters.genre} onChange={handleChange}>
         <option value="">All Genres</option>
         {genres.map(({ id, name }) => (
@@ -45,7 +48,7 @@ function Filter({ onFilterChange, type = "movie" }) {
           </option>
         ))}
       </select>
-      {/* Country Filter */}
+
       <select name="country" value={filters.country} onChange={handleChange}>
         <option value="">All Countries</option>
         <option value="GB">United Kingdom</option>

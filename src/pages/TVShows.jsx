@@ -2,12 +2,19 @@ import styles from "./TVShows.module.css";
 import Filter from "../components/Filter";
 import { useState, useEffect } from "react";
 import TVShowCard from "../components/TVShowCard";
+import { useSearchParams } from "react-router-dom";
 import { fetchFilteredContent } from "../utils/api";
 
 function TVShows() {
   const [error, setError] = useState("");
   const [tvShows, setTVShows] = useState([]);
-  const [filters, setFilters] = useState({});
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const filters = {
+    year: searchParams.get("year") || "",
+    genre: searchParams.get("genre") || "",
+    country: searchParams.get("country") || "",
+  };
 
   useEffect(() => {
     async function getData() {
@@ -20,7 +27,13 @@ function TVShows() {
       }
     }
     getData();
-  }, [filters]);
+    // Warning that the filters object is missing a dependency in useEffect
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters.year, filters.genre, filters.country]);
+
+  function handleFilterChange(updatedFilters) {
+    setSearchParams(updatedFilters);
+  }
 
   return (
     <>
@@ -39,7 +52,7 @@ function TVShows() {
             </button>
           </section>
           {/* Filters */}
-          <Filter onFilterChange={setFilters} />
+          <Filter onFilterChange={handleFilterChange} type="tv" initialFilters={filters} />
           {/* TV Show Cards */}
           <section className={styles.tvShowCards}>
             {tvShows.map((show) => (

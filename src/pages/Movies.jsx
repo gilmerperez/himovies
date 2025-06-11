@@ -2,12 +2,19 @@ import styles from "./Movies.module.css";
 import Filter from "../components/Filter";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
+import { useSearchParams } from "react-router-dom";
 import { fetchFilteredContent } from "../utils/api";
 
 function Movies() {
   const [error, setError] = useState("");
   const [movies, setMovies] = useState([]);
-  const [filters, setFilters] = useState({});
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const filters = {
+    year: searchParams.get("year") || "",
+    genre: searchParams.get("genre") || "",
+    country: searchParams.get("country") || "",
+  };
 
   useEffect(() => {
     async function getData() {
@@ -20,7 +27,13 @@ function Movies() {
       }
     }
     getData();
-  }, [filters]);
+    // Warning that the filters object is missing a dependency in useEffect
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters.year, filters.genre, filters.country]);
+
+  function handleFilterChange(updatedFilters) {
+    setSearchParams(updatedFilters);
+  }
 
   return (
     <>
@@ -39,7 +52,7 @@ function Movies() {
             </button>
           </section>
           {/* Filters */}
-          <Filter onFilterChange={setFilters} />
+          <Filter onFilterChange={handleFilterChange} initialFilters={filters} />
           {/* Movie Cards */}
           <section className={styles.movieCards}>
             {movies.map((movie) => (
