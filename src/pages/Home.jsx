@@ -7,7 +7,7 @@ function Home() {
       <main>
         <div className={`container ${styles.container}`}>
           {/* Logo */}
-          <img src="src/assets/images/logo-2.png" alt="Movix Logo" className={styles.logo} />
+          <img src="src/assets/images/logo.png" alt="Movix Logo" className={styles.logo} />
           {/* Heading */}
           <h1 className={styles.heading}>Movix</h1>
           {/* Search Bar */}
