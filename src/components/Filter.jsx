@@ -1,22 +1,19 @@
 import styles from "./Filter.module.css";
 import { useState, useEffect } from "react";
-import { fetchMovieGenres } from "../utils/api";
+import { fetchMovieGenres, fetchTVGenres } from "../utils/api";
 
-function Filter({ onFilterChange }) {
+function Filter({ onFilterChange, type = "movie" }) {
   const [genres, setGenres] = useState([]);
   const [filters, setFilters] = useState({ year: "", genre: "", country: "" });
 
   useEffect(() => {
     async function loadGenres() {
-      const genreMap = await fetchMovieGenres();
-      const genreList = Object.entries(genreMap).map(([id, name]) => ({
-        id,
-        name,
-      }));
+      const genreMap = type === "tv" ? await fetchTVGenres() : await fetchMovieGenres();
+      const genreList = Object.entries(genreMap).map(([id, name]) => ({ id, name }));
       setGenres(genreList);
     }
     loadGenres();
-  }, []);
+  }, [type]);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -39,7 +36,7 @@ function Filter({ onFilterChange }) {
           );
         })}
       </select>
-      {/* Genre Filter */}
+      {/* Genre FIlter */}
       <select name="genre" value={filters.genre} onChange={handleChange}>
         <option value="">All Genres</option>
         {genres.map(({ id, name }) => (

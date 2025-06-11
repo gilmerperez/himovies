@@ -1,3 +1,7 @@
+// Add error handling
+// In-Memory caching through memorizing genre maps
+// Define default parameters for consistency (page1, page2, etc)
+
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "516351753677be342aec94955927019f";
 
@@ -28,10 +32,6 @@ export async function fetchMovies({ page = 1, year = "", genre = "", country = "
   return enriched;
 }
 
-export async function fetchMovieGenres() {
-  return await fetchGenreMap("movie");
-}
-
 async function fetchMovieDetails(id) {
   const [detailsRes, ratingsRes] = await Promise.all([
     fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`),
@@ -48,6 +48,10 @@ async function fetchMovieDetails(id) {
     runtime: details.runtime,
     certification,
   };
+}
+
+export async function fetchMovieGenres() {
+  return await fetchGenreMap("movie");
 }
 
 // * TV Shows
@@ -78,6 +82,10 @@ async function fetchTVDetails(id) {
     number_of_seasons: data.number_of_seasons,
     first_air_date: data.first_air_date,
   };
+}
+
+export async function fetchTVGenres() {
+  return await fetchGenreMap("tv");
 }
 
 // * Top Rated on IMDB
@@ -116,4 +124,40 @@ async function fetchGenreMap(type = "movie") {
   }
 
   return map;
+}
+
+export async function fetchFilteredContent(type = "movie", { page = 1, year = "", genre = "", country = "" } = {}) {
+  let url = `${BASE_URL}/discover/${type}?api_key=${API_KEY}&language=en-US&page=${page}&sort_by=popularity.desc`;
+
+  if (year) url += `&${type === "movie" ? "primary_release_year" : "first_air_date_year"}=${year}`;
+  if (genre) url += `&with_genres=${genre}`;
+  if (country) url += `&region=${country}`;
+
+  const response = await fetch(url);
+  const json = await response.json();
+  const genreMap = await fetchGenreMap(type);
+
+  const enriched = await Promise.all(
+    json.results.map(async (item) => {
+      if (type === "movie") {
+        const { runtime, certification } = await fetchMovieDetails(item.id);
+        return {
+          ...item,
+          runtime,
+          certification,
+          genre_names: item.genre_ids.map((id) => genreMap[id] || "Unknown"),
+        };
+      } else {
+        const { number_of_seasons, first_air_date } = await fetchTVDetails(item.id);
+        return {
+          ...item,
+          number_of_seasons,
+          first_air_date,
+          genre_names: item.genre_ids.map((id) => genreMap[id] || "Unknown"),
+        };
+      }
+    })
+  );
+
+  return enriched;
 }
