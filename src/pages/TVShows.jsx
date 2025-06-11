@@ -1,16 +1,18 @@
 import styles from "./TVShows.module.css";
-import { fetchTVShows } from "../utils/api";
+import Filter from "../components/Filter";
 import { useState, useEffect } from "react";
 import TVShowCard from "../components/TVShowCard";
+import { fetchFilteredContent } from "../utils/api";
 
 function TVShows() {
   const [error, setError] = useState("");
   const [tvShows, setTVShows] = useState([]);
+  const [filters, setFilters] = useState({});
 
   useEffect(() => {
     async function getData() {
       try {
-        const data = await fetchTVShows();
+        const data = await fetchFilteredContent("tv", filters);
         setTVShows(data);
       } catch (error) {
         console.error("Failed to fetch TV shows", error);
@@ -18,7 +20,7 @@ function TVShows() {
       }
     }
     getData();
-  }, []);
+  }, [filters]);
 
   return (
     <>
@@ -36,6 +38,8 @@ function TVShows() {
               <i className="fa-solid fa-tv"></i>
             </button>
           </section>
+          {/* Filters */}
+          <Filter onFilterChange={setFilters} />
           {/* TV Show Cards */}
           <section className={styles.tvShowCards}>
             {tvShows.map((show) => (

@@ -5,6 +5,60 @@
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "516351753677be342aec94955927019f";
 
+// * Main Fetch Function
+export async function fetchFilteredContent(type = "movie", { page = 1, year = "", genre = "", country = "" } = {}) {
+  let url = `${BASE_URL}/discover/${type}?api_key=${API_KEY}&language=en-US&page=${page}&sort_by=popularity.desc`;
+
+  if (year) url += `&${type === "movie" ? "primary_release_year" : "first_air_date_year"}=${year}`;
+  if (genre) url += `&with_genres=${genre}`;
+  if (country) url += `&region=${country}`;
+
+  // Fetch data from TMDB API
+  const response = await fetch(url);
+  const json = await response.json();
+
+  // Applies fetchGenreMap function so we know what genres are, instead of random numbers
+  const genreMap = await fetchGenreMap(type);
+
+  // Enrich results with more metadata
+  const enriched = await Promise.all(
+    json.results.map(async (item) => {
+      if (type === "movie") {
+        const { runtime, certification } = await fetchMovieDetails(item.id);
+        return {
+          ...item,
+          runtime,
+          certification,
+          genre_names: item.genre_ids.map((id) => genreMap[id] || "Unknown"),
+        };
+      } else {
+        const { number_of_seasons, first_air_date } = await fetchTVDetails(item.id);
+        return {
+          ...item,
+          number_of_seasons,
+          first_air_date,
+          genre_names: item.genre_ids.map((id) => genreMap[id] || "Unknown"),
+        };
+      }
+    })
+  );
+
+  return enriched;
+}
+
+// * Genre Map
+async function fetchGenreMap(type = "movie") {
+  const response = await fetch(`${BASE_URL}/genre/${type}/list?api_key=${API_KEY}&language=en-US`);
+  const data = await response.json();
+  const map = {};
+
+  for (const genre of data.genres) {
+    map[genre.id] = genre.name;
+  }
+
+  return map;
+}
+
 // * Movies
 export async function fetchMovies({ page = 1, year = "", genre = "", country = "" } = {}) {
   let url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&page=${page}&sort_by=popularity.desc`;
@@ -107,55 +161,6 @@ export async function fetchTopRatedMovies(page = 1) {
         // Total number of votes
         vote_count: movie.vote_count,
       };
-    })
-  );
-
-  return enriched;
-}
-
-// * Genre Map
-async function fetchGenreMap(type = "movie") {
-  const response = await fetch(`${BASE_URL}/genre/${type}/list?api_key=${API_KEY}&language=en-US`);
-  const data = await response.json();
-  const map = {};
-
-  for (const genre of data.genres) {
-    map[genre.id] = genre.name;
-  }
-
-  return map;
-}
-
-export async function fetchFilteredContent(type = "movie", { page = 1, year = "", genre = "", country = "" } = {}) {
-  let url = `${BASE_URL}/discover/${type}?api_key=${API_KEY}&language=en-US&page=${page}&sort_by=popularity.desc`;
-
-  if (year) url += `&${type === "movie" ? "primary_release_year" : "first_air_date_year"}=${year}`;
-  if (genre) url += `&with_genres=${genre}`;
-  if (country) url += `&region=${country}`;
-
-  const response = await fetch(url);
-  const json = await response.json();
-  const genreMap = await fetchGenreMap(type);
-
-  const enriched = await Promise.all(
-    json.results.map(async (item) => {
-      if (type === "movie") {
-        const { runtime, certification } = await fetchMovieDetails(item.id);
-        return {
-          ...item,
-          runtime,
-          certification,
-          genre_names: item.genre_ids.map((id) => genreMap[id] || "Unknown"),
-        };
-      } else {
-        const { number_of_seasons, first_air_date } = await fetchTVDetails(item.id);
-        return {
-          ...item,
-          number_of_seasons,
-          first_air_date,
-          genre_names: item.genre_ids.map((id) => genreMap[id] || "Unknown"),
-        };
-      }
     })
   );
 

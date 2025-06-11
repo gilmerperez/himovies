@@ -1,8 +1,8 @@
 import styles from "./Movies.module.css";
 import Filter from "../components/Filter";
-import { fetchMovies } from "../utils/api";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
+import { fetchFilteredContent } from "../utils/api";
 
 function Movies() {
   const [error, setError] = useState("");
@@ -12,7 +12,7 @@ function Movies() {
   useEffect(() => {
     async function getData() {
       try {
-        const data = await fetchMovies(filters);
+        const data = await fetchFilteredContent("movie", filters);
         setMovies(data);
       } catch (error) {
         console.error("Failed to fetch Movies", error);
