@@ -1,6 +1,6 @@
 // Add error handling
-// In-Memory caching through memorizing genre maps
-// Define default parameters for consistency (page1, page2, etc)
+// Add in-memory caching through memorizing genre maps
+// Add define default parameters for consistency (page1, page2, etc)
 
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "516351753677be342aec94955927019f";
