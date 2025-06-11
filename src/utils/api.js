@@ -2,8 +2,14 @@ const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "516351753677be342aec94955927019f";
 
 // * Movies
-export async function fetchMovies(page = 1) {
-  const response = await fetch(`${BASE_URL}/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${page}`);
+export async function fetchMovies({ page = 1, year = "", genre = "", country = "" } = {}) {
+  let url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&page=${page}&sort_by=popularity.desc`;
+
+  if (year) url += `&primary_release_year=${year}`;
+  if (genre) url += `&with_genres=${genre}`;
+  if (country) url += `&region=${country}`;
+
+  const response = await fetch(url);
   const json = await response.json();
   const genreMap = await fetchGenreMap("movie");
 
@@ -20,6 +26,10 @@ export async function fetchMovies(page = 1) {
   );
 
   return enriched;
+}
+
+export async function fetchMovieGenres() {
+  return await fetchGenreMap("movie");
 }
 
 async function fetchMovieDetails(id) {
