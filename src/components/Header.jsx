@@ -8,7 +8,7 @@ function Header() {
         <div className={`container ${styles.container}`}>
           {/* Logo */}
           <NavLink to="/" className={styles.headerLogoLink}>
-            <img src="src/assets/images/logo.png" alt="Movix Logo" className={styles.headerLogo} />
+            <img src="src/assets/images/logo-1.png" alt="Movix Logo" className={styles.headerLogo} />
           </NavLink>
           {/* Site Navigation */}
           <nav className={styles.headerNav}>

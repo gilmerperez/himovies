@@ -10,7 +10,7 @@ main {
 }
 
 .logo {
-  height: 100px;
+  height: 150px;
   margin-bottom: 0.5rem;
 }
 
@@ -19,11 +19,11 @@ main {
   transition: 0.3s;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: hsl(54, 100%, 50%);
+  color: hsl(355, 95%, 45%);
 }
 
 .heading:hover {
-  text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
+  text-shadow: 0 0 30px hsl(355, 95%, 45%, 0.75);
 }
 
 .searchBar {
@@ -47,13 +47,13 @@ main {
   height: 50px;
   min-width: 10%;
   font-size: 25px;
+  transition: 0.3s ease-in;
   border-radius: 0 5px 5px 0;
-  transition: 0.3s ease-in-out;
-  background-color: hsl(54, 100%, 50%);
+  background-color: hsl(355, 95%, 45%);
 }
 
 .searchBar button:hover {
-  background-color: hsl(54, 100%, 45%);
+  background-color: hsl(355, 95%, 35%);
 }
 
 .socialLinks {
@@ -215,8 +215,8 @@ main {
   font-size: 1.25rem;
   border-radius: 10px;
   margin-bottom: 1.5rem;
-  border: 1px solid hsl(54, 100%, 50%);
-  box-shadow: 0 0 20px hsl(54, 100%, 50%, 0.25);
+  border: 1px solid hsl(355, 95%, 45%);
+  box-shadow: 0 0 20px hsl(355, 95%, 45%, 0.5);
 }
 
 .informationalText .subheading,
@@ -245,13 +245,13 @@ main {
   padding: 1rem 2rem;
   border-radius: 30px;
   transition: 0.3s ease-in;
-  background-color: hsl(54, 100%, 50%);
+  background-color: hsl(355, 95%, 45%);
 }
 
 .viewMovies:hover {
   font-weight: 600;
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 20px hsl(54, 100%, 50%);
+  box-shadow: 0 0 20px hsl(355, 95%, 45%);
 }
 
 @media (max-width: 768px) {

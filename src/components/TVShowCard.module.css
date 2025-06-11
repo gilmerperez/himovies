@@ -5,15 +5,15 @@
   min-height: 600px;
   border-radius: 5px;
   flex-direction: column;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in;
   justify-content: space-between;
   background-color: hsl(0, 0%, 5%);
-  box-shadow: 0 0 25px hsla(0, 0%, 20%, 0.5);
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.1);
 }
 
 .tvCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 50px hsla(0, 0%, 40%, 0.5);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.2);
 }
 
 .tvCard img {
@@ -35,6 +35,7 @@
 .tvTitle {
   font-weight: 500;
   font-size: 1.5rem;
+  text-align: center;
   margin-bottom: 0.5rem;
 }
 
@@ -51,25 +52,27 @@
 .tvSeasons {
   font-weight: 400;
   font-size: 1.15rem;
-  color: hsl(0, 0%, 80%);
+  color: hsl(0, 0%, 90%);
 }
 
 .tvGenre {
   font-weight: 500;
   font-size: 1.15rem;
+  text-align: center;
   white-space: normal;
   word-wrap: break-word;
   margin-bottom: 0.5rem;
-  color: hsl(0, 0%, 80%);
+  color: hsl(0, 0%, 90%);
 }
 
 .tvDescription {
   line-clamp: 5;
   overflow: hidden;
   max-height: 6.5em;
+  text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   text-overflow: ellipsis;
-  color: hsl(0, 0%, 80%);
+  color: hsl(0, 0%, 90%);
   -webkit-box-orient: vertical;
 }

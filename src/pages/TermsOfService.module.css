@@ -1,13 +1,14 @@
+* {
+  border: 1px solid red;
+}
+
 main {
   padding: 2rem;
   color: white;
-  text-align: center;
 }
 
 .container {
-  width: 100%;
   display: flex;
-  max-width: 800px;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -15,29 +16,32 @@ main {
 
 .heading {
   font-size: 3rem;
-  transition: 0.3s;
   font-weight: 700;
+  text-align: center;
   margin-bottom: 1.25rem;
-  color: hsl(54, 100%, 50%);
+  transition: 0.3s ease-in;
+  color: hsl(355, 95%, 45%);
 }
 
 .heading:hover {
-  text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
+  text-shadow: 0 0 30px hsl(355, 95%, 45%, 0.75);
 }
 
 .description {
-  font-weight: 600;
-  font-size: 1.15rem;
+  font-weight: 500;
+  font-size: 1.25rem;
   margin-bottom: 2rem;
+  text-align: center;
+  max-width: 1000px;
 }
 
 .termHeading {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
 }
 
-.termText:not(:last-child) {
+.termText {
   margin-bottom: 1.5rem;
 }
 

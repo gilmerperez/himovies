@@ -14,11 +14,11 @@ main {
   transition: 0.3s;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: hsl(54, 100%, 50%);
+  color: hsl(355, 95%, 45%);
 }
 
 .heading:hover {
-  text-shadow: 0px 0px 20px hsl(54, 100%, 50%);
+  text-shadow: 0 0 30px hsl(355, 95%, 45%, 0.75);
 }
 
 .error {
@@ -28,7 +28,7 @@ main {
   border-radius: 5px;
   text-align: center;
   margin-bottom: 2rem;
-  background-color: hsla(54, 100%, 50%, 0.5);
+  background-color: hsl(355, 95%, 45%, 0.75);
 }
 
 .searchBar {
@@ -52,12 +52,12 @@ main {
   min-width: 10%;
   font-size: 25px;
   border-radius: 0 5px 5px 0;
-  transition: 0.3s ease-in-out;
-  background-color: hsl(54, 100%, 50%);
+  transition: 0.3s ease-in;
+  background-color: hsl(355, 95%, 45%);
 }
 
 .searchBar button:hover {
-  background-color: hsl(54, 100%, 45%);
+  background-color: hsl(355, 95%, 35%);
 }
 
 .movieCards {
