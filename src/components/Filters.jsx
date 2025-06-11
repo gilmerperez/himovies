@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "./MovieFilters.module.css";
+import styles from "./Filters.module.css";
 import { fetchMovieGenres } from "../utils/api";
 
 function MovieFilters({ onFilterChange }) {
@@ -50,12 +50,11 @@ function MovieFilters({ onFilterChange }) {
 
       <select name="country" value={filters.country} onChange={handleChange}>
         <option value="">All Countries</option>
-        <option value="US">🇺🇸 United States</option>
-        <option value="GB">🇬🇧 United Kingdom</option>
-        <option value="IN">🇮🇳 India</option>
-        <option value="FR">🇫🇷 France</option>
-        <option value="JP">🇯🇵 Japan</option>
-        {/* Add more as needed */}
+        <option value="GB">United Kingdom</option>
+        <option value="US">United States</option>
+        <option value="FR">France</option>
+        <option value="JP">Japan</option>
+        <option value="IN">India</option>
       </select>
     </div>
   );

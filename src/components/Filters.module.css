@@ -1,0 +1,33 @@
+.filters {
+  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+select {
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  min-width: 180px;
+  appearance: none;
+  text-align: center;
+  border-radius: 5px;
+  color: hsl(0, 0%, 90%);
+  transition: 0.3s ease-in;
+  background-color: hsl(0, 0%, 10%);
+  border: 1px solid hsl(355, 95%, 45%) !important;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 10px hsl(355, 95%, 45%, 0.75);
+}
+
+option {
+  color: hsl(0, 0%, 90%);
+  text-align: center !important;
+  background-color: hsl(0, 0%, 10%);
+}

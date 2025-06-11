@@ -2,7 +2,7 @@ import styles from "./Movies.module.css";
 import { fetchMovies } from "../utils/api";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
-import MovieFilters from "../components/MovieFilters";
+import Filters from "../components/Filters";
 
 function Movies() {
   const [error, setError] = useState("");
@@ -39,7 +39,7 @@ function Movies() {
             </button>
           </section>
           {/* Filters */}
-          <MovieFilters onFilterChange={setFilters} />
+          <Filters onFilterChange={setFilters} />
           {/* Movie Cards */}
           <section className={styles.movieCards}>
             {movies.map((movie) => (
