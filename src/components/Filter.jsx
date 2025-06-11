@@ -1,4 +1,4 @@
-import styles from "./Filters.module.css";
+import styles from "./Filter.module.css";
 import { useState, useEffect } from "react";
 import { fetchMovieGenres } from "../utils/api";
 
