@@ -230,15 +230,15 @@ export async function fetchTopRatedMovies(page = 1) {
         runtime,
         certification,
         genre_names: movie.genre_ids.map((id) => genreMap[id] || "Unknown"),
-        // Average audience rating
         audience_score: movie.vote_average,
-        // Total number of votes
         vote_count: movie.vote_count,
       };
     })
   );
-
-  return enriched;
+  return {
+    results: enriched,
+    totalResults: json.total_results,
+  };
 }
 
 // * In-Depth Media Details
