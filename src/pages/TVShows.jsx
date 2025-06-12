@@ -14,6 +14,11 @@ function TVShows() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // Change page title
+  useEffect(() => {
+    document.title = "Movix | TV Shows";
+  }, []);
+
   // Extract filters from the URL parameters
   const filters = {
     year: searchParams.get("year") || "",
@@ -75,7 +80,6 @@ function TVShows() {
 
   return (
     <>
-      <title>Movix | TV Shows</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

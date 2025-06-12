@@ -16,7 +16,7 @@ function Filter({ onFilterChange, type = "movie", initialFilters }) {
   }, [type]);
 
   useEffect(() => {
-    setFilters(initialFilters);
+    setFilters(initialFilters || { year: "", genre: "", country: "" });
   }, [initialFilters]);
 
   function handleChange(e) {
@@ -34,7 +34,7 @@ function Filter({ onFilterChange, type = "movie", initialFilters }) {
           {Array.from({ length: 30 }, (_, i) => {
             const y = new Date().getFullYear() - i;
             return (
-              <option key={y} value={y}>
+              <option key={y} value={y.toString()}>
                 {y}
               </option>
             );

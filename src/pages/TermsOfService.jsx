@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import styles from "./TermsOfService.module.css";
 
 function TermsOfService() {
+  // Change page title
+  useEffect(() => {
+    document.title = "Movix | Terms of Service";
+  }, []);
+
   return (
     <>
-      <title>Movix | Terms of Service</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

@@ -1,0 +1,38 @@
+.paginationContainer {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.paginationItems {
+  gap: 1rem;
+  display: flex;
+  list-style: none;
+}
+
+.pageItem {
+  border-radius: 5px;
+}
+
+.pageLink {
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: 0.2s ease-in;
+  background-color: hsl(0, 0%, 5%);
+  border: 2px solid hsl(355, 95%, 45%);
+}
+
+.pageLink:hover:not(:disabled) {
+  transform: translateY(-5px);
+  background-color: hsl(355, 95%, 45%);
+}
+
+.active .pageLink {
+  background-color: hsl(355, 95%, 45%);
+}
+
+.disabled .pageLink {
+  opacity: 0.5;
+}

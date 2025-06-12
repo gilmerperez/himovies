@@ -1,8 +1,8 @@
 import styles from "./TopIMDB.module.css";
 import Loading from "../components/Loading/Loading";
+import TopIMDBCard from "../components/Top IMDB Card/TopIMDBCard";
 import { useState, useEffect } from "react";
 import { fetchTopRatedMovies } from "../utils/api";
-import TopIMDBCard from "../components/Top IMDB Card/TopIMDBCard";
 
 function TopIMDB() {
   // State hooks
@@ -10,6 +10,11 @@ function TopIMDB() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Change page title
+  useEffect(() => {
+    document.title = "Movix | Top IMDB";
+  }, []);
 
   useEffect(() => {
     async function getData() {
@@ -31,7 +36,6 @@ function TopIMDB() {
 
   return (
     <>
-      <title>Movix | Top Rated on IMDB</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import styles from "./Contact.module.css";
 
 function Contact() {
+  // Change page title
+  useEffect(() => {
+    document.title = "Movix | Contact";
+  }, []);
+
   return (
     <>
-      <title>Movix | Contact</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}

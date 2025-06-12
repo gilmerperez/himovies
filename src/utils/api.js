@@ -2,23 +2,34 @@ const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "516351753677be342aec94955927019f";
 
 // * Main Fetch Function
-export async function fetchFilteredContent(type = "movie", { page = 1, year = "", genre = "", country = "" } = {}) {
-  let url = `${BASE_URL}/discover/${type}?api_key=${API_KEY}&language=en-US&page=${page}&sort_by=popularity.desc`;
-
-  if (year) url += `&${type === "movie" ? "primary_release_year" : "first_air_date_year"}=${year}`;
-  if (genre) url += `&with_genres=${genre}`;
-  if (country) url += `&region=${country}`;
-
-  // Fetch data from TMDB API
-  const response = await fetch(url);
-  const json = await response.json();
-
-  // Applies fetchGenreMap function so we know what genres are, instead of random numbers
+export async function fetchFilteredContent(
+  type = "movie",
+  { page = 1, year = "", genre = "", country = "" } = {},
+  resultsPerPage = 52
+) {
+  const totalPagesNeeded = Math.ceil(resultsPerPage / 20); // TMDB returns 20 per page
   const genreMap = await fetchGenreMap(type);
 
-  // Enrich results with more metadata
+  let results = [];
+  let totalResults = 0;
+
+  for (let i = 0; i < totalPagesNeeded; i++) {
+    const apiPage = (page - 1) * totalPagesNeeded + i + 1;
+    let url = `${BASE_URL}/discover/${type}?api_key=${API_KEY}&language=en-US&page=${apiPage}&sort_by=popularity.desc`;
+
+    if (year) url += `&${type === "movie" ? "primary_release_year" : "first_air_date_year"}=${year}`;
+    if (genre) url += `&with_genres=${genre}`;
+    if (country) url += `&region=${country}`;
+
+    const response = await fetch(url);
+    const json = await response.json();
+
+    if (i === 0) totalResults = json.total_results; // Only grab this once
+    results.push(...json.results);
+  }
+
   const enriched = await Promise.all(
-    json.results.map(async (item) => {
+    results.slice(0, resultsPerPage).map(async (item) => {
       if (type === "movie") {
         const { runtime, certification } = await fetchMovieDetails(item.id);
         return {
@@ -39,7 +50,10 @@ export async function fetchFilteredContent(type = "movie", { page = 1, year = ""
     })
   );
 
-  return enriched;
+  return {
+    results: enriched,
+    totalResults,
+  };
 }
 
 // * Genre Map

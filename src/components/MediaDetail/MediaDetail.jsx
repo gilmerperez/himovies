@@ -12,6 +12,15 @@ function MediaDetail({ mediaType }) {
   const [media, setMedia] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Change page title according to media
+  useEffect(() => {
+    if (media) {
+      document.title = `Movix | ${media.title || media.name}`;
+    } else {
+      document.title = "Movix | Loading...";
+    }
+  }, [media]);
+
   useEffect(() => {
     async function getDetails() {
       setError("");
@@ -28,15 +37,6 @@ function MediaDetail({ mediaType }) {
     }
     getDetails();
   }, [mediaType, id]);
-
-  // Change page title according to media
-  useEffect(() => {
-    if (media) {
-      document.title = `Movix | ${media.title || media.name}`;
-    } else {
-      document.title = "Movix | Loading...";
-    }
-  }, [media]);
 
   return (
     <>

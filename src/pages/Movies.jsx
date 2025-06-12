@@ -1,18 +1,26 @@
 import styles from "./Movies.module.css";
 import Filter from "../components/Filter/Filter";
 import Loading from "../components/Loading/Loading";
-import MovieCard from "../components/Movie Card/MovieCard";
+import MovieCard from "../components/MovieCard/MovieCard";
+import Pagination from "../components/Pagination/Pagination";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { fetchFilteredContent, searchMovies } from "../utils/api";
 
 function Movies() {
   // State hooks
+  const [page, setPage] = useState(1);
   const [error, setError] = useState("");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [totalResults, setTotalResults] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
+
+  // Change page title
+  useEffect(() => {
+    document.title = "Movix | Movies";
+  }, []);
 
   // Extract filters from the URL parameters
   const filters = {
@@ -27,8 +35,9 @@ function Movies() {
       setError("");
       setLoading(true);
       try {
-        const data = await fetchFilteredContent("movie", filters);
-        setMovies(data);
+        const data = await fetchFilteredContent("movie", { ...filters, page }, 52);
+        setMovies(data.results);
+        setTotalResults(data.totalResults);
       } catch (error) {
         console.error("Failed to fetch movies", error);
         setError("Sorry, something went wrong while fetching the latest movies");
@@ -39,7 +48,7 @@ function Movies() {
     getData();
     // * Warning that the filters object is missing a dependency in useEffect
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters.year, filters.genre, filters.country]);
+  }, [filters.year, filters.genre, filters.country, page]);
 
   // When user uses filters
   function handleFilterChange(updatedFilters) {
@@ -65,7 +74,10 @@ function Movies() {
 
     try {
       const data = await searchMovies(searchTerm);
-      setMovies(data);
+      // Reset to 1st page
+      setPage(1);
+      setMovies(data.results);
+      setTotalResults(data.totalResults);
     } catch (error) {
       console.error("Search failed", error);
       setError("Sorry, something went wrong while searching");
@@ -74,9 +86,20 @@ function Movies() {
     }
   }
 
+  // Calculates total pages based on TMDB results
+  const maxPagesToShow = 10;
+  const totalPages = Math.min(Math.ceil(totalResults / 52), maxPagesToShow);
+
+  // On page change
+  function handlePageChange(newPage) {
+    if (newPage < 1 || newPage > totalPages) return;
+    setPage(newPage);
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <>
-      <title>Movix | Movies</title>
       <main>
         <div className={`container ${styles.container}`}>
           {/* Heading */}
@@ -105,13 +128,15 @@ function Movies() {
           ) : (
             <>
               {/* Filters */}
-              <Filter onFilterChange={handleFilterChange} initialFilters={filters} />
+              <Filter filters={filters} onFilterChange={handleFilterChange} />
               {/* Movie Cards */}
               <section className={styles.movieCards}>
-                {movies.map((movie) => (
-                  <MovieCard key={movie.id} movie={movie} />
+                {movies.map((movie, index) => (
+                  <MovieCard key={`${movie.id}-${index}`} movie={movie} />
                 ))}
               </section>
+              {/* Pagination */}
+              <Pagination page={page} onPageChange={handlePageChange} totalPages={totalPages} />
             </>
           )}
         </div>
