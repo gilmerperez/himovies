@@ -38,7 +38,7 @@ function TopIMDB() {
           <section className={styles.searchBar}>
             <input type="text" placeholder="Enter Keywords..." />
             <button>
-              <i class="fa-solid fa-trophy"></i>
+              <i className="fa-solid fa-trophy"></i>
             </button>
           </section>
           {/* Loading or Content */}

@@ -163,6 +163,34 @@ export async function fetchTopRatedMovies(page = 1) {
   return enriched;
 }
 
+// * Search Bar
+export async function searchMovies(query) {
+  if (!query) {
+    return [];
+  }
+
+  const response = await fetch(
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${encodeURIComponent(query)}&include_adult=false`
+  );
+
+  const json = await response.json();
+  const genreMap = await fetchGenreMap("movie");
+
+  const enriched = await Promise.all(
+    json.results.map(async (movie) => {
+      const { runtime, certification } = await fetchMovieDetails(movie.id);
+      return {
+        ...movie,
+        runtime,
+        certification,
+        genre_names: movie.genre_ids.map((id) => genreMap[id] || "Unknown"),
+      };
+    })
+  );
+
+  return enriched;
+}
+
 // * In-Depth Media Details
 export async function fetchMediaDetails(type = "movie", id) {
   const detailRes = await fetch(`${BASE_URL}/${type}/${id}?api_key=${API_KEY}&language=en-US`);
