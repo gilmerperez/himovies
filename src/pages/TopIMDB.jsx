@@ -5,9 +5,11 @@ import { fetchTopRatedMovies } from "../utils/api";
 import TopIMDBCard from "../components/Top IMDB Card/TopIMDBCard";
 
 function TopIMDB() {
+  // State hooks
   const [error, setError] = useState("");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     async function getData() {
@@ -25,6 +27,8 @@ function TopIMDB() {
     getData();
   }, []);
 
+  const filteredMovies = movies.filter((movie) => movie.title?.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
     <>
       <title>Movix | Top Rated on IMDB</title>
@@ -36,21 +40,26 @@ function TopIMDB() {
           {error && <div className={styles.error}>{error}</div>}
           {/* Search Bar */}
           <section className={styles.searchBar}>
-            <input type="text" placeholder="Enter Keywords..." />
+            <input
+              type="text"
+              placeholder="Enter Keywords..."
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+            />
             <button>
               <i className="fa-solid fa-trophy"></i>
             </button>
           </section>
-          {/* Loading or Content */}
+          {/* Loading or Results */}
           {loading ? (
             <Loading />
           ) : (
             <>
               {/* Top IMDB Cards */}
               <section className={styles.topIMDBCards}>
-                {movies.map((movie) => (
-                  <TopIMDBCard key={movie.id} movie={movie} />
-                ))}
+                {filteredMovies.length > 0
+                  ? filteredMovies.map((movie) => <TopIMDBCard key={movie.id} movie={movie} />)
+                  : null}
               </section>
             </>
           )}

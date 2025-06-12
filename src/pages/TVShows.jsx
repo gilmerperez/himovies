@@ -98,7 +98,7 @@ function TVShows() {
               <i className="fa-solid fa-tv"></i>
             </button>
           </section>
-          {/* Loading or Content */}
+          {/* Loading or Results */}
           {loading ? (
             <Loading />
           ) : (
