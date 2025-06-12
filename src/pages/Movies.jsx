@@ -3,9 +3,9 @@ import Filter from "../components/Filter/Filter";
 import Loading from "../components/Loading/Loading";
 import MovieCard from "../components/MovieCard/MovieCard";
 import Pagination from "../components/Pagination/Pagination";
-import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { fetchFilteredContent, searchMovies } from "../utils/api";
+import { useState, useEffect, useMemo, useCallback } from "react";
 
 function Movies() {
   // State hooks
@@ -22,48 +22,58 @@ function Movies() {
     document.title = "Movix | Movies";
   }, []);
 
-  // Extract filters from the URL parameters
-  const filters = {
-    year: searchParams.get("year") || "",
-    genre: searchParams.get("genre") || "",
-    country: searchParams.get("country") || "",
-  };
+  // Extract filters from the URL parameters, using useMemo to prevent unnecessary effect triggers
+  const filters = useMemo(
+    () => ({
+      year: searchParams.get("year") || "",
+      genre: searchParams.get("genre") || "",
+      country: searchParams.get("country") || "",
+    }),
+    [searchParams]
+  );
 
-  // Fetch filtered content on filter change, not search change
+  // Fetch filtered content on filter change, not search change. With abort controller for cleanup
   useEffect(() => {
+    const controller = new AbortController();
+
     async function getData() {
       setError("");
       setLoading(true);
       try {
-        const data = await fetchFilteredContent("movie", { ...filters, page }, 52);
+        const data = await fetchFilteredContent("movie", { ...filters, page }, 52, controller.signal);
         setMovies(data.results);
         setTotalResults(data.totalResults);
       } catch (error) {
-        console.error("Failed to fetch movies", error);
-        setError("Sorry, something went wrong while fetching the latest movies");
+        if (error.name !== "AbortError") {
+          console.error("Failed to fetch movies", error);
+          setError("Sorry, something went wrong while fetching the latest movies");
+        }
       } finally {
         setLoading(false);
       }
     }
     getData();
-    // * Warning that the filters object is missing a dependency in useEffect
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters.year, filters.genre, filters.country, page]);
+    return () => {
+      controller.abort();
+    };
+  }, [filters, page]);
 
-  // When user uses filters
-  function handleFilterChange(updatedFilters) {
-    setSearchTerm(""); // Clear search when user uses filters
-    setSearchParams(updatedFilters); // Update filters
-  }
+  // When user uses filters, wrapped in useCallback
+  const handleFilterChange = useCallback(
+    (updatedFilters) => {
+      setSearchTerm(""); // Clear search when user uses filters
+      setSearchParams(updatedFilters); // Update filters
+    },
+    [setSearchParams]
+  );
 
-  // Manual input update
-  function handleSearchInputChange(event) {
+  // Manual input update, wrapped in useCallback
+  const handleSearchInputChange = useCallback((event) => {
     setSearchTerm(event.target.value);
-  }
+  }, []);
 
-  // Keyword search
-  async function handleSearch() {
-    // Prevent empty searches
+  // Keyword search, wrapped in useCallback
+  const handleSearch = useCallback(async () => {
     if (!searchTerm.trim()) {
       setError("Please enter a keyword to search");
       return;
@@ -74,8 +84,7 @@ function Movies() {
 
     try {
       const data = await searchMovies(searchTerm);
-      // Reset to 1st page
-      setPage(1);
+      setPage(1); // Reset to first page
       setMovies(data.results);
       setTotalResults(data.totalResults);
     } catch (error) {
@@ -84,19 +93,21 @@ function Movies() {
     } finally {
       setLoading(false);
     }
-  }
+  }, [searchTerm]);
 
   // Calculates total pages based on TMDB results
   const maxPagesToShow = 10;
   const totalPages = Math.min(Math.ceil(totalResults / 52), maxPagesToShow);
 
-  // On page change
-  function handlePageChange(newPage) {
-    if (newPage < 1 || newPage > totalPages) return;
-    setPage(newPage);
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  // On page change, wrapped in useCallback
+  const handlePageChange = useCallback(
+    (newPage) => {
+      if (newPage < 1 || newPage > totalPages) return;
+      setPage(newPage);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+    [totalPages]
+  );
 
   return (
     <>
@@ -114,7 +125,6 @@ function Movies() {
               value={searchTerm}
               onChange={handleSearchInputChange}
               onKeyDown={(event) => {
-                // If Enter Key is pressed, search
                 if (event.key === "Enter") handleSearch();
               }}
             />
