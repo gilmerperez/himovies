@@ -19,6 +19,7 @@ function MediaDetail({ mediaType }) {
       try {
         const data = await fetchMediaDetails(mediaType, id);
         setMedia(data);
+        console.log("Fetched media:", data);
       } catch (error) {
         console.error("Failed to fetch details", error);
         setError("Sorry, something went wrong while fetching details.");
@@ -41,7 +42,7 @@ function MediaDetail({ mediaType }) {
             <Loading />
           ) : (
             <>
-              <MediaBanner media={media} />
+              <MediaBanner backdropPath={media.backdrop_path} title={media.title || media.name} />
               <MediaDetails media={media} mediaType={mediaType} />
             </>
           )}

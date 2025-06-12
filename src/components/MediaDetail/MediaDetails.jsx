@@ -39,45 +39,46 @@ function MediaDetails({ media }) {
             </a>
           )}
           <p className={styles.description}>{overview}</p>
+
+          {/* ✅ Moved metadata here */}
+          <div className={styles.meta}>
+            {release_date || first_air_date ? (
+              <p>
+                <strong>Release Date:</strong> {release_date || first_air_date}
+              </p>
+            ) : null}
+            {genres?.length > 0 && (
+              <p>
+                <strong>Genres:</strong> {genres.join(", ")}
+              </p>
+            )}
+            {runtime && (
+              <p>
+                <strong>Duration:</strong> {runtime} min
+              </p>
+            )}
+            {number_of_seasons && (
+              <p>
+                <strong>Seasons:</strong> {number_of_seasons}
+              </p>
+            )}
+            {country && (
+              <p>
+                <strong>Country:</strong> {country}
+              </p>
+            )}
+            {directors?.length > 0 && (
+              <p>
+                <strong>Director(s):</strong> {directors.join(", ")}
+              </p>
+            )}
+            {producers?.length > 0 && (
+              <p>
+                <strong>Producer(s):</strong> {producers.join(", ")}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-      {/* Metadata */}
-      <div className={styles.meta}>
-        {release_date || first_air_date ? (
-          <p>
-            <strong>Release Date:</strong> {release_date || first_air_date}
-          </p>
-        ) : null}
-        {genres?.length > 0 && (
-          <p>
-            <strong>Genres:</strong> {genres.join(", ")}
-          </p>
-        )}
-        {runtime && (
-          <p>
-            <strong>Duration:</strong> {runtime} min
-          </p>
-        )}
-        {number_of_seasons && (
-          <p>
-            <strong>Seasons:</strong> {number_of_seasons}
-          </p>
-        )}
-        {country && (
-          <p>
-            <strong>Country:</strong> {country}
-          </p>
-        )}
-        {directors?.length > 0 && (
-          <p>
-            <strong>Director(s):</strong> {directors.join(", ")}
-          </p>
-        )}
-        {producers?.length > 0 && (
-          <p>
-            <strong>Producer(s):</strong> {producers.join(", ")}
-          </p>
-        )}
       </div>
     </div>
   );
