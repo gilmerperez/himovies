@@ -1,4 +1,3 @@
-Make the search bar work
 Make the header look better on mobile screens
 Let a lot more results per page come as soon as filtering is taken care of
 Hide API key in .env
