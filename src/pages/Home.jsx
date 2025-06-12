@@ -1,3 +1,4 @@
+import logo from "../assets/logo.png";
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 
@@ -7,7 +8,7 @@ function Home() {
       <main>
         <div className={`container ${styles.container}`}>
           {/* Logo */}
-          <img src="src/assets/images/logo.png" alt="Movix Logo" className={styles.logo} />
+          <img src={logo} alt="Movix Logo" className={styles.logo} />
           {/* Heading */}
           <h1 className={styles.heading}>Movix</h1>
           {/* Search Bar */}
@@ -69,6 +70,10 @@ function Home() {
               </div>
             </a>
           </section>
+          {/* CTA Button */}
+          <Link to="/movies" className={styles.viewMovies}>
+            Explore Movies and TV Shows
+          </Link>
           {/* Informational Text */}
           <section className={styles.informationalText}>
             <p className={styles.description}>
@@ -157,10 +162,6 @@ function Home() {
               crew, and user reviews. Multi-language support is included for international content where available.
             </p>
           </section>
-          {/* CTA Button */}
-          <Link to="/movies" className={styles.viewMovies}>
-            Explore Movies and TV Shows
-          </Link>
         </div>
       </main>
     </>
