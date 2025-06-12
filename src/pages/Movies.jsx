@@ -32,6 +32,9 @@ function Movies() {
     [searchParams]
   );
 
+  const RESULTS_PER_PAGE = 52;
+  const MAX_PAGES_TO_SHOW = 10;
+
   // Fetch filtered content on filter change, not search change. With abort controller for cleanup
   useEffect(() => {
     const controller = new AbortController();
@@ -40,9 +43,9 @@ function Movies() {
       setError("");
       setLoading(true);
       try {
-        const data = await fetchFilteredContent("movie", { ...filters, page }, 52, controller.signal);
-        setMovies(data.results);
-        setTotalResults(data.totalResults);
+        const data = await fetchFilteredContent("movie", { ...filters, page }, RESULTS_PER_PAGE, controller.signal);
+        setMovies(data.results || data);
+        setTotalResults(data.totalResults || (data.results ? data.results.length : data.length));
       } catch (error) {
         if (error.name !== "AbortError") {
           console.error("Failed to fetch movies", error);
@@ -63,6 +66,7 @@ function Movies() {
     (updatedFilters) => {
       setSearchTerm(""); // Clear search when user uses filters
       setSearchParams(updatedFilters); // Update filters
+      setPage(1); // Reset to first page on filter change
     },
     [setSearchParams]
   );
@@ -85,8 +89,8 @@ function Movies() {
     try {
       const data = await searchMovies(searchTerm);
       setPage(1); // Reset to first page
-      setMovies(data.results);
-      setTotalResults(data.totalResults);
+      setMovies(data.results || data);
+      setTotalResults(data.totalResults || (data.results ? data.results.length : data.length));
     } catch (error) {
       console.error("Search failed", error);
       setError("Sorry, something went wrong while searching");
@@ -138,7 +142,7 @@ function Movies() {
           ) : (
             <>
               {/* Filters */}
-              <Filter filters={filters} onFilterChange={handleFilterChange} />
+              <Filter onFilterChange={handleFilterChange} initialFilters={filters} />
               {/* Movie Cards */}
               <section className={styles.movieCards}>
                 {movies.map((movie, index) => (
@@ -146,7 +150,7 @@ function Movies() {
                 ))}
               </section>
               {/* Pagination */}
-              <Pagination page={page} onPageChange={handlePageChange} totalPages={totalPages} />
+              {totalPages > 1 && <Pagination page={page} onPageChange={handlePageChange} totalPages={totalPages} />}
             </>
           )}
         </div>
