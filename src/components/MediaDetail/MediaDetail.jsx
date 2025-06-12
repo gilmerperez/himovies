@@ -1,4 +1,4 @@
-import Loading from "../Loading";
+import Loading from "../Loading/Loading";
 import MediaBanner from "./MediaBanner";
 import MediaDetails from "./MediaDetails";
 import { useState, useEffect } from "react";

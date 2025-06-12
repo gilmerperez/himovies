@@ -1,8 +1,8 @@
 import styles from "./TVShows.module.css";
-import Filter from "../components/Filter";
-import Loading from "../components/Loading";
+import Filter from "../components/Filter/Filter";
+import Loading from "../components/Loading/Loading";
 import { useState, useEffect } from "react";
-import TVShowCard from "../components/TVShowCard";
+import TVShowCard from "../components/TV Show Card/TVShowCard";
 import { useSearchParams } from "react-router-dom";
 import { fetchFilteredContent } from "../utils/api";
 

@@ -1,8 +1,8 @@
 import styles from "./Movies.module.css";
-import Filter from "../components/Filter";
-import Loading from "../components/Loading";
+import Filter from "../components/Filter/Filter";
+import Loading from "../components/Loading/Loading";
 import { useState, useEffect } from "react";
-import MovieCard from "../components/MovieCard";
+import MovieCard from "../components/Movie Card/MovieCard";
 import { useSearchParams } from "react-router-dom";
 import { fetchFilteredContent } from "../utils/api";
 

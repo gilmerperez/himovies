@@ -1,8 +1,8 @@
 import styles from "./TopIMDB.module.css";
-import Loading from "../components/Loading";
+import Loading from "../components/Loading/Loading";
 import { useState, useEffect } from "react";
 import { fetchTopRatedMovies } from "../utils/api";
-import TopIMDBCard from "../components/TopIMDBCard";
+import TopIMDBCard from "../components/Top IMDB Card/TopIMDBCard";
 
 function TopIMDB() {
   const [error, setError] = useState("");

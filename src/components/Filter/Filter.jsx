@@ -1,6 +1,6 @@
 import styles from "./Filter.module.css";
 import { useState, useEffect } from "react";
-import { fetchMovieGenres, fetchTVGenres } from "../utils/api";
+import { fetchMovieGenres, fetchTVGenres } from "../../utils/api";
 
 function Filter({ onFilterChange, type = "movie", initialFilters }) {
   const [genres, setGenres] = useState([]);
