@@ -4,7 +4,7 @@
   padding: 2rem;
   color: white;
   flex-direction: column;
-  background-color: #121212;
+  background-color: hsl(0, 0%, 5%);
 }
 
 .topSection {
@@ -26,25 +26,39 @@
 .title {
   font-size: 2rem;
   font-weight: bold;
-}
-
-.rating {
-  margin: 0.5rem 0;
-  color: #e50914;
-  font-weight: bold;
+  margin-bottom: 1.25rem;
 }
 
 .trailerLink {
-  color: #e50914;
-  font-weight: bold;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 5px;
   text-decoration: none;
+  color: hsl(0, 0%, 5%);
+  padding: 0.5rem 0.75rem;
+  transition: 0.3s ease-in;
+  border: 1px solid hsl(0, 0%, 0%);
+  background-color: hsl(355, 95%, 45%);
+}
+
+.trailerLink:hover {
+  color: white;
+  box-shadow: 0 0 20px hsl(355, 95%, 45%, 0.5);
+}
+
+.rating {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 1.25rem;
+  color: hsl(355, 95%, 45%);
 }
 
 .description {
-  margin-top: 1rem;
-  line-height: 1.5;
+  line-height: 1.25;
+  margin-top: 0.75rem;
 }
 
 .meta p {
-  margin: 0.5rem 0;
+  margin-top: 0.75rem;
+  color: hsl(0, 0%, 90%);
 }

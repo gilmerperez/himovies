@@ -2,37 +2,41 @@ import { Link } from "react-router-dom";
 import styles from "./MovieCard.module.css";
 
 function MovieCard({ movie }) {
-  const minutes = movie.runtime % 60;
-  const hours = Math.floor(movie.runtime / 60);
+  const { id, poster_path, title, release_date, certification, genre_names, overview, runtime } = movie;
+
+  const hours = Math.floor(runtime / 60);
+  const minutes = runtime % 60;
 
   return (
-    <>
-      <Link to={`/movie/${movie.id}`} className={styles.movieCardLink}>
-        <div className={styles.movieCard}>
-          {/* Movie Poster */}
-          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`${movie.title} Poster`} />
-          <div className={styles.movieCardContent}>
-            {/* Movie Title */}
-            <h2 className={styles.movieTitle}>{movie.title}</h2>
-            <div className={styles.movieMeta}>
-              {/* Movie Release Date */}
-              <h3 className={styles.movieYear}>{movie.release_date?.split("-")[0]}</h3>
-              {/* Movie Rating */}
-              <h3 className={styles.movieRating}>{movie.certification}</h3>
-              {/* Movie Length */}
-              <h3 className={styles.movieLength}>
-                {hours > 0 ? `${hours}h ` : ""}
-                {minutes}m
-              </h3>
-            </div>
-            {/* Movie Genres */}
-            <h3 className={styles.movieGenre}>{movie.genre_names.join(" / ")}</h3>
-            {/* Movie Description */}
-            <p className={styles.movieDescription}>{movie.overview}</p>
+    <Link to={`/movie/${id}`} className={styles.movieCardLink}>
+      <div className={styles.movieCard}>
+        {/* Movie Poster */}
+        <img
+          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          alt={`${title} Poster`}
+          className={styles.moviePoster}
+        />
+        <div className={styles.movieCardContent}>
+          {/* Movie Title */}
+          <h2 className={styles.movieTitle}>{title}</h2>
+          <div className={styles.movieMeta}>
+            {/* Release Year */}
+            <h3 className={styles.movieYear}>{release_date?.split("-")[0]}</h3>
+            {/* Certification / Rating */}
+            <h3 className={styles.movieRating}>{certification}</h3>
+            {/* Formatted Movie Length */}
+            <h3 className={styles.movieLength}>
+              {hours > 0 ? `${hours}h ` : ""}
+              {minutes}m
+            </h3>
           </div>
+          {/* Movie Genres */}
+          <h3 className={styles.movieGenre}>{genre_names.join(" / ")}</h3>
+          {/* Movie Description */}
+          <p className={styles.movieDescription}>{overview}</p>
         </div>
-      </Link>
-    </>
+      </div>
+    </Link>
   );
 }
 

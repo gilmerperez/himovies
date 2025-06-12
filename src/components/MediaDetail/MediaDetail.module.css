@@ -1,10 +1,10 @@
 .main {
-  background-color: #121212;
   min-height: 100vh;
+  background-color: hsl(0, 0%, 5%);
 }
 
 .error {
-  color: red;
-  text-align: center;
   padding: 2rem;
+  text-align: center;
+  color: hsl(355, 95%, 45%);
 }

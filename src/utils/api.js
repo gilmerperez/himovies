@@ -167,6 +167,7 @@ export async function fetchTopRatedMovies(page = 1) {
   return enriched;
 }
 
+// * In-Depth Media Details
 export async function fetchMediaDetails(type = "movie", id) {
   const detailRes = await fetch(`${BASE_URL}/${type}/${id}?api_key=${API_KEY}&language=en-US`);
   const creditsRes = await fetch(`${BASE_URL}/${type}/${id}/credits?api_key=${API_KEY}&language=en-US`);
@@ -188,21 +189,22 @@ export async function fetchMediaDetails(type = "movie", id) {
   const producers = crew.filter((member) => member.job === "Producer").map((person) => person.name);
 
   return {
-    id: details.id,
-    title: details.title || details.name,
-    overview: details.overview,
-    backdrop_path: details.backdrop_path,
-    poster_path: details.poster_path,
-    genres: details.genres.map((genre) => genre.name),
-    release_date: details.release_date || details.first_air_date,
-    runtime: details.runtime || details.episode_run_time?.[0] || null,
-    number_of_seasons: details.number_of_seasons || null,
-    country: details.production_countries?.[0]?.name || "Unknown",
     cast,
     directors,
     producers,
+    id: details.id,
+    overview: details.overview,
+    vote_count: details.vote_count,
+    poster_path: details.poster_path,
     trailer_key: trailer?.key || null,
     vote_average: details.vote_average,
-    vote_count: details.vote_count,
+    title: details.title || details.name,
+    backdrop_path: details.backdrop_path,
+    genres: details.genres.map((genre) => genre.name),
+    number_of_seasons: details.number_of_seasons || null,
+    release_date: details.release_date || details.first_air_date,
+    country: details.production_countries?.[0]?.name || "Unknown",
+    runtime: details.runtime || details.episode_run_time?.[0] || null,
+    trailer_link: trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : null,
   };
 }

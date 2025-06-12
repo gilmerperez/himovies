@@ -19,7 +19,6 @@ function MediaDetail({ mediaType }) {
       try {
         const data = await fetchMediaDetails(mediaType, id);
         setMedia(data);
-        console.log("Fetched media:", data);
       } catch (error) {
         console.error("Failed to fetch details", error);
         setError("Sorry, something went wrong while fetching details.");
@@ -30,9 +29,17 @@ function MediaDetail({ mediaType }) {
     getDetails();
   }, [mediaType, id]);
 
+  // Change page title according to media
+  useEffect(() => {
+    if (media) {
+      document.title = `Movix | ${media.title || media.name}`;
+    } else {
+      document.title = "Movix | Loading...";
+    }
+  }, [media]);
+
   return (
     <>
-      <title>Movix | {media ? media.title || media.name : "Loading..."}</title>
       <main>
         <div className={styles.main}>
           {/* Error Message */}
