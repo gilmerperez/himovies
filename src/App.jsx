@@ -6,7 +6,14 @@ import TVShows from "./pages/TVShows";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TermsOfService from "./pages/TermsOfService";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MediaDetail from "./components/MediaDetail/MediaDetail";
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from "react-router-dom";
+
+// Redirect Top IMDB detail routes
+function RedirectTopIMDB() {
+  const { id } = useParams();
+  return <Navigate to={`/movie/${id}`} replace />;
+}
 
 function App() {
   return (
@@ -14,12 +21,17 @@ function App() {
       <Router>
         <Header />
         <Routes>
+          {/* Static Pages */}
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/tv-shows" element={<TVShows />} />
           <Route path="/top-imdb" element={<TopIMDB />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          {/* Dynamic Detail Pages */}
+          <Route path="/movie/:id" element={<MediaDetail mediaType="movie" />} />
+          <Route path="/tv-show/:id" element={<MediaDetail mediaType="tv" />} />
+          <Route path="/top-imdb/:id" element={<RedirectTopIMDB />} />
         </Routes>
         <Footer />
       </Router>

@@ -166,3 +166,43 @@ export async function fetchTopRatedMovies(page = 1) {
 
   return enriched;
 }
+
+export async function fetchMediaDetails(type = "movie", id) {
+  const detailRes = await fetch(`${BASE_URL}/${type}/${id}?api_key=${API_KEY}&language=en-US`);
+  const creditsRes = await fetch(`${BASE_URL}/${type}/${id}/credits?api_key=${API_KEY}&language=en-US`);
+  const videosRes = await fetch(`${BASE_URL}/${type}/${id}/videos?api_key=${API_KEY}&language=en-US`);
+
+  const details = await detailRes.json();
+  const credits = await creditsRes.json();
+  const videos = await videosRes.json();
+
+  // Get the link for YouTube trailer
+  const trailer = videos.results.find((vid) => vid.type === "Trailer" && vid.site === "YouTube");
+
+  // Get the first 6 cast members
+  const cast = credits.cast.slice(0, 6).map((member) => member.name);
+
+  // Get directors and producers
+  const crew = credits.crew;
+  const directors = crew.filter((member) => member.job === "Director").map((person) => person.name);
+  const producers = crew.filter((member) => member.job === "Producer").map((person) => person.name);
+
+  return {
+    id: details.id,
+    title: details.title || details.name,
+    overview: details.overview,
+    backdrop_path: details.backdrop_path,
+    poster_path: details.poster_path,
+    genres: details.genres.map((genre) => genre.name),
+    release_date: details.release_date || details.first_air_date,
+    runtime: details.runtime || details.episode_run_time?.[0] || null,
+    number_of_seasons: details.number_of_seasons || null,
+    country: details.production_countries?.[0]?.name || "Unknown",
+    cast,
+    directors,
+    producers,
+    trailer_key: trailer?.key || null,
+    vote_average: details.vote_average,
+    vote_count: details.vote_count,
+  };
+}

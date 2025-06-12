@@ -1,0 +1,10 @@
+.main {
+  background-color: #121212;
+  min-height: 100vh;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  padding: 2rem;
+}

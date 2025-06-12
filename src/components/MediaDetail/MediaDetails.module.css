@@ -1,0 +1,50 @@
+.details {
+  gap: 2rem;
+  display: flex;
+  padding: 2rem;
+  color: white;
+  flex-direction: column;
+  background-color: #121212;
+}
+
+.topSection {
+  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.poster {
+  width: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.info {
+  flex: 1;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.rating {
+  margin: 0.5rem 0;
+  color: #e50914;
+  font-weight: bold;
+}
+
+.trailerLink {
+  color: #e50914;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.description {
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+.meta p {
+  margin: 0.5rem 0;
+}
