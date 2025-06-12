@@ -2,9 +2,11 @@ import styles from "./Loading.module.css";
 
 function Loading() {
   return (
-    <div className={styles.loadingContainer}>
-      <h2>Loading...</h2>
-    </div>
+    <>
+      <div className={styles.loadingContainer}>
+        <h2>Loading...</h2>
+      </div>
+    </>
   );
 }
 

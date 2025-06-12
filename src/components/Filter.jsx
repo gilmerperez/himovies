@@ -27,37 +27,39 @@ function Filter({ onFilterChange, type = "movie", initialFilters }) {
   }
 
   return (
-    <div className={styles.filters}>
-      <select name="year" value={filters.year} onChange={handleChange}>
-        <option value="">All Years</option>
-        {Array.from({ length: 30 }, (_, i) => {
-          const y = new Date().getFullYear() - i;
-          return (
-            <option key={y} value={y}>
-              {y}
+    <>
+      <div className={styles.filters}>
+        <select name="year" value={filters.year} onChange={handleChange}>
+          <option value="">All Years</option>
+          {Array.from({ length: 30 }, (_, i) => {
+            const y = new Date().getFullYear() - i;
+            return (
+              <option key={y} value={y}>
+                {y}
+              </option>
+            );
+          })}
+        </select>
+
+        <select name="genre" value={filters.genre} onChange={handleChange}>
+          <option value="">All Genres</option>
+          {genres.map(({ id, name }) => (
+            <option key={id} value={id}>
+              {name}
             </option>
-          );
-        })}
-      </select>
+          ))}
+        </select>
 
-      <select name="genre" value={filters.genre} onChange={handleChange}>
-        <option value="">All Genres</option>
-        {genres.map(({ id, name }) => (
-          <option key={id} value={id}>
-            {name}
-          </option>
-        ))}
-      </select>
-
-      <select name="country" value={filters.country} onChange={handleChange}>
-        <option value="">All Countries</option>
-        <option value="GB">United Kingdom</option>
-        <option value="US">United States</option>
-        <option value="FR">France</option>
-        <option value="JP">Japan</option>
-        <option value="IN">India</option>
-      </select>
-    </div>
+        <select name="country" value={filters.country} onChange={handleChange}>
+          <option value="">All Countries</option>
+          <option value="GB">United Kingdom</option>
+          <option value="US">United States</option>
+          <option value="FR">France</option>
+          <option value="JP">Japan</option>
+          <option value="IN">India</option>
+        </select>
+      </div>
+    </>
   );
 }
 
