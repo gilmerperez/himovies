@@ -22,7 +22,7 @@ function Home() {
           <section className={styles.socialLinks}>
             <a href="https://www.facebook.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.facebookSocialLink}`}>
-                <i class="fa-brands fa-facebook-f"></i>
+                <i className="fa-brands fa-facebook-f"></i>
                 <p>3.07B</p>
               </div>
             </a>
