@@ -7,7 +7,7 @@ import { useSearchParams } from "react-router-dom";
 import { fetchFilteredContent, searchMovies } from "../utils/api";
 
 function Movies() {
-  // State Hooks
+  // State hooks
   const [error, setError] = useState("");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -138,6 +138,15 @@ export async function fetchTVGenres() {
   return await fetchGenreMap("tv");
 }
 
+async function fetchTVShowDetails(id) {
+  const response = await fetch(`${BASE_URL}/tv/${id}?api_key=${API_KEY}&language=en-US`);
+  const data = await response.json();
+
+  return {
+    episode_run_time: data.episode_run_time || [],
+  };
+}
+
 // * Top Rated on IMDB
 export async function fetchTopRatedMovies(page = 1) {
   const response = await fetch(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`);
@@ -163,7 +172,7 @@ export async function fetchTopRatedMovies(page = 1) {
   return enriched;
 }
 
-// * Search Bar
+// * Search Movies
 export async function searchMovies(query) {
   if (!query) {
     return [];
@@ -184,6 +193,33 @@ export async function searchMovies(query) {
         runtime,
         certification,
         genre_names: movie.genre_ids.map((id) => genreMap[id] || "Unknown"),
+      };
+    })
+  );
+
+  return enriched;
+}
+
+// * Search TV Shows
+export async function searchTVShows(query) {
+  if (!query) {
+    return [];
+  }
+
+  const response = await fetch(
+    `${BASE_URL}/search/tv?api_key=${API_KEY}&language=en-US&query=${encodeURIComponent(query)}&include_adult=false`
+  );
+
+  const json = await response.json();
+  const genreMap = await fetchGenreMap("tv");
+
+  const enriched = await Promise.all(
+    json.results.map(async (tvShow) => {
+      const { episode_run_time } = await fetchTVShowDetails(tvShow.id);
+      return {
+        ...tvShow,
+        runtime: episode_run_time?.[0] || 0, // fallback in case it's empty
+        genre_names: tvShow.genre_ids.map((id) => genreMap[id] || "Unknown"),
       };
     })
   );
