@@ -32,8 +32,10 @@ function Movies() {
     [searchParams]
   );
 
+  // Calculates total pages based on TMDB results
   const RESULTS_PER_PAGE = 52;
   const MAX_PAGES_TO_SHOW = 10;
+  const totalPages = Math.min(Math.ceil(totalResults / RESULTS_PER_PAGE), MAX_PAGES_TO_SHOW);
 
   // Fetch filtered content on filter change, not search change. With abort controller for cleanup
   useEffect(() => {
@@ -64,9 +66,10 @@ function Movies() {
   // When user uses filters, wrapped in useCallback
   const handleFilterChange = useCallback(
     (updatedFilters) => {
+      setPage(1); // Reset to first page on filter change
+      setMovies([]); // Clear previous results to prevent mismatch
       setSearchTerm(""); // Clear search when user uses filters
       setSearchParams(updatedFilters); // Update filters
-      setPage(1); // Reset to first page on filter change
     },
     [setSearchParams]
   );
@@ -98,10 +101,6 @@ function Movies() {
       setLoading(false);
     }
   }, [searchTerm]);
-
-  // Calculates total pages based on TMDB results
-  const maxPagesToShow = 10;
-  const totalPages = Math.min(Math.ceil(totalResults / 52), maxPagesToShow);
 
   // On page change, wrapped in useCallback
   const handlePageChange = useCallback(
@@ -145,9 +144,13 @@ function Movies() {
               <Filter onFilterChange={handleFilterChange} initialFilters={filters} />
               {/* Movie Cards */}
               <section className={styles.movieCards}>
-                {movies.map((movie, index) => (
-                  <MovieCard key={`${movie.id}-${index}`} movie={movie} />
-                ))}
+                {movies.length > 0 ? (
+                  movies.map((movie, index) => <MovieCard key={`${movie.id}-${index}`} movie={movie} />)
+                ) : (
+                  <div className={styles.emptyState}>
+                    <p>No Movies found matching your criteria</p>
+                  </div>
+                )}
               </section>
               {/* Pagination */}
               {totalPages > 1 && <Pagination page={page} onPageChange={handlePageChange} totalPages={totalPages} />}

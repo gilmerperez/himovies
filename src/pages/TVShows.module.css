@@ -67,6 +67,16 @@ main {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.emptyState {
+  padding: 2rem;
+  color: white;
+  font-size: 1.25rem;
+  text-align: center;
+  border-radius: 10px;
+  grid-column: 1 / -1;
+  background-color: hsl(0, 0%, 10%);
+}
+
 @media (max-width: 1200px) {
   .tvShowCards {
     grid-template-columns: repeat(3, 1fr);

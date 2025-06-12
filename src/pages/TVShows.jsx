@@ -32,8 +32,10 @@ function TVShows() {
     [searchParams]
   );
 
+  // Calculates total pages based on TMDB results
   const RESULTS_PER_PAGE = 52;
   const MAX_PAGES_TO_SHOW = 10;
+  const totalPages = Math.min(Math.ceil(totalResults / RESULTS_PER_PAGE), MAX_PAGES_TO_SHOW);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -55,14 +57,18 @@ function TVShows() {
       }
     }
     getData();
+    return () => {
+      controller.abort();
+    };
   }, [filters, page]);
 
   // When user uses filters, wrapped in useCallback
   const handleFilterChange = useCallback(
     (updatedFilters) => {
+      setPage(1); // Reset to first page on filter change
+      setTVShows([]); // Clear previous results to prevent mismatch
       setSearchTerm(""); // Clear search when user uses filters
       setSearchParams(updatedFilters); // Update filters
-      setPage(1); // Reset to first page on filter change
     },
     [setSearchParams]
   );
@@ -94,10 +100,6 @@ function TVShows() {
       setLoading(false);
     }
   }, [searchTerm]);
-
-  // Calculates total pages based on TMDB results
-  const maxPagesToShow = 10;
-  const totalPages = Math.min(Math.ceil(totalResults / 52), maxPagesToShow);
 
   // On page change, wrapped in useCallback
   const handlePageChange = useCallback(
@@ -141,9 +143,13 @@ function TVShows() {
               <Filter onFilterChange={handleFilterChange} initialFilters={filters} />
               {/* TV Show Cards */}
               <section className={styles.tvShowCards}>
-                {tvShows.map((show, index) => (
-                  <TVShowCard key={`${show.id}-${index}`} show={show} />
-                ))}
+                {tvShows.length > 0 ? (
+                  tvShows.map((show, index) => <TVShowCard key={`${show.id}-${index}`} show={show} />)
+                ) : (
+                  <div className={styles.emptyState}>
+                    <p>No TV shows found matching your criteria</p>
+                  </div>
+                )}
               </section>
               {/* Pagination */}
               {totalPages > 1 && <Pagination page={page} onPageChange={handlePageChange} totalPages={totalPages} />}
