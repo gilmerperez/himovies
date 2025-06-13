@@ -28,6 +28,10 @@
   color: hsl(355, 95%, 45%);
 }
 
+.logoTitle:hover {
+  text-shadow: 0 0 20px hsl(355, 95%, 45%);
+}
+
 .nav {
   gap: 1.5rem;
   display: flex;
@@ -50,9 +54,8 @@
   text-shadow: 0 0 20px hsl(355, 95%, 45%);
 }
 
-.active {
+.nav a.active {
   color: hsl(355, 95%, 45%);
-  text-shadow: 0 0 20px hsl(355, 95%, 45%);
 }
 
 @media (max-width: 768px) {
@@ -95,5 +98,9 @@
   .nav {
     gap: 0.75rem;
     font-size: 1rem;
+  }
+
+  .nav a:hover:not(.active) {
+    padding-bottom: 0rem;
   }
 }
