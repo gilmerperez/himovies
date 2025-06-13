@@ -33,7 +33,7 @@ function TopIMDB() {
   );
 
   // Calculates total pages based on TMDB results
-  const RESULTS_PER_PAGE = 52;
+  const RESULTS_PER_PAGE = 20;
   const MAX_PAGES_TO_SHOW = 10;
   const totalPages = Math.min(Math.ceil(totalResults / RESULTS_PER_PAGE), MAX_PAGES_TO_SHOW);
 
@@ -44,7 +44,7 @@ function TopIMDB() {
       setError("");
       setLoading(true);
       try {
-        const data = await fetchTopRatedMovies(page, RESULTS_PER_PAGE, controller.signal);
+        const data = await fetchTopRatedMovies(page, controller.signal, filters);
         setMovies(data.results || data);
         setTotalResults(data.totalResults || (data.results ? data.results.length : data.length));
       } catch (error) {
@@ -57,6 +57,8 @@ function TopIMDB() {
       }
     }
     getData();
+    console.log("Fetching Top Rated Movies with filters:", filters, "page:", page);
+
     return () => {
       controller.abort();
     };
@@ -147,7 +149,7 @@ function TopIMDB() {
                   movies.map((movie, index) => <TopIMDBCard key={`${movie.id}-${index}`} movie={movie} />)
                 ) : (
                   <div className={styles.emptyState}>
-                    <p>No Movies found matching your criteria</p>
+                    <p>No movies found matching your criteria</p>
                   </div>
                 )}
               </section>

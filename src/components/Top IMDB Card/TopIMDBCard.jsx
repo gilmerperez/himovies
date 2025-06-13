@@ -12,7 +12,7 @@ function TopIMDBCard({ movie }) {
       <Link to={`/movie/${id}`} className={styles.movieCardLink}>
         <div className={styles.topIMDBCard}>
           {/* Top IMDB Poster */}
-          <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`${movie.title} Poster`} />
+          <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`${title || "Movie"} Poster`} />
           <div className={styles.topIMDBCardContent}>
             {/* Top IMDB Title */}
             <h2 className={styles.topIMDBTitle}>{title}</h2>
@@ -20,7 +20,7 @@ function TopIMDBCard({ movie }) {
               {/* Top IMDB Release Date */}
               <h3 className={styles.topIMDBYear}>{release_date?.split("-")[0]}</h3>
               {/* Top IMDB Rating */}
-              <h3 className={styles.topIMDBRating}>{certification}</h3>
+              <h3 className={styles.topIMDBRating}>{certification || "N/A"}</h3>
               {/* Top IMDB Length */}
               <h3 className={styles.topIMDBLength}>
                 {hours > 0 ? `${hours}h ` : ""}
@@ -28,7 +28,9 @@ function TopIMDBCard({ movie }) {
               </h3>
             </div>
             {/* Top IMDB Genres */}
-            <h3 className={styles.topIMDBGenre}>{genre_names.join(" / ")}</h3>
+            <h3 className={styles.topIMDBGenre}>
+              {genre_names?.length ? genre_names.join(" / ") : "No genres available"}
+            </h3>
             {/* Top IMDB Description */}
             <p className={styles.topIMDBDescription}>{overview}</p>
             {/* Top IMDB Audience Rating */}

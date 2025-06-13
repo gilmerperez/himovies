@@ -147,7 +147,7 @@ function TVShows() {
                   tvShows.map((show, index) => <TVShowCard key={`${show.id}-${index}`} show={show} />)
                 ) : (
                   <div className={styles.emptyState}>
-                    <p>No TV shows found matching your criteria</p>
+                    <p>No tv shows found matching your criteria</p>
                   </div>
                 )}
               </section>

@@ -76,6 +76,7 @@
   line-clamp: 5;
   overflow: hidden;
   max-height: 6.5em;
+  text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   text-overflow: ellipsis;

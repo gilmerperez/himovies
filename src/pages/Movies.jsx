@@ -148,7 +148,7 @@ function Movies() {
                   movies.map((movie, index) => <MovieCard key={`${movie.id}-${index}`} movie={movie} />)
                 ) : (
                   <div className={styles.emptyState}>
-                    <p>No Movies found matching your criteria</p>
+                    <p>No movies found matching your criteria</p>
                   </div>
                 )}
               </section>

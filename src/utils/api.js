@@ -217,27 +217,51 @@ export async function fetchTVGenres() {
 }
 
 // * Top Rated on IMDB
-export async function fetchTopRatedMovies(page = 1) {
-  const response = await fetch(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`);
-  const json = await response.json();
-  const genreMap = await fetchGenreMap("movie");
+export async function fetchTopRatedMovies(page = 1, signal) {
+  const API_KEY = "516351753677be342aec94955927019f";
+  const BASE_URL = "https://api.themoviedb.org/3/movie/top_rated";
 
-  const enriched = await Promise.all(
-    json.results.map(async (movie) => {
-      const { runtime, certification } = await fetchMovieDetails(movie.id);
-      return {
-        ...movie,
-        runtime,
-        certification,
-        genre_names: movie.genre_ids.map((id) => genreMap[id] || "Unknown"),
-        audience_score: movie.vote_average,
-        vote_count: movie.vote_count,
-      };
+  const params = new URLSearchParams({
+    api_key: API_KEY,
+    language: "en-US",
+    page: page.toString(),
+  });
+
+  const url = `${BASE_URL}?${params.toString()}`;
+  const response = await fetch(url, { signal });
+  if (!response.ok) throw new Error("Failed to fetch top rated movies");
+
+  const data = await response.json();
+  const enrichedResults = await Promise.all(
+    data.results.map(async (movie) => {
+      try {
+        const detailsResponse = await fetch(
+          `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${API_KEY}&language=en-US&append_to_response=release_dates`,
+          { signal }
+        );
+        const details = await detailsResponse.json();
+
+        // Extract certification from US release data
+        const certification =
+          details.release_dates?.results?.find((r) => r.iso_3166_1 === "US")?.release_dates?.[0]?.certification ||
+          "N/A";
+
+        return {
+          ...movie,
+          runtime: details.runtime,
+          genre_names: details.genres.map((g) => g.name),
+          certification,
+        };
+      } catch (err) {
+        console.warn(`Failed to enrich movie ID ${movie.id}`, err);
+        return { ...movie, runtime: 0, genre_names: [], certification: "N/A" };
+      }
     })
   );
+
   return {
-    results: enriched,
-    totalResults: json.total_results,
+    results: enrichedResults,
+    totalResults: data.total_results,
   };
 }
 
