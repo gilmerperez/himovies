@@ -39,7 +39,7 @@ main {
   max-width: 800px;
   border-radius: 5px;
   margin-bottom: 1.5rem;
-  background-color: white;
+  background-color: hsl(0, 0%, 10%);
 }
 
 .searchBar input {
@@ -47,8 +47,10 @@ main {
   height: 50px;
   border: none;
   outline: none;
+  color: white;
   font-size: 20px;
   padding-left: 16px;
+  background-color: hsl(0, 0%, 15%);
 }
 
 .searchBar button {

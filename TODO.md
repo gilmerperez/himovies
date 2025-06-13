@@ -1,4 +1,4 @@
-Hide API key in .env
+Make api key really hidden and turn this project into a server
 Refactor api.js:
 api.js
 - Add error handling
