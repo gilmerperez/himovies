@@ -14,7 +14,7 @@ function PrivacyPolicy() {
           {/* Heading */}
           <h1 className={styles.heading}>Privacy Policy</h1>
           <section className={styles.policy}>
-            {/* Intro */}
+            {/* Description */}
             <p className={styles.description}>
               Your privacy is important to us. This Privacy Policy outlines what information we do and do not collect
               when you use this website.
