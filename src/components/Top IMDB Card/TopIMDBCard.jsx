@@ -5,8 +5,8 @@ function TopIMDBCard({ movie }) {
   const { id, poster_path, title, release_date, certification, genre_names, overview, runtime } = movie;
 
   // Calculate hours and minutes from runtime
-  const hours = Math.floor(runtime / 60);
   const minutes = runtime % 60;
+  const hours = Math.floor(runtime / 60);
 
   return (
     <>

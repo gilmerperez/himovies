@@ -3,8 +3,8 @@ import Loading from "../Loading/Loading";
 import MediaDetails from "./MediaDetails";
 import styles from "./MediaDetail.module.css";
 import { useParams } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
 import { fetchMediaDetails } from "../../utils/api";
+import { useState, useEffect, useRef } from "react";
 
 function MediaDetail({ mediaType }) {
   // State Hooks
