@@ -70,10 +70,7 @@ function Home() {
               </div>
             </a>
           </section>
-          {/* CTA Button */}
-          <Link to="/movies" className={styles.viewMovies}>
-            Explore Movies and TV Shows
-          </Link>
+
           {/* Informational Text */}
           <section className={styles.informationalText}>
             <p className={styles.description}>
@@ -162,6 +159,10 @@ function Home() {
               crew, and user reviews. Multi-language support is included for international content where available.
             </p>
           </section>
+          {/* CTA Button */}
+          <Link to="/movies" className={styles.viewMovies}>
+            Explore Movies and TV Shows
+          </Link>
         </div>
       </main>
     </>

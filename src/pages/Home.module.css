@@ -202,22 +202,6 @@ main {
   box-shadow: 0 0 15px #bebebe;
 }
 
-.viewMovies {
-  font-weight: 600;
-  font-size: 1.5rem;
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  margin-bottom: 2rem;
-  color: hsl(0, 0%, 5%);
-  transition: 0.3s ease-in;
-  background-color: hsl(355, 95%, 45%);
-}
-
-.viewMovies:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 20px hsl(355, 95%, 45%);
-}
-
 .informationalText,
 .reviewText {
   width: 80%;
@@ -257,8 +241,21 @@ main {
   color: hsl(0, 0%, 80%);
 }
 
-.reviewText {
-  margin-bottom: 1rem;
+.viewMovies {
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  margin: 1rem;
+  color: hsl(0, 0%, 5%);
+  transition: 0.3s ease-in;
+  background-color: hsl(355, 95%, 45%);
+}
+
+.viewMovies:hover {
+  color: white;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 20px hsl(355, 95%, 45%);
 }
 
 @media (max-width: 768px) {
