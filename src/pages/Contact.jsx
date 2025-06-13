@@ -20,26 +20,26 @@ function Contact() {
           </p>
           {/* Form */}
           <section className={styles.formContainer}>
-            <form action="mailto:gilmer2002@outlook.com" method="post" enctype="text/plain">
+            <form action="mailto:gilmer2002@outlook.com" method="post" encType="text/plain">
               {/* Name Field */}
               <div className={`${styles.formGroup} ${styles.formFloating}`}>
                 <input type="text" className={styles.formControl} id="name" placeholder="Name" required />
-                <label for="name">Name</label>
+                <label htmlFor="name">Name</label>
               </div>
               {/* Subject Field */}
               <div className={`${styles.formGroup} ${styles.formFloating}`}>
                 <input type="text" className={styles.formControl} id="subject" placeholder="Subject" required />
-                <label for="subject">Subject</label>
+                <label htmlFor="subject">Subject</label>
               </div>
               {/* Email Address Field */}
               <div className={`${styles.formGroup} ${styles.formFloating}`}>
                 <input type="email" className={styles.formControl} id="email" placeholder="Email Address" required />
-                <label for="email">Email Address</label>
+                <label htmlFor="email">Email Address</label>
               </div>
               {/* Message Field */}
               <div className={`${styles.formGroup} ${styles.formFloating}`}>
                 <textarea className={styles.formControl} id="message" placeholder="Message" required></textarea>
-                <label for="message">Message</label>
+                <label htmlFor="message">Message</label>
               </div>
               {/* Submit Button */}
               <button type="submit" className={styles.submitBtn}>

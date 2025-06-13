@@ -1,5 +1,4 @@
 Hide API key in .env
-Make Privacy Policy page
 Make FAQ Section in Home page
 
 api.js
