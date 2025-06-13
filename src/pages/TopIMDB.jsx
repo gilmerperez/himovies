@@ -1,11 +1,9 @@
 import styles from "./TopIMDB.module.css";
-import Filter from "../components/Filter/Filter";
 import Loading from "../components/Loading/Loading";
 import Pagination from "../components/Pagination/Pagination";
 import TopIMDBCard from "../components/Top IMDB Card/TopIMDBCard";
-import { useSearchParams } from "react-router-dom";
 import { fetchTopRatedMovies, searchMovies } from "../utils/api";
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 function TopIMDB() {
   // State hooks
@@ -15,22 +13,11 @@ function TopIMDB() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [totalResults, setTotalResults] = useState(0);
-  const [searchParams, setSearchParams] = useSearchParams();
 
   // Change page title
   useEffect(() => {
     document.title = "Movix | Top IMDB";
   }, []);
-
-  // Extract filters from the URL parameters, using useMemo to prevent unnecessary effect triggers
-  const filters = useMemo(
-    () => ({
-      year: searchParams.get("year") || "",
-      genre: searchParams.get("genre") || "",
-      country: searchParams.get("country") || "",
-    }),
-    [searchParams]
-  );
 
   // Calculates total pages based on TMDB results
   const RESULTS_PER_PAGE = 20;
@@ -44,7 +31,7 @@ function TopIMDB() {
       setError("");
       setLoading(true);
       try {
-        const data = await fetchTopRatedMovies(page, controller.signal, filters);
+        const data = await fetchTopRatedMovies(page, controller.signal);
         setMovies(data.results || data);
         setTotalResults(data.totalResults || (data.results ? data.results.length : data.length));
       } catch (error) {
@@ -57,23 +44,10 @@ function TopIMDB() {
       }
     }
     getData();
-    console.log("Fetching Top Rated Movies with filters:", filters, "page:", page);
-
     return () => {
       controller.abort();
     };
-  }, [filters, page]);
-
-  // When user uses filters, wrapped in useCallback
-  const handleFilterChange = useCallback(
-    (updatedFilters) => {
-      setPage(1); // Reset to first page on filter change
-      setMovies([]); // Clear previous results to prevent mismatch
-      setSearchTerm(""); // Clear search when user uses filters
-      setSearchParams(updatedFilters); // Update filters
-    },
-    [setSearchParams]
-  );
+  }, [page]);
 
   // Manual input update, wrapped in useCallback
   const handleSearchInputChange = useCallback((event) => {
@@ -141,8 +115,6 @@ function TopIMDB() {
             <Loading />
           ) : (
             <>
-              {/* Filters */}
-              <Filter onFilterChange={handleFilterChange} initialFilters={filters} />
               {/* Top IMDB Cards */}
               <section className={styles.topIMDBCards}>
                 {movies.length > 0 ? (
