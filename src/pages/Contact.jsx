@@ -4,7 +4,7 @@ import styles from "./Contact.module.css";
 function Contact() {
   // Change page title
   useEffect(() => {
-    document.title = "Movix | Contact";
+    document.title = "Reelix | Contact";
   }, []);
 
   return (

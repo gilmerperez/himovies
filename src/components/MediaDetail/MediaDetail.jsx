@@ -24,9 +24,9 @@ function MediaDetail({ mediaType }) {
   // Update page title based on media
   useEffect(() => {
     if (media) {
-      document.title = `Movix | ${media.title || media.name}`;
+      document.title = `Reelix | ${media.title || media.name}`;
     } else {
-      document.title = "Movix | Loading...";
+      document.title = "Reelix | Loading...";
     }
   }, [media]);
 

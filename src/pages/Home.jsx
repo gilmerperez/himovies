@@ -8,9 +8,9 @@ function Home() {
       <main>
         <div className={`container ${styles.container}`}>
           {/* Logo */}
-          <img src={logo} alt="Movix Logo" className={styles.logo} />
+          <img src={logo} alt="Reelix Logo" className={styles.logo} />
           {/* Heading */}
-          <h1 className={styles.heading}>Movix</h1>
+          <h1 className={styles.heading}>Reelix</h1>
           {/* Search Bar */}
           <section className={styles.searchBar}>
             <input type="text" placeholder="Enter Keywords..." />
@@ -77,19 +77,19 @@ function Home() {
           {/* Informational Text */}
           <section className={styles.informationalText}>
             <p className={styles.description}>
-              Discover movies and TV shows with Movix, your go-to platform for exploring the latest releases, trailers,
-              ratings, and more. Built as a modern media database, Movix helps you stay updated on what's new, what's
+              Discover movies and TV shows with Reelix, your go-to platform for exploring the latest releases, trailers,
+              ratings, and more. Built as a modern media database, Reelix helps you stay updated on what's new, what's
               trending, and what's worth watching.
             </p>
-            <p className={styles.subheading}>Is Movix Safe?</p>
+            <p className={styles.subheading}>Is Reelix Safe?</p>
             <p className={styles.text}>
-              Yes. Movix is completely ad-free, does not require logins, and does not track or store personal user data.
-              Movix is hosted securely and intended purely for browsing and learning about movies and TV shows.
+              Yes. Reelix is completely ad-free, does not require logins, and does not track or store personal user
+              data. Reelix is hosted securely and intended purely for browsing and learning about movies and TV shows.
             </p>
-            <p className={styles.subheading}>What is Movix?</p>
+            <p className={styles.subheading}>What is Reelix?</p>
             <p className={styles.text}>
-              Movix is a modern movie and TV show discovery platform. Launched as a personal project, it allows users to
-              browse the latest releases, view trailers, explore cast and crew details, and keep track of trending
+              Reelix is a modern movie and TV show discovery platform. Launched as a personal project, it allows users
+              to browse the latest releases, view trailers, explore cast and crew details, and keep track of trending
               titles — all in a clean, responsive interface.
             </p>
             <p className={styles.subheading}>Is There a Mobile or TV App?</p>
@@ -107,13 +107,13 @@ function Home() {
           {/* Review Text */}
           <section className={styles.reviewText}>
             <p className={styles.description}>
-              Although Movix began as a personal project, it has grown into a fully responsive movie and TV show
+              Although Reelix began as a personal project, it has grown into a fully responsive movie and TV show
               discovery app used by film fans to explore new releases, watch trailers, and view detailed metadata — all
               in one clean, ad-free interface.
             </p>
             <p className={styles.subheading}>Device Compatibility</p>
             <p className={styles.text}>
-              Movix is optimized for desktops, tablets, smartphones, and even smart TVs with modern browsers. Whether
+              Reelix is optimized for desktops, tablets, smartphones, and even smart TVs with modern browsers. Whether
               you're at home or on the go, you'll enjoy a consistent and responsive experience.
             </p>
             <p className={styles.subheading}>No Account Required</p>
@@ -123,7 +123,7 @@ function Home() {
             </p>
             <p className={styles.subheading}>Regular Updates</p>
             <p className={styles.text}>
-              Movix pulls live data from The Movie Database (TMDB) API, ensuring access to the most up-to-date
+              Reelix pulls live data from The Movie Database (TMDB) API, ensuring access to the most up-to-date
               information about newly released movies, upcoming titles, trending shows, and more.
             </p>
             <p className={styles.subheading}>Browsing Experience</p>
@@ -138,12 +138,12 @@ function Home() {
             </p>
             <p className={styles.subheading}>Privacy & Safety</p>
             <p className={styles.text}>
-              Movix does not collect user data or serve third-party ads. All requests are read-only, and the app runs
+              Reelix does not collect user data or serve third-party ads. All requests are read-only, and the app runs
               entirely in your browser. You are free to explore safely without tracking or popups.
             </p>
             <p className={styles.subheading}>No Ads or Popups</p>
             <p className={styles.text}>
-              Movix is completely ad-free and will remain so. It is built for learning, portfolio showcasing, and media
+              Reelix is completely ad-free and will remain so. It is built for learning, portfolio showcasing, and media
               discovery only — not monetization.
             </p>
             <p className={styles.subheading}>Project Feedback</p>
@@ -153,7 +153,7 @@ function Home() {
             </p>
             <p className={styles.subheading}>User-Friendly Design</p>
             <p className={styles.text}>
-              With intuitive search, categorized filtering, and clean layout, Movix makes it easy to find what you're
+              With intuitive search, categorized filtering, and clean layout, Reelix makes it easy to find what you're
               looking for — whether it's a blockbuster, hidden gem, or upcoming release.
             </p>
             <p className={styles.subheading}>Rich Media Database</p>

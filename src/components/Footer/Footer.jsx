@@ -14,12 +14,12 @@ function Footer() {
         </nav>
         {/* Legal Disclaimer */}
         <p className={styles.description}>
-          Movix is a Movie and TV Show database. It does not host, stream, or distribute any copyrighted content. All
+          Reelix is a Movie and TV Show database. It does not host, stream, or distribute any copyrighted content. All
           metadata and media previews are provided via public APIs. No user accounts, payments, or downloads are
           required.
         </p>
         {/* Copyright */}
-        <p className={styles.copy}>&copy; {new Date().getFullYear()} Movix</p>
+        <p className={styles.copy}>&copy; {new Date().getFullYear()} Reelix</p>
       </div>
     </footer>
   );

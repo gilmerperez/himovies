@@ -4,7 +4,7 @@ import styles from "./TermsOfService.module.css";
 function TermsOfService() {
   // Change page title
   useEffect(() => {
-    document.title = "Movix | Terms of Service";
+    document.title = "Reelix | Terms of Service";
   }, []);
 
   return (

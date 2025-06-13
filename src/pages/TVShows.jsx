@@ -19,7 +19,7 @@ function TVShows() {
 
   // Change page title
   useEffect(() => {
-    document.title = "Movix | TV Shows";
+    document.title = "Reelix | TV Shows";
   }, []);
 
   // Extract filters from the URL parameters, using useMemo to prevent unnecessary effect triggers

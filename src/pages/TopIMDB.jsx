@@ -16,7 +16,7 @@ function TopIMDB() {
 
   // Change page title
   useEffect(() => {
-    document.title = "Movix | Top IMDB";
+    document.title = "Reelix | Top IMDB";
   }, []);
 
   // Calculates total pages based on TMDB results

@@ -19,7 +19,7 @@ function Movies() {
 
   // Change page title
   useEffect(() => {
-    document.title = "Movix | Movies";
+    document.title = "Reelix | Movies";
   }, []);
 
   // Extract filters from the URL parameters, using useMemo to prevent unnecessary effect triggers

@@ -4,7 +4,7 @@ import styles from "./PrivacyPolicy.module.css";
 function PrivacyPolicy() {
   // Change page title
   useEffect(() => {
-    document.title = "Movix | Privacy Policy";
+    document.title = "Reelix | Privacy Policy";
   }, []);
 
   return (
