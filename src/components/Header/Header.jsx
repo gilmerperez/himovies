@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import styles from "./Header.module.css";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -9,8 +9,8 @@ function Header() {
         {/* Logo */}
         <NavLink to="/" className={styles.logoLink}>
           <img src={logo} alt="Movix Logo" className={styles.logo} />
+          <span className={styles.logoTitle}>Moviex</span> {/* Added text */}
         </NavLink>
-
         {/* Site Navigation */}
         <nav className={styles.nav}>
           <NavLink to="/" className={({ isActive }) => (isActive ? styles.active : undefined)} end>

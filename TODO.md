@@ -1,3 +1,5 @@
+Add Moviex to header
+Pick better name
 Hide API key in .env
 Make FAQ Section in Home page
 

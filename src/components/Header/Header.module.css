@@ -1,3 +1,7 @@
+* {
+  /* border: 1px solid red; */
+}
+
 .header {
   color: white;
   padding: 1rem 2rem;
@@ -16,7 +20,16 @@
 }
 
 .logoLink {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoTitle {
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-left: 0.75rem;
+  color: hsl(355, 95%, 45%);
 }
 
 .nav {
