@@ -34,7 +34,7 @@ function MediaDetails({ media }) {
             <h2 className={styles.title}>{title || name}</h2>
             {/* Trailer */}
             {trailer_link && (
-              <a href={trailer_link} className={styles.trailerLink} target="_blank">
+              <a href={trailer_link} className={styles.trailerLink} target="_blank" rel="noopener noreferrer">
                 Watch Trailer
               </a>
             )}

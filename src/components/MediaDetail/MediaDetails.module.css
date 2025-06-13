@@ -62,3 +62,29 @@
   margin-top: 0.75rem;
   color: hsl(0, 0%, 90%);
 }
+
+@media (max-width: 768px) {
+  .topSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poster {
+    width: 150px;
+    margin-bottom: 1rem;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  .trailerLink {
+    display: inline-block;
+    text-align: center;
+  }
+}

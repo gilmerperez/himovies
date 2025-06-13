@@ -1,4 +1,4 @@
-Pick better name
+Pick better name after going through each file with chatgpt to clean them up, nothing crazy, just consistency
 Hide API key in .env
 Make FAQ Section in Home page
 

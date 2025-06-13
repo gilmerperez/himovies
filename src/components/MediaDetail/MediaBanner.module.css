@@ -22,3 +22,32 @@
   font-size: 2.5rem;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .banner {
+    height: 50vh;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 40vh;
+  }
+
+  .overlay {
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.6));
+  }
+
+  .title {
+    line-height: 1.2;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
