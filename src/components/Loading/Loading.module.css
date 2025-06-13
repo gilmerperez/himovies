@@ -5,6 +5,19 @@
   text-shadow: 0 0 30px hsl(355, 95%, 45%, 0.75);
 }
 
-.loadingContainer h2 {
+.loadingText {
   font-size: 3rem;
+  animation: 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 30px hsl(355, 95%, 45%, 0.75);
+  }
+  50% {
+    opacity: 0.6;
+    text-shadow: 0 0 10px hsl(355, 95%, 45%, 0.4);
+  }
 }

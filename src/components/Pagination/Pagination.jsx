@@ -2,24 +2,27 @@ import styles from "./Pagination.module.css";
 import { useMemo, useCallback } from "react";
 
 function Pagination({ page, onPageChange, totalPages = 5 }) {
-  // useMemo on page numbers array to avoid recalculations
+  // Generate page numbers based on totalPages, memoized for performance
   const pageNumbers = useMemo(() => Array.from({ length: totalPages }, (_, i) => i + 1), [totalPages]);
 
-  // Handlers wrapped in useCallback to optimize renders
+  // * Handlers wrapped in useCallback to optimize renders
+  // Navigate to previous page
   const handlePrevious = useCallback(() => {
     if (page > 1) onPageChange(page - 1);
   }, [page, onPageChange]);
 
-  const handleNext = useCallback(() => {
-    if (page < totalPages) onPageChange(page + 1);
-  }, [page, totalPages, onPageChange]);
-
+  // Navigate to specific page
   const handlePageClick = useCallback(
     (num) => {
       onPageChange(num);
     },
     [onPageChange]
   );
+
+  // Navigate to next page
+  const handleNext = useCallback(() => {
+    if (page < totalPages) onPageChange(page + 1);
+  }, [page, totalPages, onPageChange]);
 
   return (
     <nav className={styles.paginationContainer} aria-label="Page Navigation">
@@ -30,7 +33,6 @@ function Pagination({ page, onPageChange, totalPages = 5 }) {
             <i className="fa-solid fa-left-long"></i>
           </button>
         </li>
-
         {/* Page Numbers */}
         {pageNumbers.map((num) => (
           <li key={num} className={`${styles.pageItem} ${page === num ? styles.active : ""}`}>
@@ -44,7 +46,6 @@ function Pagination({ page, onPageChange, totalPages = 5 }) {
             </button>
           </li>
         ))}
-
         {/* Right Arrow */}
         <li className={`${styles.pageItem} ${page === totalPages ? styles.disabled : ""}`}>
           <button
