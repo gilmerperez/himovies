@@ -2,8 +2,8 @@ import styles from "./TopIMDB.module.css";
 import Loading from "../components/Loading/Loading";
 import Pagination from "../components/Pagination/Pagination";
 import TopIMDBCard from "../components/Top IMDB Card/TopIMDBCard";
-import { fetchTopRatedMovies, searchMovies } from "../utils/api";
 import { useState, useEffect, useCallback } from "react";
+import { fetchTopRatedMovies, searchMovies } from "../utils/api";
 
 function TopIMDB() {
   // State hooks

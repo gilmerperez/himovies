@@ -52,7 +52,7 @@ main {
   border: none;
   min-width: 10%;
   font-size: 28px;
-  color: hsl(0, 0%, 15%);
+  color: hsl(0, 0%, 5%);
   transition: 0.3s ease-in;
   border-radius: 0 5px 5px 0;
   background-color: hsl(355, 95%, 45%);
