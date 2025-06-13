@@ -4,6 +4,7 @@ import styles from "./MovieCard.module.css";
 function MovieCard({ movie }) {
   const { id, poster_path, title, release_date, certification, genre_names, overview, runtime } = movie;
 
+  // Calculate hours and minutes from runtime
   const hours = Math.floor(runtime / 60);
   const minutes = runtime % 60;
 
@@ -20,12 +21,10 @@ function MovieCard({ movie }) {
           <div className={styles.movieCardContent}>
             {/* Movie Title */}
             <h2 className={styles.movieTitle}>{title}</h2>
+            {/* Movie Metadata: Release Year, Certification, Runtime */}
             <div className={styles.movieMeta}>
-              {/* Release Year */}
               <h3 className={styles.movieYear}>{release_date?.split("-")[0]}</h3>
-              {/* Certification / Rating */}
               <h3 className={styles.movieRating}>{certification}</h3>
-              {/* Formatted Movie Length */}
               <h3 className={styles.movieLength}>
                 {hours > 0 ? `${hours}h ` : ""}
                 {minutes}m

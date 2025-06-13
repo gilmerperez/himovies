@@ -4,6 +4,7 @@ import styles from "./TopIMDBCard.module.css";
 function TopIMDBCard({ movie }) {
   const { id, poster_path, title, release_date, certification, genre_names, overview, runtime } = movie;
 
+  // Calculate hours and minutes from runtime
   const hours = Math.floor(runtime / 60);
   const minutes = runtime % 60;
 
@@ -16,12 +17,10 @@ function TopIMDBCard({ movie }) {
           <div className={styles.topIMDBCardContent}>
             {/* Top IMDB Title */}
             <h2 className={styles.topIMDBTitle}>{title}</h2>
+            {/* Top IMDB Metadata: Year, Certification, Runtime */}
             <div className={styles.topIMDBMeta}>
-              {/* Top IMDB Release Date */}
               <h3 className={styles.topIMDBYear}>{release_date?.split("-")[0]}</h3>
-              {/* Top IMDB Rating */}
               <h3 className={styles.topIMDBRating}>{certification || "N/A"}</h3>
-              {/* Top IMDB Length */}
               <h3 className={styles.topIMDBLength}>
                 {hours > 0 ? `${hours}h ` : ""}
                 {minutes}m
@@ -33,7 +32,6 @@ function TopIMDBCard({ movie }) {
             </h3>
             {/* Top IMDB Description */}
             <p className={styles.topIMDBDescription}>{overview}</p>
-            {/* Top IMDB Audience Rating */}
           </div>
         </div>
       </Link>

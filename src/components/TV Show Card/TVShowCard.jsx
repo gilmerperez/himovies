@@ -15,19 +15,18 @@ function TVShowCard({ show }) {
             className={styles.tvPoster}
           />
           <div className={styles.tvCardContent}>
-            {/* Title */}
+            {/* TV Show Title */}
             <h2 className={styles.tvTitle}>{name}</h2>
+            {/* TV Show Metadata: Release Year, Season Count */}
             <div className={styles.tvMeta}>
-              {/* Year */}
               <h3 className={styles.tvYear}>{first_air_date?.split("-")[0]}</h3>
-              {/* Seasons */}
               <h3 className={styles.tvSeasons}>
                 {number_of_seasons} Season{number_of_seasons !== 1 ? "s" : ""}
               </h3>
             </div>
-            {/* Genres */}
+            {/* TV Show Genres */}
             <h3 className={styles.tvGenre}>{genre_names.join(" / ")}</h3>
-            {/* Description */}
+            {/* TV Show Description */}
             <p className={styles.tvDescription}>{overview}</p>
           </div>
         </div>
