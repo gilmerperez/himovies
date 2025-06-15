@@ -1,2 +1,0 @@
-- Make FAQ Section in Home page
-- Make Search Bar on Home Screen Work

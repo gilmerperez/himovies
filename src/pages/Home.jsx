@@ -1,9 +1,44 @@
 import logo from "../assets/logo.png";
 import styles from "./Home.module.css";
-import { Link } from "react-router-dom";
 import Accordion from "../components/Accordion/Accordion";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { searchMovies, searchTVShows } from "../utils/api";
 
 function Home() {
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = async () => {
+    if (!query.trim()) return;
+
+    try {
+      const [movies, tvShows] = await Promise.all([searchMovies(query), searchTVShows(query)]);
+
+      const topMovie = movies?.[0];
+      const topTV = tvShows?.[0];
+
+      // Prefer the result with higher vote count
+      let result;
+      if (topMovie && topTV) {
+        result = topMovie.vote_count >= topTV.vote_count ? { ...topMovie, type: "movie" } : { ...topTV, type: "tv" };
+      } else if (topMovie) {
+        result = { ...topMovie, type: "movie" };
+      } else if (topTV) {
+        result = { ...topTV, type: "tv" };
+      }
+
+      if (result) {
+        navigate(`/${result.type}/${result.id}`);
+      } else {
+        alert("No results found.");
+      }
+    } catch (err) {
+      console.error("Search failed:", err);
+      alert("An error occurred while searching.");
+    }
+  };
+
   return (
     <>
       <main>
@@ -14,8 +49,14 @@ function Home() {
           <h1 className={styles.heading}>Reelix</h1>
           {/* Search Bar */}
           <section className={styles.searchBar}>
-            <input type="text" placeholder="Enter Keywords..." />
-            <button>
+            <input
+              type="text"
+              placeholder="Enter Keywords..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+            />
+            <button onClick={handleSearch}>
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </section>
