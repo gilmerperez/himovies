@@ -1,5 +1,5 @@
 const BASE_URL = "https://api.themoviedb.org/3";
-const API_KEY = "516351753677be342aec94955927019f";
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 // * Main Fetch Function
 export async function fetchFilteredContent(
@@ -218,16 +218,13 @@ export async function fetchTVGenres() {
 
 // * Top Rated on IMDB
 export async function fetchTopRatedMovies(page = 1, signal) {
-  const API_KEY = "516351753677be342aec94955927019f";
-  const BASE_URL = "https://api.themoviedb.org/3/movie/top_rated";
-
   const params = new URLSearchParams({
     api_key: API_KEY,
     language: "en-US",
     page: page.toString(),
   });
 
-  const url = `${BASE_URL}?${params.toString()}`;
+  const url = `https://api.themoviedb.org/3/movie/top_rated?${params.toString()}`;
   const response = await fetch(url, { signal });
   if (!response.ok) throw new Error("Failed to fetch top rated movies");
 
