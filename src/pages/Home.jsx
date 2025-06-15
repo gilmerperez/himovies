@@ -20,10 +20,10 @@ function Home() {
           </section>
           {/* Social Links */}
           <section className={styles.socialLinks}>
-            <a href="https://www.facebook.com/" target="_blank">
-              <div className={`${styles.socialLink} ${styles.facebookSocialLink}`}>
-                <i className="fa-brands fa-facebook-f"></i>
-                <p>3.07B</p>
+            <a href="https://www.instagram.com/" target="_blank">
+              <div className={`${styles.socialLink} ${styles.instagramSocialLink}`}>
+                <i className="fa-brands fa-instagram"></i>
+                <p>2B</p>
               </div>
             </a>
             <a href="https://www.whatsapp.com/" target="_blank">
@@ -32,29 +32,16 @@ function Home() {
                 <p>3B</p>
               </div>
             </a>
+            <a href="https://www.facebook.com/" target="_blank">
+              <div className={`${styles.socialLink} ${styles.facebookSocialLink}`}>
+                <i className="fa-brands fa-facebook-f"></i>
+                <p>3.07B</p>
+              </div>
+            </a>
             <a href="https://www.youtube.com/" target="_blank">
               <div className={`${styles.socialLink} ${styles.youtubeSocialLink}`}>
                 <i className="fa-brands fa-youtube"></i>
                 <p>2.7B</p>
-              </div>
-            </a>
-            <a href="https://www.instagram.com/" target="_blank">
-              <div className={`${styles.socialLink} ${styles.instagramSocialLink}`}>
-                <i className="fa-brands fa-instagram"></i>
-                <p>2B</p>
-              </div>
-            </a>
-            <a href="https://www.tiktok.com/" target="_blank">
-              <div className={`${styles.socialLink} ${styles.tiktokSocialLink}`}>
-                <i className="fa-brands fa-tiktok"></i>
-                <p>1.84B</p>
-              </div>
-            </a>
-
-            <a href="https://www.snapchat.com/" target="_blank">
-              <div className={`${styles.socialLink} ${styles.snapchatSocialLink}`}>
-                <i className="fa-brands fa-snapchat"></i>
-                <p>850M</p>
               </div>
             </a>
             <a href="https://www.reddit.com/" target="_blank">
@@ -67,6 +54,18 @@ function Home() {
               <div className={`${styles.socialLink} ${styles.xSocialLink}`} target="_blank">
                 <i className="fa-brands fa-x-twitter"></i>
                 <p>563M</p>
+              </div>
+            </a>
+            <a href="https://www.tiktok.com/" target="_blank">
+              <div className={`${styles.socialLink} ${styles.tiktokSocialLink}`}>
+                <i className="fa-brands fa-tiktok"></i>
+                <p>1.84B</p>
+              </div>
+            </a>
+            <a href="https://www.snapchat.com/" target="_blank">
+              <div className={`${styles.socialLink} ${styles.snapchatSocialLink}`}>
+                <i className="fa-brands fa-snapchat"></i>
+                <p>850M</p>
               </div>
             </a>
           </section>
