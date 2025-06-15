@@ -211,7 +211,7 @@ main {
 }
 
 .informationalText {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .informationalText > .description,
@@ -226,15 +226,13 @@ main {
   box-shadow: 0 0 20px hsl(355, 95%, 45%, 0.5);
 }
 
-.informationalText .subheading,
-.reviewText .subheading {
+.informationalText .subheading {
   text-align: left;
   font-weight: 600;
   font-size: 1.15rem;
 }
 
-.informationalText .text,
-.reviewText .text {
+.informationalText .text {
   text-align: left;
   font-weight: 400;
   margin-bottom: 1rem;
@@ -242,11 +240,11 @@ main {
 }
 
 .viewMovies {
+  margin-top: 2rem;
   font-weight: 600;
   font-size: 1.5rem;
   padding: 1rem 2rem;
   border-radius: 30px;
-  margin: 1rem;
   color: hsl(0, 0%, 5%);
   transition: 0.3s ease-in;
   background-color: hsl(355, 95%, 45%);
