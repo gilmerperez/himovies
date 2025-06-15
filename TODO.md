@@ -1,3 +1,2 @@
-Make search bar on home screen work
-
-Make FAQ Section in Home page
+- Make FAQ Section in Home page
+- Make Search Bar on Home Screen Work
