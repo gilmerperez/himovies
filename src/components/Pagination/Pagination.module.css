@@ -8,7 +8,10 @@
   gap: 1rem;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .pageItem {
