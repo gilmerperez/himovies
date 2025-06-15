@@ -35,7 +35,7 @@ function MediaDetails({ media }) {
             {/* Trailer */}
             {trailer_link && (
               <a href={trailer_link} className={styles.trailerLink} target="_blank" rel="noopener noreferrer">
-                Watch Trailer <i class="fa-solid fa-play"></i>
+                Watch Trailer   <i class="fa-solid fa-play"></i>
               </a>
             )}
             {/* Rating */}
