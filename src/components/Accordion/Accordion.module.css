@@ -1,8 +1,8 @@
 .accordion {
   gap: 1rem;
-  width: 75%;
+  width: 100%;
   display: flex;
-  min-width: 75%;
+  max-width: 80%;
   color: white;
   flex-direction: column;
 }
@@ -62,4 +62,43 @@
 
 .active .icon {
   transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .accordion {
+    width: 90%;
+    min-width: unset;
+  }
+
+  .accordionHeader {
+    font-size: 1rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
+  .accordionBody p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .accordion {
+    width: 95%;
+  }
+
+  .accordionHeader {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .icon {
+    font-size: 1.25rem;
+  }
+
+  .accordionBody p {
+    font-size: 0.9rem;
+  }
 }

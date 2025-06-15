@@ -74,9 +74,10 @@ function Home() {
           {/* Informational Text */}
           <section className={styles.informationalText}>
             <p className={styles.description}>
-              Discover movies and TV shows with Reelix, your go-to platform for exploring the latest releases, trailers,
-              ratings, and more. Built as a modern media database, Reelix helps you stay updated on what's new, what's
-              trending, and what's worth watching.
+              Discover movies and TV shows with Reelix — your go-to platform for exploring the latest releases,
+              trailers, ratings, and detailed metadata. Designed as a modern, fully responsive media discovery app,
+              Reelix helps film fans stay updated on what's new, what's trending, and what's worth watching — all in one
+              clean, ad-free interface.
             </p>
             <p className={styles.subheading}>Is Reelix Safe?</p>
             <p className={styles.text}>
@@ -99,14 +100,6 @@ function Home() {
               This site does not offer direct streaming. However, trailers and official content may be embedded from
               platforms like YouTube. If you're interested in watching a film or show, we recommend checking licensed
               providers like Netflix, Hulu, Prime Video, or Disney+.
-            </p>
-          </section>
-          {/* Review Text */}
-          <section className={styles.reviewText}>
-            <p className={styles.description}>
-              Although Reelix began as a personal project, it has grown into a fully responsive movie and TV show
-              discovery app used by film fans to explore new releases, watch trailers, and view detailed metadata — all
-              in one clean, ad-free interface.
             </p>
           </section>
           {/* Review Text Accordion */}

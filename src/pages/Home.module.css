@@ -202,20 +202,15 @@ main {
   box-shadow: 0 0 15px #bebebe;
 }
 
-.informationalText,
-.reviewText {
+.informationalText {
   width: 80%;
   color: white;
   min-width: 80%;
+  margin-bottom: 1rem;
   transition: 0.3s ease-in;
 }
 
-.informationalText {
-  margin-bottom: 1rem;
-}
-
-.informationalText > .description,
-.reviewText > .description {
+.informationalText > .description {
   padding: 1rem;
   font-weight: 500;
   font-size: 1.25rem;
@@ -307,7 +302,7 @@ main {
 
   .informationalText > .description,
   .reviewText > .description {
-    font-size: 1.15rem;
+    font-size: 1rem;
     margin-bottom: 1.25rem;
   }
 
@@ -387,7 +382,7 @@ main {
 
   .informationalText > .description,
   .reviewText > .description {
-    font-size: 1rem;
+    font-size: 0.85rem;
     margin-bottom: 1rem;
   }
 
@@ -404,6 +399,7 @@ main {
 
   .viewMovies {
     font-size: 1rem;
+    font-weight: 500;
     padding: 0.5rem 0.75rem;
   }
 }
