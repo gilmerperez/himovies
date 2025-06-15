@@ -46,6 +46,10 @@
   box-shadow: 0 0 20px hsl(355, 95%, 45%, 0.5);
 }
 
+.watchTrailerText {
+  margin-right: 0.25rem;
+}
+
 .rating {
   font-weight: 600;
   font-size: 1.25rem;
