@@ -47,7 +47,7 @@
 }
 
 .watchTrailerText {
-  margin-right: 0.5rem;
+  padding-right: 0.5rem; /* Adds spacing between the text and the span element */
 }
 
 .rating {
